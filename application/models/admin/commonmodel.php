@@ -3,7 +3,7 @@ class commonmodel extends CI_Model
 {
 	function __construct()
 	{
-		$this->setting_table = "setting";
+		$this->setting_table = "users";
 	}
 	function getsettingdata($id)
 	{

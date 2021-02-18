@@ -6,24 +6,27 @@
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-						Magento To BC Category Import
+						Magento to BigCommerce Category Import
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
-							<a href="<?php echo $this->config->site_url();?>/admin/categoryimport">
+							<a href="<?php echo $this->config->site_url();?>admin/product">
 								<?php echo $this->lang->line('HOME');?>
 							</a>
-							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							 Magento To BC Category Import
+							<a href="<?php echo $this->config->site_url();?>/admin/product">
+								Category Import
+							</a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
 				</div>
 			</div>
+			
 			
 			<div class="row" > 
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -64,68 +67,65 @@
 					</div>
 					<input type="hidden" name="request_action" id="request_action" value="start"  />
 			</div>
-			 <div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					<div class="portlet box light-grey">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-globe"></i>Category import
-								<span><?php echo $total_category ?> / </span>
-								<span id="total_imported_product">0</span>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover">
-								<thead>
-									<tr>
-										<th width="2%">
-											 CategoryID
-										</th>
-										<th width="30%">
-											 Category Name
-										</th>
-										<th width="3%">
-											 ParentID
-										</th>
-										<th width="35%">
-											 Status
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php 
-										
-										if(isset($category_tree_data) && !empty($category_tree_data) && count($category_tree_data) > 0)
-										{
-											$no=1;
-											foreach($category_tree_data as $category_tree_data_s) 
-											{	
-												?>
-												<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $category_tree_data_s['category_id'] ?>"  >
-													<td><?php $no++; echo ($category_tree_data_s['category_id']);?></td>
-													<td><?php echo ($category_tree_data_s['name']);?></td>
-													<td><?php echo  $category_tree_data_s['parent_id'];?></td>
-													<td class="numeric respose_tag">Pending</td>
-												</tr>
-												<?php 
-											}
-										}else{ ?>
-											<tr>
-												<td  colspan="3" class="numeric respose_tag">Please try again</td>
-											</tr>
-									<?php } ?>
-							    </tbody>
-							</table>
+			<div class="portlet box green">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-cogs"></i>Category List 
+							<span><?php echo $total_category ?>/</span>
+							<span id="total_imported_product">0</span>
 						</div>
 					</div>
-					
+					<div class="portlet-body flip-scroll">
+						<table class="table table-bordered table-striped table-condensed flip-content">
+							<thead class="flip-content">
+								<tr>
+									<th width="5%">
+										 #
+									</th>
+									<th width="20%">
+										Magento Category Id
+									</th>
+									<th width="20%">
+										Magento parent Id
+									</th>
+									<th width="40%">
+										Magento Category Name
+									</th>
+									<th class="numeric" width="15%">
+										 Status
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php 
+								
+									if(isset($category_tree_data) && !empty($category_tree_data) && count($category_tree_data)>0)
+									{	
+										$no=1;
+										foreach($category_tree_data as $d) 
+										{	
+											?>
+											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['category_id'] ?>"  >
+												<td><?php echo $no++ ;?></td>
+												<td><?php echo($d['category_id'])?></td>
+												<td><?php echo($d['parent_id'])?></td>
+												<td><?php echo($d['name'])?></td>
+												<td class="numeric respose_tag">Pending</td>
+											</tr>
+											<?php 
+										}
+									}else{ ?>
+										<tr>
+											<td  colspan="3" class="numeric respose_tag">Please try again</td>
+										</tr>
+								<?php } ?>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-
+</div>		
 
 <script language="javascript">
 function pauseRquest()
@@ -153,7 +153,7 @@ function sendRquest()
 		jQuery('.start_process').find('.respose_tag').html('Please wait...');
 		jQuery('.start_process').addClass('processing');
 		$.ajax({
-			url: '<?php echo $this->config->site_url();?>/admin/categoryimport/ImportCategory',
+			url: '<?php echo $this->config->site_url();?>/admin/category/ImportCategory',
 			data: {
 				code: code,
 				send:'yes'
@@ -183,3 +183,4 @@ function sendRquest()
 	return false;
 }
 </script>
+				

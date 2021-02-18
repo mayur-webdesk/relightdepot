@@ -7,14 +7,6 @@ class Categorymodel extends CI_Model
 		$this->setting_table = "users";
     }
 	
-
-    function CheckCategories($id)
-    {
-    	$query = $this->db->query("select bc_category_id from categories_bkp where category_id = '".$id."'");
-		return $query->row_array();
-		
-    }
-
 	function getGeneralSetting()
 	{
 		$query = $this->db->query("select * from ".$this->setting_table."");
@@ -24,7 +16,7 @@ class Categorymodel extends CI_Model
 	
 	function getcategory()
 	{
-		$query = $this->db->query("select * from ".$this->category_tree_table." where status = 'no' and parent_id != '0' Order by parent_id ASC ");
+		$query = $this->db->query("select * from ".$this->category_tree_table." where status = 'no' and parent_id != '2' Order by parent_id ASC");
 		$setting_data  = $query->result_array();
 		return $setting_data;
 	}

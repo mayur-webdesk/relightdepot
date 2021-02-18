@@ -4,7 +4,7 @@ class Settingmodel extends CI_Model
 {
     public function __construct()
     {
-        $this->setting_table = 'setting';
+        $this->setting_table = 'users';
     }
 
     public function getSettingData($id)
@@ -43,10 +43,10 @@ class Settingmodel extends CI_Model
 			'apiusername' => $this->input->post('apiusername'),
 			'apipath' => $this->input->post('apipath'),
 			'apitoken' => $this->input->post('apitoken'),
-			'storehas' => $this->input->post('storehas'),
+			'storehash' => $this->input->post('storehash'),
 			'client_id' => $this->input->post('client_id'),
 			'client_secret' => $this->input->post('client_secret'),
-            'date' => $currentdate,
+            'created_date' => $currentdate,
         );
 		
         $this->db->where('id', '1');

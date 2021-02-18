@@ -113,11 +113,11 @@ $admin_session = $this->session->userdata('admin_session');
 													</div>
 												</div>	
 												<div class="form-group">
-													<label class="control-label col-md-3">Store Has</label>
+													<label class="control-label col-md-3">Store Hash</label>
 													<div class="col-md-8">
 														<div class="input-icon right">
 															<i class="fa"></i>
-															<input value="<?php echo $settingdata["storehas"] ?>" id="storehas" name="storehas" type="text" class="form-control">
+															<input value="<?php echo $settingdata["storehash"] ?>" id="storehash" name="storehash" type="text" class="form-control">
 														</div>	
 													</div>
 												</div>		

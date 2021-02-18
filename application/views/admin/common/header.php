@@ -55,7 +55,7 @@ $(document).ready(function(){
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                          <?php 
-                        $query = $this->db->get_where('setting', array('id' => 1));
+                        $query = $this->db->get_where('users', array('id' => 1));
                         $result_query = $query->row_array();
                         if (isset($result_query['logo_image']) && !empty($result_query['logo_image'])) {
                             ?>
