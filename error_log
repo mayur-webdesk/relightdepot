@@ -1,0 +1,973 @@
+[28-Feb-2017 04:53:55 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'status_id' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 06:33:38 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1554
+[28-Feb-2017 06:37:02 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'street_2' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 06:49:08 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 237
+[28-Feb-2017 06:58:39 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'street_2' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 07:03:51 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'street_2' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 07:03:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'street_2' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 07:05:04 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'address_type' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[28-Feb-2017 07:16:23 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'address_type' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:39:38 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:40:01 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:40:07 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:40:58 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:41:02 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:41:09 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 00:48:12 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 01:29:38 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 192
+[01-Mar-2017 01:29:40 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 192
+[01-Mar-2017 01:29:56 America/Denver] PHP Warning:  Unterminated comment starting line 452 in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 452
+[01-Mar-2017 01:29:56 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 455
+[01-Mar-2017 01:32:07 America/Denver] PHP Warning:  Unterminated comment starting line 454 in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 454
+[01-Mar-2017 01:32:07 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 456
+[01-Mar-2017 02:17:56 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'password' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 02:18:03 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'password' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[01-Mar-2017 03:02:42 America/Denver] PHP Warning:  Unterminated comment starting line 457 in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 457
+[01-Mar-2017 03:02:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 458
+[01-Mar-2017 03:10:22 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 458
+[01-Mar-2017 03:16:35 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/setting.php on line 32
+[01-Mar-2017 03:16:46 America/Denver] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/setting.php on line 32
+[01-Mar-2017 03:20:53 America/Denver] PHP Warning:  Unterminated comment starting line 457 in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 457
+[01-Mar-2017 03:20:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 459
+[01-Mar-2017 03:25:13 America/Denver] PHP Warning:  Unterminated comment starting line 457 in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 457
+[01-Mar-2017 03:25:13 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 457
+[01-Mar-2017 03:26:07 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/realcheapfloors/public_html/app/beta/application/libraries/Xero.php on line 981
+[01-Mar-2017 03:28:47 America/Denver] PHP Parse error:  syntax error, unexpected ''activ' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/views/admin/common/leftmenu.php on line 61
+[01-Mar-2017 03:33:36 America/Denver] PHP Parse error:  syntax error, unexpected ''"/>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 464
+[01-Mar-2017 03:33:38 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 17
+[01-Mar-2017 03:33:40 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 17
+[01-Mar-2017 03:56:41 America/Denver] PHP Fatal error:  Call to undefined method Pendordermodel::GetOrderStatus() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 87
+[01-Mar-2017 03:56:42 America/Denver] PHP Fatal error:  Call to undefined method Pendordermodel::GetOrderStatus() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 87
+[01-Mar-2017 03:56:43 America/Denver] PHP Fatal error:  Call to undefined method Pendordermodel::GetOrderStatus() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 87
+[01-Mar-2017 03:56:44 America/Denver] PHP Fatal error:  Call to undefined method Pendordermodel::GetOrderStatus() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 87
+[01-Mar-2017 03:57:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 238
+[01-Mar-2017 03:57:54 America/Denver] PHP Parse error:  syntax error, unexpected ''address_deta' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 817
+[01-Mar-2017 03:57:55 America/Denver] PHP Parse error:  syntax error, unexpected ''final' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendorder.php on line 1340
+[01-Mar-2017 05:15:59 America/Denver] PHP Fatal error:  Using $this when not in object context in /home/realcheapfloors/public_html/app/beta/application/views/admin/pendorder/view.php on line 453
+[01-Mar-2017 05:16:48 America/Denver] PHP Parse error:  syntax error, unexpected '?>' in /home/realcheapfloors/public_html/app/beta/application/views/admin/pendorder/view.php on line 432
+[01-Mar-2017 05:16:51 America/Denver] PHP Parse error:  syntax error, unexpected '?>' in /home/realcheapfloors/public_html/app/beta/application/views/admin/pendorder/view.php on line 432
+[01-Mar-2017 05:28:41 America/Denver] PHP Parse error:  syntax error, unexpected '?' in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 30
+[01-Mar-2017 05:35:19 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 20
+[01-Mar-2017 05:35:53 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 20
+[01-Mar-2017 05:36:39 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 20
+[01-Mar-2017 05:37:16 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 21
+[01-Mar-2017 05:45:08 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 21
+[01-Mar-2017 06:04:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 21
+[01-Mar-2017 06:04:29 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 21
+[01-Mar-2017 06:05:38 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 21
+[01-Mar-2017 06:11:25 America/Denver] PHP Parse error:  syntax error, unexpected '*' in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 33
+[01-Mar-2017 06:11:55 America/Denver] PHP Parse error:  syntax error, unexpected '*' in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 37
+[01-Mar-2017 07:04:24 America/Denver] PHP Parse error:  syntax error, unexpected '$sstr' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1363
+[01-Mar-2017 07:04:26 America/Denver] PHP Parse error:  syntax error, unexpected '$sstr' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1363
+[01-Mar-2017 07:04:29 America/Denver] PHP Parse error:  syntax error, unexpected '$sstr' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1363
+[01-Mar-2017 07:10:11 America/Denver] PHP Parse error:  syntax error, unexpected ''application/uploads/cat_attec' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 20
+[01-Mar-2017 07:10:30 America/Denver] PHP Parse error:  syntax error, unexpected ''application/uploads/cat_attec' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/specialcategory.php on line 20
+[01-Mar-2017 08:56:45 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 81
+[01-Mar-2017 08:57:38 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 85
+[01-Mar-2017 08:59:47 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 86
+[01-Mar-2017 09:02:07 America/Denver] PHP Fatal error:  Cannot assign by reference to overloaded object in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 13
+[01-Mar-2017 09:02:50 America/Denver] PHP Fatal error:  Cannot assign by reference to overloaded object in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 13
+[01-Mar-2017 09:04:46 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:05:30 America/Denver] PHP Fatal error:  Call to a member function model() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 15
+[01-Mar-2017 09:05:51 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:06:23 America/Denver] PHP Fatal error:  Class 'Xeroordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[01-Mar-2017 09:06:27 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:07:43 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:07:54 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:07:56 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:12:25 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:15:58 America/Denver] PHP Fatal error:  Call to a member function getorderdetailslive() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 99
+[01-Mar-2017 09:17:13 America/Denver] PHP Fatal error:  Call to a member function getsettingdata() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 89
+[01-Mar-2017 09:17:40 America/Denver] PHP Fatal error:  Call to a member function Invoices() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 204
+[01-Mar-2017 09:22:50 America/Denver] PHP Fatal error:  Call to a member function Invoices() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 206
+[02-Mar-2017 02:32:24 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:20:00 America/Denver] PHP Parse error:  syntax error, unexpected ''<div class="row static-inf">' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 990
+[02-Mar-2017 04:23:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:23:54 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:23:57 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:37:22 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:37:29 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:45:58 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:46:05 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:53:40 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:53:45 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 04:53:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:02:45 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:39:42 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:41:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:41:57 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:47:50 America/Denver] PHP Parse error:  syntax error, unexpected ''\',this.value);" size="30" mi' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 406
+[02-Mar-2017 05:47:53 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:47:56 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:50:04 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:50:41 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/category/list.php on line 67
+[02-Mar-2017 05:51:16 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:51:38 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:54:16 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:54:50 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:54:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:54:54 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:55:49 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:56:12 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:59:05 America/Denver] PHP Parse error:  syntax error, unexpected ''</div>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 988
+[02-Mar-2017 05:59:07 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 05:59:10 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:02:38 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 237
+[02-Mar-2017 06:03:41 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:04:00 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:04:20 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'display_name' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:04:50 America/Denver] PHP Parse error:  syntax error, unexpected ''\',this.value);" size="30" mi' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 406
+[02-Mar-2017 06:05:24 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:08:17 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:08:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 349
+[02-Mar-2017 06:08:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 349
+[02-Mar-2017 06:08:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 717
+[02-Mar-2017 06:08:37 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:12:47 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:13:09 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'options' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:13:14 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'options' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:14:28 America/Denver] PHP Parse error:  syntax error, unexpected ''<div class="row static-inf">' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1036
+[02-Mar-2017 06:14:31 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:14:34 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:14:59 America/Denver] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 898
+[02-Mar-2017 06:15:03 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:16:15 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_options' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:16:43 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 154
+[02-Mar-2017 06:16:45 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 154
+[02-Mar-2017 06:16:47 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 681
+[02-Mar-2017 06:16:47 America/Denver] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1187
+[02-Mar-2017 06:16:51 America/Denver] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1573
+[02-Mar-2017 06:17:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_option_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:17:41 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'option_value_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:55:30 America/Denver] PHP Parse error:  syntax error, unexpected ''>%</option>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 460
+[02-Mar-2017 06:57:49 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'id' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 06:58:24 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 07:03:55 America/Denver] PHP Parse error:  syntax error, unexpected ''>%</option>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 461
+[02-Mar-2017 07:26:43 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 899
+[02-Mar-2017 07:26:43 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1089
+[02-Mar-2017 07:32:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 07:32:55 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[02-Mar-2017 08:42:14 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[03-Mar-2017 02:31:38 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 141
+[03-Mar-2017 02:32:18 America/Denver] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 148
+[03-Mar-2017 02:32:57 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 148
+[03-Mar-2017 02:33:00 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 148
+[03-Mar-2017 02:33:40 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 148
+[03-Mar-2017 02:33:45 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 148
+[03-Mar-2017 02:34:32 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 150
+[03-Mar-2017 02:34:34 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 150
+[03-Mar-2017 02:35:19 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 251
+[03-Mar-2017 02:45:06 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[03-Mar-2017 02:50:37 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[03-Mar-2017 02:51:17 America/Denver] PHP Fatal error:  Call to a member function InsertLog() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 81
+[03-Mar-2017 02:57:15 America/Denver] PHP Fatal error:  Call to a member function updateOrderById() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 384
+[03-Mar-2017 02:57:38 America/Denver] PHP Fatal error:  Call to a member function updateOrderById() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 384
+[03-Mar-2017 04:39:41 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:39:51 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:39:57 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:39:58 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:45:35 America/Denver] PHP Fatal error:  Call to a member function getTimestamp() on boolean in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:46:09 America/Denver] PHP Fatal error:  Call to a member function getTimestamp() on boolean in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:46:11 America/Denver] PHP Fatal error:  Call to a member function getTimestamp() on boolean in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 04:50:06 America/Denver] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 157
+[03-Mar-2017 06:11:09 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 104
+[03-Mar-2017 06:14:20 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 224
+[03-Mar-2017 06:58:54 America/Denver] PHP Fatal error:  Call to undefined function number() in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/phoneorder.php on line 663
+[03-Mar-2017 06:58:58 America/Denver] PHP Fatal error:  Call to undefined function number() in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/phoneorder.php on line 663
+[03-Mar-2017 06:59:34 America/Denver] PHP Fatal error:  Call to undefined function number() in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/phoneorder.php on line 663
+[03-Mar-2017 07:00:02 America/Denver] PHP Fatal error:  Call to undefined function number() in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/phoneorder.php on line 663
+[03-Mar-2017 09:03:47 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 344
+[03-Mar-2017 09:04:03 America/Denver] PHP Parse error:  syntax error, unexpected ''bc_ord' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 224
+[03-Mar-2017 09:22:26 America/Denver] PHP Parse error:  syntax error, unexpected ''>%</option>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 462
+[03-Mar-2017 14:39:32 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 01:01:31 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/category.php on line 97
+[06-Mar-2017 02:24:12 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/category/add.php on line 65
+[06-Mar-2017 02:24:12 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/category/add.php on line 65
+[06-Mar-2017 04:23:23 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:23 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:24 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:24 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:25 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:26 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:34 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:40 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:23:41 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:24:05 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:24:08 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:24:09 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 463
+[06-Mar-2017 04:32:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 987
+[06-Mar-2017 05:04:55 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 984
+[06-Mar-2017 05:28:28 America/Denver] PHP Fatal error:  Uncaught Client Error (409): Quantities of one or more products are out of stock or did not meet quantity requirements.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 05:29:20 America/Denver] PHP Fatal error:  Uncaught Client Error (409): Quantities of one or more products are out of stock or did not meet quantity requirements.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 05:31:07 America/Denver] PHP Fatal error:  Uncaught Client Error (409): Quantities of one or more products are out of stock or did not meet quantity requirements.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 05:45:38 America/Denver] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/category.php on line 166
+[06-Mar-2017 06:46:12 America/Denver] PHP Parse error:  syntax error, unexpected ''product_option' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 793
+[06-Mar-2017 06:46:12 America/Denver] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1013
+[06-Mar-2017 07:26:15 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'handling_cost_ex_tax' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 07:31:16 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:31:19 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:32:04 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'handling_cost_ex_tax' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 07:32:32 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:33:09 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:33:11 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:33:43 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::updatescc() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 28
+[06-Mar-2017 07:34:20 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'handling_cost_ex_tax' does not allow null values.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 07:36:27 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'products.product_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 07:36:47 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succ_update() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:36:50 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succ_update() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:37:21 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:37:23 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:39:41 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:39:43 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:39:44 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:39:46 America/Denver] PHP Fatal error:  Call to undefined method CI_Session::succupdate() in /home/realcheapfloors/public_html/app/beta/application/views/admin/salesrepresentative/list.php on line 29
+[06-Mar-2017 07:58:24 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'price_ex_tax' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Mar-2017 08:05:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 988
+[06-Mar-2017 23:42:03 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 01:01:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1273
+[07-Mar-2017 01:01:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1273
+[07-Mar-2017 02:03:17 America/Denver] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1709
+[07-Mar-2017 02:04:05 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1166
+[07-Mar-2017 02:15:31 America/Denver] PHP Parse error:  syntax error, unexpected 'pu' (T_STRING), expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 264
+[07-Mar-2017 02:15:32 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 963
+[07-Mar-2017 02:16:43 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1824
+[07-Mar-2017 02:16:44 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1824
+[07-Mar-2017 02:16:46 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1824
+[07-Mar-2017 02:28:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 77
+[07-Mar-2017 02:29:45 America/Denver] PHP Parse error:  syntax error, unexpected ''>%</opt' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 519
+[07-Mar-2017 02:29:47 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1636
+[07-Mar-2017 02:32:22 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 02:33:14 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 02:33:45 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 02:33:47 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'product_id' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 02:36:34 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 464
+[07-Mar-2017 02:36:34 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 464
+[07-Mar-2017 02:36:35 America/Denver] PHP Parse error:  syntax error, unexpected ''final_det' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1505
+[07-Mar-2017 02:36:37 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:40 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:41 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:44 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:49 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:54 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1826
+[07-Mar-2017 02:36:56 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 222
+[07-Mar-2017 02:36:58 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1371
+[07-Mar-2017 02:36:59 America/Denver] PHP Parse error:  syntax error, unexpected ''addres' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1391
+[07-Mar-2017 02:37:38 America/Denver] PHP Parse error:  syntax error, unexpected ''final_det' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1505
+[07-Mar-2017 02:37:39 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1687
+[07-Mar-2017 02:37:39 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1687
+[07-Mar-2017 03:16:28 America/Denver] PHP Parse error:  syntax error, unexpected ''F d ' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/views/admin/pendorder/list.php on line 95
+[07-Mar-2017 04:08:48 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:08:50 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:08:57 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:17:35 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:18:49 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:28:15 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 04:37:16 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase error...' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1548
+[07-Mar-2017 04:37:17 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase error...' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1548
+[07-Mar-2017 04:37:19 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase error...' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1548
+[07-Mar-2017 04:37:42 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 05:04:06 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 05:06:52 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 05:08:01 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 05:08:44 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 05:08:48 America/Denver] PHP Parse error:  syntax error, unexpected '' - item QTY increase successf' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1546
+[07-Mar-2017 06:32:04 America/Denver] PHP Fatal error:  Cannot use object of type CI_DB_mysql_result as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 301
+[07-Mar-2017 06:32:08 America/Denver] PHP Fatal error:  Cannot use object of type CI_DB_mysql_result as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 301
+[07-Mar-2017 06:33:16 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 192
+[07-Mar-2017 06:54:16 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 192
+[07-Mar-2017 06:56:45 America/Denver] PHP Parse error:  syntax error, unexpected ']' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 240
+[07-Mar-2017 06:56:47 America/Denver] PHP Parse error:  syntax error, unexpected ']' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 240
+[07-Mar-2017 07:11:43 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 07:11:49 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:47:43 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:47:47 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:47:51 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:47:54 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:47:59 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:48:05 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:48:27 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:51:11 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 08:51:30 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[07-Mar-2017 09:14:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendordercron.php on line 89
+[08-Mar-2017 00:11:02 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:11:09 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:11:09 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:16:09 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:23:58 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:24:58 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:25:01 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:25:35 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:25:37 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:25:39 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:26:35 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:27:07 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 371
+[08-Mar-2017 00:27:09 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 371
+[08-Mar-2017 00:27:10 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 371
+[08-Mar-2017 00:27:10 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/view.php on line 371
+[08-Mar-2017 00:27:27 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:28:08 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[08-Mar-2017 00:36:17 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/common/leftmenu.php on line 187
+[08-Mar-2017 02:07:39 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 225
+[08-Mar-2017 02:18:46 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/realcheapfloors/public_html/app/beta/application/views/admin/permissions/edit.php on line 59
+[08-Mar-2017 02:18:48 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/realcheapfloors/public_html/app/beta/application/views/admin/permissions/edit.php on line 59
+[08-Mar-2017 02:19:14 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/realcheapfloors/public_html/app/beta/application/views/admin/permissions/edit.php on line 59
+[08-Mar-2017 02:23:15 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 227
+[08-Mar-2017 02:26:20 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/dashboard.php on line 104
+[08-Mar-2017 05:20:26 America/Denver] PHP Fatal error:  Cannot redeclare Pendordermodel::getsalesRepName() in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 108
+[08-Mar-2017 05:20:29 America/Denver] PHP Fatal error:  Cannot redeclare Pendordermodel::getsalesRepName() in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 109
+[08-Mar-2017 05:21:05 America/Denver] PHP Fatal error:  Class 'Pendordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[08-Mar-2017 05:23:00 America/Denver] PHP Fatal error:  Cannot redeclare class Pendordermodel in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 127
+[08-Mar-2017 05:23:02 America/Denver] PHP Fatal error:  Cannot redeclare class Pendordermodel in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 127
+[08-Mar-2017 05:23:03 America/Denver] PHP Fatal error:  Cannot redeclare class Pendordermodel in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 127
+[08-Mar-2017 05:23:04 America/Denver] PHP Fatal error:  Cannot redeclare class Pendordermodel in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordermodel.php on line 127
+[08-Mar-2017 05:24:59 America/Denver] PHP Fatal error:  Class 'Pendordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[08-Mar-2017 06:17:51 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 229
+[08-Mar-2017 06:33:31 America/Denver] PHP Parse error:  syntax error, unexpected ''prod' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 55
+[08-Mar-2017 06:49:00 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/list.php on line 106
+[08-Mar-2017 06:49:02 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/list.php on line 106
+[08-Mar-2017 06:49:27 America/Denver] PHP Fatal error:  Class 'Pendordermodel' not found in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/list.php on line 101
+[08-Mar-2017 07:53:37 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/realcheapfloors/public_html/app/beta/application/models/admin/dashboardmodel.php on line 52
+[08-Mar-2017 07:56:11 America/Denver] PHP Fatal error:  Class 'Dashboardmodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[08-Mar-2017 08:00:49 America/Denver] PHP Fatal error:  Call to a member function result_array() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/dashboardmodel.php on line 33
+[08-Mar-2017 08:00:52 America/Denver] PHP Fatal error:  Call to a member function result_array() on null in /home/realcheapfloors/public_html/app/beta/application/models/admin/dashboardmodel.php on line 33
+[08-Mar-2017 08:44:46 America/Denver] PHP Parse error:  syntax error, unexpected 'date' (T_STRING), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendordercron.php on line 58
+[08-Mar-2017 08:44:48 America/Denver] PHP Parse error:  syntax error, unexpected 'date' (T_STRING), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendordercron.php on line 58
+[08-Mar-2017 08:44:51 America/Denver] PHP Parse error:  syntax error, unexpected 'date' (T_STRING), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendordercron.php on line 58
+[08-Mar-2017 23:24:48 America/Denver] PHP Parse error:  syntax error, unexpected ''xl'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 99
+[08-Mar-2017 23:24:49 America/Denver] PHP Parse error:  syntax error, unexpected ''xl'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 99
+[08-Mar-2017 23:24:52 America/Denver] PHP Parse error:  syntax error, unexpected ''xl'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 99
+[08-Mar-2017 23:25:18 America/Denver] PHP Parse error:  syntax error, unexpected ''eml'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 100
+[08-Mar-2017 23:26:01 America/Denver] PHP Parse error:  syntax error, unexpected ''json'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 101
+[08-Mar-2017 23:26:22 America/Denver] PHP Parse error:  syntax error, unexpected ''json'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/config/mimes.php on line 101
+[10-Mar-2017 07:09:09 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 187
+[10-Mar-2017 07:09:12 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 187
+[10-Mar-2017 09:07:37 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:09:37 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:11:06 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:14:20 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:27:11 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:28:27 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:29:04 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:29:05 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:32:11 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[10-Mar-2017 09:33:15 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[10-Mar-2017 09:33:27 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[13-Mar-2017 23:41:32 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[13-Mar-2017 23:43:46 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert_record() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[13-Mar-2017 23:43:53 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[13-Mar-2017 23:43:56 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 35
+[14-Mar-2017 00:02:38 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::insert() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[14-Mar-2017 00:46:54 America/Denver] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 34
+[14-Mar-2017 01:15:05 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 40
+[14-Mar-2017 01:17:17 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 40
+[14-Mar-2017 01:17:48 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 40
+[14-Mar-2017 01:17:50 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 40
+[14-Mar-2017 01:29:07 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/requestform/list.php on line 67
+[14-Mar-2017 01:40:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/requestform/list.php on line 67
+[14-Mar-2017 02:10:28 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/requestform/list.php on line 67
+[14-Mar-2017 08:14:44 America/Denver] PHP Parse error:  syntax error, unexpected 'publ' (T_STRING), expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 911
+[14-Mar-2017 08:15:20 America/Denver] PHP Fatal error:  Call to undefined function alert() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 877
+[14-Mar-2017 19:48:47 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[14-Mar-2017 19:48:48 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[14-Mar-2017 19:48:48 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[14-Mar-2017 19:48:48 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[14-Mar-2017 19:48:48 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[14-Mar-2017 19:48:48 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[15-Mar-2017 06:52:15 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[16-Mar-2017 00:46:47 America/Denver] PHP Fatal error:  Class 'Bigcommerceapi' not found in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 58
+[16-Mar-2017 00:46:53 America/Denver] PHP Fatal error:  Class 'Bigcommerceapi' not found in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 58
+[16-Mar-2017 03:22:36 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/category/list.php on line 67
+[16-Mar-2017 08:07:47 America/Denver] PHP Parse error:  syntax error, unexpected 'ORDER' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/requestformmodel.php on line 18
+[16-Mar-2017 08:08:40 America/Denver] PHP Fatal error:  Class 'Requestformmodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[16-Mar-2017 09:02:42 America/Denver] PHP Fatal error:  Cannot redeclare Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/models/admin/requestformmodel.php on line 71
+[16-Mar-2017 09:02:45 America/Denver] PHP Fatal error:  Cannot redeclare Requestformmodel::getsampledata() in /home/realcheapfloors/public_html/app/beta/application/models/admin/requestformmodel.php on line 71
+[16-Mar-2017 09:19:19 America/Denver] PHP Parse error:  syntax error, unexpected ''num_tag_close' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 81
+[16-Mar-2017 10:39:24 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 104
+[17-Mar-2017 01:17:50 America/Denver] PHP Parse error:  syntax error, unexpected '$headers' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 68
+[17-Mar-2017 01:18:03 America/Denver] PHP Parse error:  syntax error, unexpected '$headers' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 68
+[17-Mar-2017 01:18:08 America/Denver] PHP Parse error:  syntax error, unexpected '$headers' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 68
+[17-Mar-2017 01:19:44 America/Denver] PHP Parse error:  syntax error, unexpected '$headers' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 68
+[17-Mar-2017 02:16:39 America/Denver] PHP Fatal error:  Call to a member function initialize() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 75
+[17-Mar-2017 02:18:32 America/Denver] PHP Fatal error:  Call to a member function initialize() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 74
+[17-Mar-2017 03:36:40 America/Denver] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 73
+[17-Mar-2017 03:36:43 America/Denver] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 73
+[17-Mar-2017 04:22:07 America/Denver] PHP Fatal error:  Call to undefined method CI_Email::set_header() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 126
+[17-Mar-2017 04:23:17 America/Denver] PHP Fatal error:  Call to undefined method CI_Email::set_header() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 129
+[17-Mar-2017 04:30:50 America/Denver] PHP Fatal error:  Call to undefined method CI_Email::set_header() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 131
+[17-Mar-2017 07:02:19 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:02:19 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:02:19 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:02:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:02:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:02:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:20 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:21 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:21 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 07:03:21 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[17-Mar-2017 08:26:33 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 65
+[17-Mar-2017 08:26:34 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 65
+[17-Mar-2017 08:26:57 America/Denver] PHP Fatal error:  Call to undefined method Requestformmodel::getBcConfig() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 21
+[17-Mar-2017 08:30:05 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 44
+[17-Mar-2017 08:30:07 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 44
+[17-Mar-2017 08:31:43 America/Denver] PHP Parse error:  syntax error, unexpected '?' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/requestform.php on line 44
+[17-Mar-2017 17:54:24 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:04:08 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:04:27 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:04:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:17:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/realcheapfloors/public_html/app/beta/application/models/admin/xeroordermodel.php on line 532
+[20-Mar-2017 01:36:44 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:36:45 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:36:45 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:36:46 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 01:36:46 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 05:53:45 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 05:55:56 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 05:56:04 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 05:57:07 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 05:59:20 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 09:13:18 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 09:14:25 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 09:14:33 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:40 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:04 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:04 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:05 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:06 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:06 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[20-Mar-2017 21:53:06 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 03:47:14 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 03:47:15 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 03:47:15 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 03:47:15 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 04:56:17 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 04:56:17 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 04:56:17 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 04:58:14 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[21-Mar-2017 05:06:49 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:06:51 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:07:14 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:07:17 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:07:45 America/Denver] PHP Parse error:  syntax error, unexpected ''last_' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 77
+[21-Mar-2017 05:07:46 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:07:47 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 05:07:47 America/Denver] PHP Parse error:  syntax error, unexpected 'Are' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/product.php on line 249
+[21-Mar-2017 06:04:21 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:04:30 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:04:43 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:05:53 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:08:24 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:08:34 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:09:38 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:09:43 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:13:00 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:13:05 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:13:12 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:13:32 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:13:39 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 06:13:50 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 06:14:35 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 07:38:20 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 28
+[21-Mar-2017 07:38:34 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 31
+[21-Mar-2017 08:19:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/product/list.php on line 193
+[21-Mar-2017 08:21:50 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/views/admin/product/list.php on line 79
+[21-Mar-2017 09:38:51 America/Denver] PHP Fatal error:  Class 'Pendordercronmodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[21-Mar-2017 09:49:56 America/Denver] PHP Fatal error:  Call to a member function updateproductStatus() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/pendordercron.php on line 114
+[21-Mar-2017 09:50:13 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordercronmodel.php on line 25
+[21-Mar-2017 09:50:18 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordercronmodel.php on line 25
+[21-Mar-2017 09:51:21 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordercronmodel.php on line 25
+[21-Mar-2017 09:52:21 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/pendordercronmodel.php on line 25
+[21-Mar-2017 09:58:36 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 43
+[21-Mar-2017 09:59:34 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 43
+[21-Mar-2017 10:00:05 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 46
+[21-Mar-2017 10:00:07 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/models/admin/productmodel.php on line 46
+[23-Mar-2017 02:08:17 America/Denver] PHP Parse error:  syntax error, unexpected '$ordercount' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 129
+[23-Mar-2017 04:05:05 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 147
+[23-Mar-2017 04:06:24 America/Denver] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 147
+[23-Mar-2017 04:06:25 America/Denver] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 147
+[23-Mar-2017 04:30:47 America/Denver] PHP Parse error:  syntax error, unexpected '$TotalTax' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/views/admin/report/list.php on line 100
+[23-Mar-2017 04:51:15 America/Denver] PHP Fatal error:  Call to a member function GetOrderStatus() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/salesreport.php on line 36
+[23-Mar-2017 04:51:17 America/Denver] PHP Fatal error:  Call to a member function GetOrderStatus() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/salesreport.php on line 36
+[23-Mar-2017 07:10:51 America/Denver] PHP Fatal error:  Call to undefined function str_to_date() in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 126
+[23-Mar-2017 08:23:50 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 145
+[23-Mar-2017 08:24:10 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 145
+[23-Mar-2017 08:24:12 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 145
+[23-Mar-2017 09:17:15 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[23-Mar-2017 09:39:04 America/Denver] PHP Fatal error:  Class 'Xeroordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[24-Mar-2017 00:14:20 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/models/admin/reportmodel.php on line 128
+[24-Mar-2017 03:29:32 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 03:30:57 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 03:31:16 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 03:47:37 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 05:31:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 05:41:41 America/Denver] PHP Parse error:  syntax error, unexpected ''"><' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 483
+[24-Mar-2017 05:41:42 America/Denver] PHP Parse error:  syntax error, unexpected ''custom' (T_ENCAPSED_AND_WHITESPACE), expecting ')' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 953
+[24-Mar-2017 05:57:01 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/system/libraries/Pagination.php on line 125
+[24-Mar-2017 05:59:06 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/system/libraries/Pagination.php on line 125
+[24-Mar-2017 05:59:19 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/system/libraries/Pagination.php on line 125
+[24-Mar-2017 06:00:06 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/system/libraries/Pagination.php on line 125
+[24-Mar-2017 06:10:31 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 349
+[24-Mar-2017 06:10:34 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Product as array in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 349
+[24-Mar-2017 06:20:46 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'cost_price_inc_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 06:25:11 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'cost_price_inc_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 06:25:47 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'cost_price_inc_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 06:26:03 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'cost_price_inc_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 08:04:33 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'base_cost_price' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 08:04:49 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'base_cost_price' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[24-Mar-2017 09:03:04 America/Denver] PHP Fatal error:  Cannot access empty property in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/salesreport.php on line 30
+[24-Mar-2017 09:37:50 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1692
+[24-Mar-2017 09:37:51 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1692
+[24-Mar-2017 09:58:45 America/Denver] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 359
+[24-Mar-2017 09:58:47 America/Denver] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 359
+[24-Mar-2017 10:00:32 America/Denver] PHP Fatal error:  Class 'Ordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[25-Mar-2017 02:07:25 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[25-Mar-2017 03:40:54 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 106
+[25-Mar-2017 03:40:56 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 106
+[25-Mar-2017 03:41:43 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 107
+[25-Mar-2017 03:41:45 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 107
+[25-Mar-2017 03:41:51 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 107
+[25-Mar-2017 03:42:17 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 111
+[25-Mar-2017 03:42:18 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 111
+[25-Mar-2017 03:42:19 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 111
+[25-Mar-2017 03:43:09 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 107
+[25-Mar-2017 03:56:07 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 227
+[25-Mar-2017 03:57:54 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 227
+[25-Mar-2017 03:58:25 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 227
+[25-Mar-2017 03:58:26 America/Denver] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/realcheapfloors/public_html/app/beta/application/views/admin/order/invoiceview.php on line 227
+[25-Mar-2017 06:33:52 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:40:55 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:46:55 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/third_party/mpdf/mpdf.php on line 23253
+[25-Mar-2017 06:46:56 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/realcheapfloors/public_html/app/beta/application/third_party/mpdf/mpdf.php on line 27360
+[25-Mar-2017 06:46:59 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:47:01 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:49:33 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:49:34 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:49:40 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:52:08 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 06:54:09 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 07:21:30 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 07:22:00 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 07:22:08 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 07:22:27 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[25-Mar-2017 07:24:18 America/Denver] PHP Fatal error:  Call to a member function WriteHTML() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 35
+[27-Mar-2017 01:25:21 America/Denver] PHP Fatal error:  Call to a member function Output() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 315
+[27-Mar-2017 01:26:12 America/Denver] PHP Fatal error:  Call to a member function Output() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 315
+[27-Mar-2017 01:45:40 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'total_ex_tax' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 01:45:47 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'total_ex_tax' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 01:48:07 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 63
+[27-Mar-2017 01:48:50 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 85
+[27-Mar-2017 01:48:52 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 85
+[27-Mar-2017 01:49:50 America/Denver] PHP Fatal error:  Class 'Bigcommerce' not found in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 39
+[27-Mar-2017 01:49:59 America/Denver] PHP Fatal error:  Class 'Bigcommerce' not found in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/welcome.php on line 39
+[27-Mar-2017 01:58:26 America/Denver] PHP Parse error:  syntax error, unexpected ''"/>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 228
+[27-Mar-2017 01:58:28 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 01:58:56 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 01:59:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:00:05 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:00:11 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:01:07 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:01:10 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:02:49 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:02:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:02:54 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:02:59 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:03:02 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:03:09 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:06:00 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:06:03 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:08:22 America/Denver] PHP Parse error:  syntax error, unexpected ''"/>' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 228
+[27-Mar-2017 02:08:25 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1943
+[27-Mar-2017 02:08:27 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1943
+[27-Mar-2017 02:09:39 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1943
+[27-Mar-2017 02:09:42 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1943
+[27-Mar-2017 02:10:16 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1943
+[27-Mar-2017 02:10:35 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1149
+[27-Mar-2017 02:11:53 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:11:55 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:11:57 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:11:59 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:12:57 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:12:59 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:13:15 America/Denver] PHP Parse error:  syntax error, unexpected ''<div class="row static-inf">' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1198
+[27-Mar-2017 02:13:16 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1801
+[27-Mar-2017 02:13:54 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:13:59 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:19 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:23 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:37 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:39 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:48 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:50 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:52 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:14:54 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:15:01 America/Denver] PHP Parse error:  syntax error, unexpected ''<div class="row static-inf">' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1198
+[27-Mar-2017 02:15:49 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1713
+[27-Mar-2017 02:15:50 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1713
+[27-Mar-2017 02:15:51 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1713
+[27-Mar-2017 02:15:52 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1713
+[27-Mar-2017 02:15:53 America/Denver] PHP Fatal error:  Unsupported operand types in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1713
+[27-Mar-2017 02:16:06 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1768
+[27-Mar-2017 02:18:00 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:18:02 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:18:04 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 02:26:58 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:27:00 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:27:01 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:27:02 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:27:03 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:27:03 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:28:20 America/Denver] PHP Parse error:  syntax error, unexpected ''add' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 3185
+[27-Mar-2017 02:30:13 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:30:14 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:30:15 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:30:16 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:30:17 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:31:05 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:31:22 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 02:31:36 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1
+[27-Mar-2017 04:47:28 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:47:30 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:48:01 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:48:05 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:48:12 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:48:46 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:48:47 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:49:18 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:49:42 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:50:04 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:50:39 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:50:43 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:51:06 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:51:07 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:55:15 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:01 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:45 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:46 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:47 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:48 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:50 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:51 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:52 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:53 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:54 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:54 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:56 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 04:56:57 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:02:13 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:03:07 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:03:10 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:13:46 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:15:56 America/Denver] PHP Parse error:  syntax error, unexpected 'Bigcommerce' (T_STRING) in /home/realcheapfloors/public_html/app/beta/application/models/admin/ordermodel.php on line 1
+[27-Mar-2017 05:23:51 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 441
+[27-Mar-2017 05:43:54 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1691
+[27-Mar-2017 05:47:41 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'total_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 05:47:44 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'total_tax' is not supported by this resource.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 06:12:17 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 06:12:24 America/Denver] PHP Fatal error:  Uncaught Client Error (404): The requested resource was not found.
+  thrown in /home/realcheapfloors/public_html/app/beta/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[27-Mar-2017 06:18:17 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/order.php on line 1639
+[27-Mar-2017 08:29:03 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 40
+[27-Mar-2017 08:29:42 America/Denver] PHP Fatal error:  Call to a member function getBcConfig() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 13
+[27-Mar-2017 08:58:41 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home/realcheapfloors/public_html/app/beta/application/views/admin/invoice/invoicepdf.php on line 92
+[27-Mar-2017 09:03:22 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 92
+[27-Mar-2017 10:20:17 America/Denver] PHP Fatal error:  Class 'Ordermodel' not found in /home/realcheapfloors/public_html/app/beta/system/core/Loader.php on line 304
+[27-Mar-2017 23:17:07 America/Denver] PHP Parse error:  syntax error, unexpected '"' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 85
+[28-Mar-2017 02:36:22 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:36:51 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:38:59 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:39:03 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:40:26 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:41:53 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:50:21 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:50:21 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:50:23 America/Denver] PHP Fatal error:  Call to a member function from() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 145
+[28-Mar-2017 02:56:25 America/Denver] PHP Fatal error:  Call to a member function initialize() on null in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 155
+[28-Mar-2017 03:04:32 America/Denver] PHP Fatal error:  Call to undefined method Invoicemodel::getlogoimage() in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 144
+[28-Mar-2017 03:17:45 America/Denver] PHP Parse error:  syntax error, unexpected '$description' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 140
+[28-Mar-2017 03:17:47 America/Denver] PHP Parse error:  syntax error, unexpected '$description' (T_VARIABLE) in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 140
+[28-Mar-2017 06:41:38 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 165
+[28-Mar-2017 06:41:40 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home/realcheapfloors/public_html/app/beta/application/controllers/admin/invoice.php on line 165
+[28-Mar-2017 08:01:54 America/Denver] PHP Parse error:  syntax error, unexpected '' '' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/application/controllers/admin/invoice.php on line 237
+[28-Mar-2017 08:01:56 America/Denver] PHP Parse error:  syntax error, unexpected '' '' (T_CONSTANT_ENCAPSED_STRING) in /home/realcheapfloors/public_html/app/application/controllers/admin/invoice.php on line 237
+[28-Mar-2017 08:27:38 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/application/controllers/admin/invoice.php on line 359
+[28-Mar-2017 08:28:14 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/models/admin/webhookcreatemodel.php on line 966
+[29-Mar-2017 07:26:32 America/Denver] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestformcart.php on line 188
+[29-Mar-2017 07:26:47 America/Denver] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestformcart.php on line 188
+[29-Mar-2017 23:55:35 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestformcart.php on line 54
+[29-Mar-2017 23:55:54 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestformcart.php on line 54
+[29-Mar-2017 23:57:56 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/application/controllers/admin/requestformcart.php on line 52
+[30-Mar-2017 01:31:56 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/application/models/admin/requestformmodel.php on line 24
+[30-Mar-2017 01:31:59 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/application/models/admin/requestformmodel.php on line 24
+[30-Mar-2017 01:32:23 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/application/models/admin/requestformmodel.php on line 26
+[30-Mar-2017 01:32:24 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/application/models/admin/requestformmodel.php on line 26
+[30-Mar-2017 01:43:44 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 33
+[30-Mar-2017 01:43:47 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 33
+[30-Mar-2017 01:45:18 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 33
+[30-Mar-2017 01:45:38 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 33
+[30-Mar-2017 01:45:42 America/Denver] PHP Fatal error:  Call to a member function get() on null in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 33
+[30-Mar-2017 01:48:35 America/Denver] PHP Parse error:  syntax error, unexpected 'requestform' (T_STRING) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 57
+[30-Mar-2017 01:48:38 America/Denver] PHP Parse error:  syntax error, unexpected 'requestform' (T_STRING) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 57
+[30-Mar-2017 01:48:43 America/Denver] PHP Parse error:  syntax error, unexpected 'requestform' (T_STRING) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 57
+[30-Mar-2017 01:59:00 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 212
+[30-Mar-2017 02:00:50 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 212
+[30-Mar-2017 02:01:32 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 180
+[30-Mar-2017 02:01:33 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/requestform/view.php on line 180
+[30-Mar-2017 07:56:25 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 169
+[30-Mar-2017 07:56:28 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 169
+[30-Mar-2017 08:30:30 America/Denver] PHP Fatal error:  Class 'Requestformmodel' not found in /home/realcheapfloors/public_html/app/system/core/Loader.php on line 304
+[30-Mar-2017 09:04:10 America/Denver] PHP Fatal error:  Call to a member function delete_record() on null in /home/realcheapfloors/public_html/app/application/controllers/admin/requestform.php on line 227
+[30-Mar-2017 23:15:05 America/Denver] PHP Fatal error:  Call to a member function searchErrorlog() on null in /home/realcheapfloors/public_html/app/application/controllers/admin/errorlog.php on line 67
+[30-Mar-2017 23:15:07 America/Denver] PHP Fatal error:  Call to a member function searchErrorlog() on null in /home/realcheapfloors/public_html/app/application/controllers/admin/errorlog.php on line 67
+[30-Mar-2017 23:45:29 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/realcheapfloors/public_html/app/application/controllers/admin/errorlog.php on line 157
+[31-Mar-2017 00:42:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/dashboard.php on line 320
+[31-Mar-2017 00:42:45 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/dashboard.php on line 320
+[31-Mar-2017 01:10:18 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/dashboard.php on line 320
+[31-Mar-2017 01:10:20 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/dashboard.php on line 320
+[31-Mar-2017 09:14:32 America/Denver] PHP Fatal error:  Call to undefined method Categorymodel::getsettingdata() in /home/realcheapfloors/public_html/app/application/controllers/admin/category.php on line 24
+[31-Mar-2017 09:17:48 America/Denver] PHP Parse error:  syntax error, unexpected '.' in /home/realcheapfloors/public_html/app/application/views/admin/category/list.php on line 164
+[04-Apr-2017 01:53:30 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[04-Apr-2017 02:11:41 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/controllers/admin/order.php on line 296
+[04-Apr-2017 02:11:43 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/controllers/admin/order.php on line 1256
+[10-Apr-2017 00:06:27 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/application/controllers/admin/csv.php on line 52
+[10-Apr-2017 00:06:45 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/application/controllers/admin/csv.php on line 52
+[10-Apr-2017 00:07:40 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/application/controllers/admin/csv.php on line 52
+[10-Apr-2017 00:08:38 America/Denver] PHP Fatal error:  Class 'Bigcommerce' not found in /home/realcheapfloors/public_html/app/application/controllers/admin/csv.php on line 31
+[19-Apr-2017 11:14:05 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The options of one or more products are invalid.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 05:07:24 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:26:25 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Order as array in /home/realcheapfloors/public_html/app/application/views/admin/order/view.php on line 435
+[06-Jun-2017 10:27:29 America/Denver] PHP Fatal error:  Cannot use object of type Bigcommerce\Api\Resources\Order as array in /home/realcheapfloors/public_html/app/application/views/admin/order/view.php on line 435
+[06-Jun-2017 10:35:41 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The required field 'products' was not supplied.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:43:20 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'external_source' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:44:21 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'external_source' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:47:49 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'external_source' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:54:18 America/Denver] PHP Fatal error:  Uncaught Client Error (400): The field 'status_id' is invalid.
+  thrown in /home/realcheapfloors/public_html/app/application/third_party/bcapi/src/Bigcommerce/Api/Connection.php on line 286
+[06-Jun-2017 10:57:25 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/order/view.php on line 480
+[06-Jun-2017 10:57:27 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/application/views/admin/order/view.php on line 480
