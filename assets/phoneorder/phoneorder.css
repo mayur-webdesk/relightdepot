@@ -1,0 +1,81 @@
+.cname ul{
+	max-height: 200px;
+	overflow-y: auto;
+	min-height: 0px;
+	position: static;
+	float: none;
+	margin: 0 0 0 0;
+	padding-left:0;
+	border: 1px solid #eee;
+	box-shadow: none;
+	min-width: 100%;
+	box-sizing: border-box;
+	z-index: 1000!important;
+	display: block;
+	list-style: none;
+	text-shadow: none;
+	background-color: #fff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	top: 100%;
+	font-size: 14px;
+	text-align: left;
+	background-clip: padding-box;
+	border-radius: 0!important;
+	line-height: 1.42857;
+}
+.cname ul li{
+	position: relative;
+	border-radius: 0!important;
+}
+.cname ul li a{
+	cursor: pointer;
+	text-decoration: none;
+	padding: 8px 16px;
+	color: #6f6f6f;
+	text-decoration: none;
+	display: block;
+	clear: both;
+	font-weight: 300;
+	line-height: 18px;
+	white-space: nowrap;
+	text-shadow: none;
+}
+.cname ul li a:hover{
+	text-decoration: none;
+	background-image: none;
+	background-color: #f6f6f6;
+	color: #555;
+}
+.hide{ display:none;}
+.show{ display:block;}
+.loader_b{
+	z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.1; cursor: default; position: absolute;
+}.loader_b_f{
+	z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.1; cursor: default; position: absolute;
+}
+.loader_img{
+	z-index: 1011; position: absolute; padding: 0px; margin: 0px; width: 30%; top: 88px; left: 35%; text-align: center; color: rgb(0, 0, 0); border: 0px none; cursor: default; 
+}
+.table-responsive{overflow-x:hidden;}
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+#makepaymentt{margin-left: 14px;}
+.price_edit{ width:200% !important;}
+#same_as_billing_address {
+    margin-left: 248px;
+	text-align:center;
+}
+#same_as_billing_address .col-md-5.name
+{
+	text-align:right;
+}
+#same_as_billing_address .col-md-6.value
+{
+	text-align:left;
+}
+.comment_note_section .control-label,.payment_section .control-label,.order_status .control-label.col-md-12
+{
+	text-align:left;
+}
+span.select2.select2-container.select2-container--bootstrap {
+    width: 323px !important;
+}
