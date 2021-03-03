@@ -484,10 +484,6 @@ class Product extends CI_controller{
 			<td>'.$resources.'</td></tr>';
 		}	
 
-		echo '<pre>';
-		print_r($product_details);
-		exit;
-
 		if($product_details->attribute_set_id == '26')
 		{
 			$housing = 'No';
@@ -1143,11 +1139,6 @@ class Product extends CI_controller{
 		{
 			$product_detailsp['custom_url'] 					= $mg_product_url;
 		}
-
-			
-		echo '<pre>';
-		print_r($product_detailsp);
-		exit;
 
 		try {
 
