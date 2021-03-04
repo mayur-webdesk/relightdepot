@@ -1,25 +1,28 @@
-<?php 
-class Customer extends CI_controller
-{
+<?php
+ini_set('display_errors','On');
+ini_set('memory_limit', '-1');
+error_reporting(E_ALL);
+
+use Bigcommerce\Api\Client as Bigcommerce;
+class Customer extends CI_controller{
 	
-	function customer()
-	{
+	public function __construct() {
+
 		parent::__construct();	
-		$this->load->library('bigcommerceapi');
 		$this->load->model("admin/customermodel");
-		
+
 		include(APPPATH.'third_party/PHPExcel.php');
 		include(APPPATH.'third_party/PHPExcel/Writer/Excel2007.php');
+		include(APPPATH.'third_party/bcapi/vendor/autoload.php');
 	}
 
-	function index()
-	{	
-		
+	function index() {	
+
 		$session_data = $this->session->userdata('admin_session');
 		if(!isset($session_data) || empty($session_data))redirect('admin/login');
 		
-		$this->data["page_head"]  = 'Magento to BigCommerce customer Import';
-		$this->data["page_title"] = 'Magento to BigCommerce customer Import';
+		$this->data["page_head"]  = 'Magento to BigCommerce Customer Import';
+		$this->data["page_title"] = 'Magento to BigCommerce Customer Import';
 		
 		$customer_data = $this->customermodel->getcustomer();
 		$this->data['total_customer'] = count($customer_data);
@@ -29,31 +32,401 @@ class Customer extends CI_controller
 		$this->data['left_nav']=$this->load->view('admin/common/leftmenu',$this->data,true);	
 		$this->load->view("admin/customer/list",$this->data);
 		$this->load->view("admin/common/footer");
+	}
+			
+	public function getMagenCustomer(){
+
+		$options = array(
+			'trace' => true,
+			'connection_timeout' => 120000000000,
+			'wsdl_cache' => WSDL_CACHE_NONE,
+		);
 		
+		$proxy 		  = new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options);
+		$sessionId    = $proxy->login('DataMigration', 'admin@321');
+		$attributeSets  = $proxy->call($sessionId, 'customer.list');
+		$set = current($attributeSets);
+		$customer_details = array();
+		$customer_details = $proxy->call($sessionId, 'customer.list');
 		
+		// echo '<pre>';
+		// print_r($customer_details);
+		// exit;
+
+		$ins_customer = array();
+		if(isset($customer_details) && !empty($customer_details)) {
+			foreach($customer_details as $customer) {
+
+				$customer_data = array(); 
+				$customer_data['magento_id'] = 	$customer['customer_id'];
+
+				$customer_data['email'] = '';
+				if(isset($customer['email']) && !empty($customer['email'])){
+					$customer_data['email'] = 	$customer['email'];
+				}
+
+				$customer_data['firstname'] = '';
+				if(isset($customer['firstname']) && !empty($customer['firstname'])){
+					$customer_data['firstname'] = 	$customer['firstname'];
+				}
+
+				$customer_data['prefix'] = '';
+				if(isset($customer['prefix']) && !empty($customer['prefix'])){
+					$customer_data['prefix'] = 	$customer['prefix'];
+				}
+
+				$customer_data['middlename'] = '';
+				if(isset($customer['middlename']) && !empty($customer['middlename'])){
+					$customer_data['middlename'] = 	$customer['middlename'];
+				}
+
+				$customer_data['lastname'] = '';
+				if(isset($customer['lastname']) && !empty($customer['lastname'])){
+					$customer_data['lastname'] = 	$customer['lastname'];
+				}
+
+				$customer_data['group_id'] = $customer['group_id'];
+				
+				$customer_data['bc_customer_id'] 	= '';
+				$customer_data['status'] 			= 'no';
+				$customer_data['error'] 			= '';
+				$customer_data['add_error'] 		= '';
+
+				$ins_customer[] = $customer_data;
+			}
+		} 
 		
+		if (isset($ins_customer) && !empty($ins_customer))  {	
+			$record = 500;
+			$data = array_chunk($ins_customer,$record,true);
+		
+			foreach ($data as $ins_customer_data)  {	
+				$query = $this->db->insert_batch('customer', $ins_customer_data);
+			} 
+			
+			return 1;
+        }
+		echo 'Customer import magento to database sucessfully';
 	}
 
-	
-	
-	function usernotification()
-	{
-		$session_data = $this->session->userdata('admin_session');
-		if(!isset($session_data) || empty($session_data))redirect('admin/login');
-		
-		$this->data["page_head"]  = 'Magento to BigCommerce customer reset password';
-		$this->data["page_title"] = 'Magento to BigCommerce customer reset password';
-		
-		$customer_data = $this->customermodel->getcustomerresetpassword();
-		$this->data['total_customer'] = count($customer_data);
-		$this->data['customer_data']  = $customer_data;
-		
-		$this->load->view("admin/common/header",$this->data);
-		$this->data['left_nav']=$this->load->view('admin/common/leftmenu',$this->data,true);	
-		$this->load->view("admin/customer/customernotification",$this->data);
-		$this->load->view("admin/common/footer");
+	function customerImport() {
+
+		$customer_id = $this->input->get('code');
+
+		$config_data = $this->customermodel->getGeneralSetting();
+
+		$client_id		= $config_data['client_id'];
+		$access_token	= $config_data['apitoken'];
+		$store_hash		= $config_data['storehash'];	
+
+		Bigcommerce::configure(array('client_id' => $client_id, 'auth_token' => $access_token, 'store_hash' => $store_hash)); // Bc class connection
+		Bigcommerce::verifyPeer(false); // SSL verify False 		
+		Bigcommerce::failOnError(); 	// Display error exception on
+
+		if(isset($customer_id) && !empty($customer_id)) {
+
+			$options = array(
+				'trace' => true,
+				'connection_timeout' => 120000000000,
+				'wsdl_cache' => WSDL_CACHE_NONE,
+			);
+
+			$proxy 	   = new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options);
+			$sessionId = $proxy->login('DataMigration', 'admin@321');
+			$customer_details = array();
+			
+			$customer_details = $proxy->call($sessionId,'customer.info', $customer_id);
+			
+			$getCustomerAddress = array(); 
+
+			if(isset($customer_details) && !empty($customer_details)){
+				
+				$customer_array = array();
+				
+				// default_billing and default_shipping
+				$default_billing   = '';
+				$default_shipping  = '';
+				if(isset($customer_details['default_billing']) && !empty($customer_details['default_billing'])){
+					$default_billing  = $customer_details['default_billing'];
+				}
+				if(isset($customer_details['default_shipping']) && !empty($customer_details['default_shipping'])){
+					$default_shipping  = $customer_details['default_shipping'];
+				}
+
+				if(isset($default_billing) && !empty($default_billing) && isset($default_shipping) && !empty($default_shipping) && $default_billing == $default_shipping) {
+					
+					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_billing);
+				
+				} elseif(isset($default_billing) && !empty($default_billing) && isset($default_shipping) && !empty($default_shipping) && $default_billing != $default_shipping) {  
+
+					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_billing);
+					
+					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_shipping);
+				}
+				elseif(isset($default_billing) && !empty($default_billing)) { 
+					
+					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_billing);
+				} elseif(isset($default_shipping) && !empty($default_shipping)) {  
+
+					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_shipping);
+				}
+
+				// firstname and middlename
+				$firstname = '';
+				if(isset($customer_details['firstname']) && !empty($customer_details['firstname'])){
+					$firstname = trim($customer_details['firstname']);
+				}
+				$middlename = '';
+				if(isset($customer_details['middlename']) && !empty($customer_details['middlename'])){
+					$middlename = trim($customer_details['middlename']);
+				}
+				$customer_array['first_name'] = '';
+				$customer_array['first_name'] = $firstname . ' ' .  $middlename;
+				// lastname
+				$customer_array['last_name'] = '';
+				if(isset($customer_details['lastname']) && !empty($customer_details['lastname'])){
+					$customer_array['last_name'] = trim($customer_details['lastname']);
+				}
+				// company
+				$customer_array['company'] = '';
+				if(isset($getCustomerAddress[0]['company']) && !empty($getCustomerAddress[0]['company'])){
+					$customer_array['company'] = trim($getCustomerAddress[0]['company']);
+				}
+				// email
+				$customer_array['email'] = '';
+				if(isset($customer_details['email']) && !empty($customer_details['email'])){
+					$customer_array['email'] = trim($customer_details['email']);
+				}
+				// email
+				$customer_array['customer_group_id'] = 0;
+				if(isset($customer_details['email']) && !empty($customer_details['email'])){
+										
+					$customer_array['customer_group_id'] = trim($customer_details['email']);
+				}
+				// phone				
+				$customer_array['phone'] = '';
+				if(isset($getCustomerAddress[0]['telephone']) && !empty($getCustomerAddress[0]['telephone'])){
+					$customer_array['phone'] = trim($getCustomerAddress[0]['telephone']);
+				}
+
+
+
+
+				$notes = '';
+			
+				if(isset($customer_id) && !empty($customer_id)){
+					$notes	  .=  "Magento Customer ID: ".$customer_id."\n";
+				}				
+				if(isset($customer_details['dob']) && !empty($customer_details['dob'])){
+					$notes	  .= "Customer DOB: ".$customer_details['dob']."\n";
+				}
+				if(isset($customer_details['gender']) && !empty($customer_details['gender'])){
+					$notes	  .= "Gender: ".$customer_details['gender']."\n";
+				}
+				if(isset($customer_details['rp_token']) && !empty($customer_details['rp_token'])){
+					$notes	  .= "rp_token: ".$customer_details['rp_token']."\n";
+				}	
+				if(isset($customer_details['rp_customer_id']) && !empty($customer_details['rp_customer_id'])){
+					$notes	  .= "rp_customer_id: ".$customer_details['rp_customer_id']."\n";
+				}
+				if(isset($customer_details['rp_token_created_at']) && !empty($customer_details['rp_token_created_at'])){
+					$notes	  .= "rp_token_created_at: ".date('Y-m-d H:i:s',strtotime($customer_details['rp_token_created_at']))."\n";
+				}	
+				$customer_array['notes']						  = $notes;	
+
+
+
+
+				$api_url = $storeurl_shopify.'/admin/customers/search.json?query=email:'.$customer_email.'';
+				$ch = curl_init($api_url);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));		
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); 
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0 ); 
+				curl_setopt($ch, CURLOPT_USERPWD, $shopify_key.':'.$shopify_pw ); 
+				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0 );
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );   
+				$res_fulment = curl_exec($ch);
+				$customer_check = json_decode($res_fulment); 
+			
+				if(isset($customer_check->customers[0]->id) && !empty($customer_check->customers[0]->id)) {
+					
+					echo $customer_check->customers[0]->id. ' - Customer Allredy exist';
+					$error =  'Customer Allredy exist';
+					$status = 'no';
+					$this->customermodel->customerupdate($customer_check->customers[0]->id,$code,$status,$error);
+				
+				} else {
+				
+					$customerdata = array();
+					$customerdata['customer']['first_name'] 			  	  = $customer_firstname;
+					$customerdata['customer']['last_name'] 				  	  = $customer_lastname;
+					$customerdata['customer']['email'] 					 	  = $customer_email;
+					//$customerdata['customer']['phone'] 					 	  = $customer_phonenumber;
+					$customerdata['customer']['tags'] 					 	  = 'General';
+
+					$customerdata['customer']['password'] 					  = $password;
+					$customerdata['customer']['password_confirmation'] 		  = $password;
+					$customerdata['customer']['send_email_welcome'] 		  = false;
+					
+					$notes = '';
+					if(isset($customer_note) && !empty($customer_note)){
+						$notes	  .=  $customer_note."\n";
+					}
+
+					if(isset($code) && !empty($code)){
+						$notes	  .=  "Magento Customer ID: ".$code."\n";
+					}
+
+					if(isset($customer_details['authnetcim_profile_version']) && !empty($customer_details['authnetcim_profile_version'])){
+						$notes	  .=  "Authnetcim profile version: ".$customer_details['authnetcim_profile_version']."\n";
+					}
+					if(isset($customer_details['dob']) && !empty($customer_details['dob'])){
+						$notes	  .= "Customer DOB: ".$customer_details['dob']."\n";
+					}	
+					
+					if(isset($customer_details['gender']) && !empty($customer_details['gender'])){
+						$notes	  .= "Gender: ".$customer_details['gender']."\n";
+					}	
+
+					if(isset($customer_details['rp_token']) && !empty($customer_details['rp_token'])){
+						$notes	  .= "rp_token: ".$customer_details['rp_token']."\n";
+					}	
+
+					if(isset($customer_details['rp_customer_id']) && !empty($customer_details['rp_customer_id'])){
+						$notes	  .= "rp_customer_id: ".$customer_details['rp_customer_id']."\n";
+					}	
+
+					if(isset($customer_details['rp_token_created_at']) && !empty($customer_details['rp_token_created_at'])){
+						$notes	  .= "rp_token_created_at: ".date('Y-m-d H:i:s',strtotime($customer_details['rp_token_created_at']))."\n";
+					}	
+
+					$customerdata['customer']['note']						  = $notes;	
+					$customerdata['customer']['verified_email'] 			  = false;
+					$customerdata['customer']['created_at'] 			  	  = date('Y-m-d H:i:s',strtotime($customer_details['created_at']));
+					 
+					if(isset($getCustomerAddress) && !empty($getCustomerAddress))
+					{
+						$i = 0;
+						foreach($getCustomerAddress as $getCustomerAddresss)
+						{
+							$customerdata['customer']['addresses'][$i]['first_name']  = $getCustomerAddresss['firstname'];
+							$customerdata['customer']['addresses'][$i]['last_name']   = $getCustomerAddresss['lastname'];
+							$customerdata['customer']['addresses'][$i]['company'] 	  = $getCustomerAddresss['company'];
+							$customerdata['customer']['addresses'][$i]['address1'] 	  = $getCustomerAddresss['street'];
+							$customerdata['customer']['addresses'][$i]['address2'] 	  = '';
+							$customerdata['customer']['addresses'][$i]['city'] 		  = $getCustomerAddresss['city'];			
+							$customerdata['customer']['addresses'][$i]['country'] 	  = $this->getcountryname($getCustomerAddresss['country_id']);
+							$customerdata['customer']['addresses'][$i]['province'] 	  = $getCustomerAddresss['region'];
+							$customerdata['customer']['addresses'][$i]['phone'] 	  = $getCustomerAddresss['telephone'];
+							$customerdata['customer']['addresses'][$i]['zip']		  = $getCustomerAddresss['postcode'];
+						$i++;
+						}
+					}
+
+					$api_url = $storeurl_shopify.'/admin/customers.json';
+					$ch = curl_init($api_url);
+					curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));	
+					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");   
+					curl_setopt($ch, CURLOPT_USERPWD, $shopify_key.':'.$shopify_pw ); 
+					curl_setopt($ch, CURLOPT_HEADER, false);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+					curl_setopt($ch, CURLOPT_POST, true);
+					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($customerdata));
+					$res = curl_exec($ch);
+					$response = json_decode($res);
+				//echo "<pre>";
+				//print_r($response);
+					if(isset($response->customer->id) && !empty($response->customer->id))
+					{
+						$status = "yes";
+						$this->customermodel->customerupdate($response->customer->id,$code,$status,'');
+						$this->customermodel->customernewupdate($response->customer->id,$code,$status,'');
+						echo  $response->customer->id.' - Customer import sucessfully';
+					}else{
+						$shopify_customer_id = 0;
+						$status = "no";
+						$error = json_encode($response);
+						$this->customermodel->customerupdate($shopify_customer_id,$code,$status,$error);
+						$this->customermodel->customernewupdate($shopify_customer_id,$code,$status,$error);
+						echo $error;
+					}
+				}
+		  	}else{
+	  				$shopify_customer_id = 0;
+					$status = "no";
+					$error = "No Customer Found";
+					$this->customermodel->customerupdate($shopify_customer_id,$code,$status,$error);
+
+		  		echo "No Customer Found";
+		  	}
+			exit;
+			// try	{
+			// 	$Customer = Bigcommerce::createCustomer($customer_data);
+	        // 		if(isset($Customer) && empty($Customer)) {
+	        //     	throw new Exception('Bigcommerce\Api\Error');
+	       	//  	} else {
+
+			// 		echo $Customer->id.' - Customer import succesfully..<br>';
+			// 		$message = 'Customer import succesfully...';
+			// 		$this->customermodel->updatecustomerstatus($customer_id,$Customer->id,$message);
+					
+			// 		$customer_address = array();
+			// 		if(isset($Customer->id) && !empty($Customer->id)){
+						
+			// 			$customer_address['first_name'] = $customer_firstname;
+			// 			$customer_address['last_name']	= $customer_lastname;
+			// 			$customer_address['company']	= $customer_companyname;
+			// 			$customer_address['street_1'] 	= $customer_address1;
+			// 			$customer_address['street_2'] 	= $customer_address2;
+			// 			$customer_address['city']		= $customer_city;
+			// 			$customer_address['state']		= $customer_state;
+			// 			$customer_address['zip']		= $customer_zipcode;
+			// 			$customer_address['country']	= $customer_country;
+			// 			$customer_address['phone']		= $customer_phonenumber;
+						
+			// 			try	{
+			// 				$Customeradd = Bigcommerce::createCustomeraddress($Customer->id,$customer_address);
+			// 	        	if(isset($Customeradd) && empty($Customeradd)) {
+			// 	            	throw new Exception('Bigcommerce\Api\Error');
+			// 	       	 	} else {
+			// 	       	 		$error2 = 'Customer import successfully with address...';
+			// 	       	 		echo $Customer->id.' - Customer import successfully with address...<br>';
+
+			// 	       	 		$this->customermodel->updateCustoAddMessage($customer_id, $error2);					       	 		
+			// 				}
+			//        	 	} catch(Exception $error) {
+			// 				$error1 = $error->getMessage();
+			// 				$error2 = 'Customer - '.$this->db->escape_str($error1);
+
+			// 				echo $error2.'<br>';
+
+			// 				$this->customermodel->updateCustoAddMessage($customer_id, $error2);							
+			// 			}
+			// 		}
+			// 	}		
+			// } catch(Exception $error) {
+			// 	$error1 = $error->getMessage();
+			// 	$error2 = $this->db->escape_str($error1);
+			// 	$this->customermodel->updatecustomerMessage($customer_id, $error2);
+			
+			// 	echo $error1.'<br>';
+			// }
+		}
 	}
-	
+
+
+    function getcountryname($c_code){
+		$country_name = $this->customermodel->getcountryname($c_code);
+		if(isset($country_name) && !empty($country_name)){
+			return $country_name['nicename'];
+		}else{
+			return $c_code;
+		}
+
+	}
+
 	function randomPassword() {
 		 $password = '';
 		 $charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -66,285 +439,16 @@ class Customer extends CI_controller
 	}
 	
 	
-	function resetpasswrod()
-	{
-		$reset_password_error = APPPATH."third_party/customer/reset_password_error.xls";
-		$spreadsheet_reset_password = PHPExcel_IOFactory::load($reset_password_error);
-		$spreadsheet_reset_password->setActiveSheetIndex(0);
-		$worksheet_reset_password = $spreadsheet_reset_password->getActiveSheet();
-		
-		$customer_id = $this->input->get('code');
-		$column = $this->input->get('column');
-		$config_data = $this->customermodel->getGeneralSetting();
-		$store = '';
-		if(isset($config_data[0]['apiusername']) && !empty($config_data[0]['apiusername']) && isset($config_data[0]['apipath']) && !empty($config_data[0]['apipath']) && isset($config_data[0]['apitoken']) && !empty($config_data[0]['apitoken'])){
-			// BigCommerce API connection
-			$store = new Bigcommerceapi($config_data[0]['apiusername'], $config_data[0]['apipath'] , $config_data[0]['apitoken']);
-		}
-		
-		$password_g  = $this->randomPassword();
-		
-		$field_reset_password = array();
-		$field_reset_password['_authentication']['password'] = $password_g;
-		$reset_password = $store->put('/customers/'.$customer_id,$field_reset_password);
-		
-		
-		if(isset($reset_password['email']) && !empty($reset_password['email']))
-		{
-			$this->customermodel->updatestatus($customer_id);
-			
-			$store_url = $config_data[0]['storeurl'];
-			$username  = $reset_password['email'];
-			$password  = $password_g;
-			
-			$subject_activation = 'Your Password Has Been Changed!';
-						
-			$html_plan = '<div style="background-color:#ffffff;font-family:Verdana,Arial,Helvetica,sans-serif;font-size:15px;width:800px;margin:0px auto">
-				<div style="border-bottom:1px #0086c7 solid;margin-bottom:15px">
-					<h1 style="display:block;text-align:center;padding:30px 0px 10px">
-						<img src="http://cdn3.bigcommerce.com/s-fxjd74hwbl/product_images/logo_1466588892__47438.png">
-					</h1>    
-				</div>
-				
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000"><b>Your Password Has Been Changed!</b></h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000">This email confirm that your password has been changed.</h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000">To log on to the site, use the following credentials:</h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000"><b>Store URL:</b> '.$store_url.'</h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000"><b>Username:</b> '.$username.'</h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000"><b>Password:</b> '.$password.'</h2>
-				</div>
-				<div style="width:100%;margin-bottom:15px">
-					<h2 style="color:#444;font-weight:normal;font-size:15px"><span style="color:#000">if you have any questions or encounter any problems logging in, please contact a site administrator <a href="mailto:sales@evrmemories.com">sales@evrmemories.com</a>.</h2>
-				</div>
-				<div style="width:100%;border-top:1px #0086c7 solid;">
-					<div style="clear:both"></div>
-					<div style="float:left;margin-right:10px;margin-top:15px">
-						<div style="float:left;font-size:14px;color:#333;font-weight:normal;">
-							Thanks,<br/> 
-							<span style="color:#0086c7;letter-spacing:1">
-								 '.$config_data[0]['storename'].'
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>';
-			
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-			$headers .= 'From: <sales@evrmemories.com>' . "\r\n";
-			$to = $username;
-			@mail($to,$subject_activation,$html_plan,$headers);		
 
-			echo $username.' - Customer Password Has Been Changed!'	;
+	function updateMycustomer(){
+		$customer = $this->customermodel->getMylcustomer();
+		foreach ($customer as $cus) {
+			$magento_id = $cus['magento_id'];
+			$sp_id = $cus['shopify_customer_id'];
+			$update = $this->customermodel->updateMycustomer($magento_id,$sp_id);
+
 		}
-		else
-		{
-			echo 'Customer Password Changed Error!!!';
-			$commnet = 'Customer Password Changed Error!!!';
-			
-			$column = $column + 1;
-			$worksheet_reset_password->setCellValueExplicit('A1','Customer ID', PHPExcel_Cell_DataType::TYPE_STRING);
-			$worksheet_reset_password->setCellValueExplicit('B1','Comment', PHPExcel_Cell_DataType::TYPE_STRING);
-			
-			$worksheet_reset_password->setCellValueExplicit('A'.$column,$customer_id, PHPExcel_Cell_DataType::TYPE_STRING);
-			$worksheet_reset_password->setCellValueExplicit('B'.$column,$commnet, PHPExcel_Cell_DataType::TYPE_STRING);
-			
-			$writer_reset_password = new PHPExcel_Writer_Excel2007($spreadsheet_reset_password);
-			$writer_reset_password->save($reset_password_error);
-			
-		}	
-			
-	}
-	
-	
-	
-	function importmanully()
-	{
-			
-		$filename_export = APPPATH."third_party/customer/customer_volusion_to_bc.csv";
-		$filename_missing = APPPATH."third_party/customer/not_import_customer_list.xls";
-		$filename_imported = APPPATH."third_party/customer/import_customer_list.xls";
-		
-		$spreadsheet = new PHPExcel();
-		$spreadsheet->setActiveSheetIndex(0);
-		$worksheet = $spreadsheet->getActiveSheet();
-		
-		$spreadsheet_missing = new PHPExcel();
-		$spreadsheet_missing->setActiveSheetIndex(0);
-		$worksheet_missing = $spreadsheet_missing->getActiveSheet();
-		
-		$spreadsheet_import = new PHPExcel();
-		$spreadsheet_import->setActiveSheetIndex(0);
-		$worksheet_import = $spreadsheet_import->getActiveSheet();
-		
-		$worksheet->setCellValueExplicit('A1','Email Address', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('B1','First Name', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('C1','Last Name', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('D1','Company', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('E1','Phone', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('F1','Notes', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('G1','Store Credit', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('H1','Customer Group', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('I1','Address ID - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('J1','Address First Name - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('K1','Address Last Name - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('L1','Address Company - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('M1','Address Line 1 - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('N1','Address Line 2 - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('O1','Address City - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('P1','Address State - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('Q1','Address Zip - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('R1','Address Country - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('S1','Address Phone - 1', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('T1','Receive Review/Abandoned Cart Emails?', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('U1','Tax Exempt Category', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet->setCellValueExplicit('V1','Customer ID', PHPExcel_Cell_DataType::TYPE_STRING);
-		
-		$worksheet_missing->setCellValueExplicit('A1','Customer ID', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet_missing->setCellValueExplicit('B1','Customer Email', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet_missing->setCellValueExplicit('C1','Comment', PHPExcel_Cell_DataType::TYPE_STRING);
-		
-		$worksheet_import->setCellValueExplicit('A1','Customer ID', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet_import->setCellValueExplicit('B1','Customer Email', PHPExcel_Cell_DataType::TYPE_STRING);
-		$worksheet_import->setCellValueExplicit('C1','Comment', PHPExcel_Cell_DataType::TYPE_STRING);
-		
-		$all_customer = $this->customermodel->getcustomer();
-		
-		echo '<pre>';
-		print_r($all_customer);
-		exit;
-		
-			
-		if(isset($all_customer) && !empty($all_customer))
-		{
-			$column = 2;
-			foreach($all_customer as $all_customers)
-			{
-				$customer_details =  $all_customers;
-				
-				$customer_email = '';
-				if(isset($customer_details['email']) && !empty($customer_details['email'])){
-					$customer_email = trim($customer_details['email']);
-				}
-				$customer_firstname = '';
-				if(isset($customer_details['firstname']) && !empty($customer_details['firstname'])){
-					$customer_firstname = trim($customer_details['firstname']);
-				}
-				$customer_lastname = '';
-				if(isset($customer_details['lastname']) && !empty($customer_details['lastname'])){
-					$customer_lastname = trim($customer_details['lastname']);
-				}
-				$customer_companyname = '';
-				if(isset($customer_details['billing_company']) && !empty($customer_details['billing_company'])){
-					$customer_companyname = trim($customer_details['billing_company']);
-				}
-				$customer_phonenumber = '';
-				if(isset($customer_details['billing_telephone']) && !empty($customer_details['billing_telephone'])){
-					$customer_phonenumber = trim($customer_details['billing_telephone']);
-				}
-				$customer_note = '';
-				if(isset($customer_details['Customer_Notes']) && !empty($customer_details['Customer_Notes'])){
-					$customer_note = trim($customer_details['Customer_Notes']);
-				}
-				$customer_address1 = '';
-				if(isset($customer_details['billing_street1']) && !empty($customer_details['billing_street1'])){
-					$customer_address1 = trim($customer_details['billing_street1']);
-				}
-				$customer_address2 = '';
-				if(isset($customer_details['billing_street2']) && !empty($customer_details['billing_street2'])){
-					$customer_address2 = trim($customer_details['billing_street2']);
-				}
-				$customer_city = '';
-				if(isset($customer_details['billing_city']) && !empty($customer_details['billing_city'])){
-					$customer_city = trim($customer_details['billing_city']);
-				}
-				$customer_state = '';
-				if(isset($customer_details['billing_region']) && !empty($customer_details['billing_region'])){
-					$customer_state = trim($customer_details['billing_region']);
-				}
-				$customer_zipcode = '';
-				if(isset($customer_details['PostalCode']) && !empty($customer_details['PostalCode'])){
-					$customer_zipcode = trim($customer_details['PostalCode']);
-				}
-				$customer_country = '';
-				if(isset($customer_details['Country']) && !empty($customer_details['Country'])){
-					$customer_country = trim($customer_details['Country']);
-				}
-				$customer_emailsubscribe = 0;
-				if(isset($customer_details['EmailSubscriber']) && !empty($customer_details['EmailSubscriber']) && $customer_details['EmailSubscriber'] == 'Y'){
-					$customer_emailsubscribe = 1;
-				}
-				$customer_volusion_id = '';
-				if(isset($customer_details['CustomerID']) && !empty($customer_details['CustomerID'])){
-					$customer_volusion_id = trim($customer_details['CustomerID']);
-				}
-				
-				if(isset($customer_details) && !empty($customer_details) && !empty($customer_email) && !empty($customer_firstname) && !empty($customer_lastname))
-				{
-					$worksheet->setCellValueExplicit('A'.$column,$customer_email, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('B'.$column,$customer_firstname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('C'.$column,$customer_lastname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('D'.$column,$customer_companyname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('E'.$column,$customer_phonenumber, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('F'.$column,$customer_note, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('G'.$column,0, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('H'.$column,'', PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('I'.$column,'', PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('J'.$column,$customer_firstname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('K'.$column,$customer_lastname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('L'.$column,$customer_companyname, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('M'.$column,$customer_address1, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('N'.$column,$customer_address2, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('O'.$column,$customer_city, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('P'.$column,$customer_state, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('Q'.$column,$customer_zipcode, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('R'.$column,$customer_country, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('S'.$column,$customer_phonenumber, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('T'.$column,$customer_emailsubscribe, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('U'.$column,'', PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet->setCellValueExplicit('V'.$column,$customer_volusion_id, PHPExcel_Cell_DataType::TYPE_STRING);
-					
-					$commnet =  $customer_volusion_id.' - Customer import successfully';
-					$worksheet_import->setCellValueExplicit('A'.$column,$customer_volusion_id, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet_import->setCellValueExplicit('B'.$column,$customer_email, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet_import->setCellValueExplicit('C'.$column,$commnet, PHPExcel_Cell_DataType::TYPE_STRING);
-				}
-				else
-				{
-					$commnet =  $customer_id.' - Customer required messing details (email,firstname,lastname)';
-					$worksheet_missing->setCellValueExplicit('A'.$column,$customer_id, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet_missing->setCellValueExplicit('B'.$column,$customer_email, PHPExcel_Cell_DataType::TYPE_STRING);
-					$worksheet_missing->setCellValueExplicit('C'.$column,$commnet, PHPExcel_Cell_DataType::TYPE_STRING);
-				}
-			}
-			else
-			{
-				$commnet =  $customer_id.' - Customer ID not found';
-				$worksheet_missing->setCellValueExplicit('A'.$column,$customer_id, PHPExcel_Cell_DataType::TYPE_STRING);
-				$worksheet_missing->setCellValueExplicit('B'.$column,$customer_email, PHPExcel_Cell_DataType::TYPE_STRING);
-				$worksheet_missing->setCellValueExplicit('C'.$column,$commnet, PHPExcel_Cell_DataType::TYPE_STRING);
-			}
-			$column++;
-		}
-		$writer = new PHPExcel_Writer_Excel2007($spreadsheet);
-		$writer->save($filename_export);
-		
-		$writer_import = new PHPExcel_Writer_Excel2007($spreadsheet_import);
-		$writer_import->save($filename_imported);
-		
-		$writer_missing = new PHPExcel_Writer_Excel2007($spreadsheet_missing);
-		$writer_missing->save($filename_missing);
-	 }
+	} 
 }
+
 ?>

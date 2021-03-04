@@ -80,15 +80,10 @@
 						<table class="table table-bordered table-striped table-condensed flip-content">
 							<thead class="flip-content">
 								<tr>
-									<th width="5%">
-										 #
-									</th>
-									<th width="20%">
-										Custmer Email
-									</th>
-									<th class="numeric" width="15%">
-										 Status
-									</th>
+									<th width="5%">  # </th>
+									<th width="20%"> Custmer ID </th>
+									<th width="20%"> Custmer Email </th>
+									<th class="numeric" width="15%"> Status </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -101,6 +96,7 @@
 											?>
 											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['magento_id'] ?>"  >
 												<td><?php echo $no++ ;?></td>
+												<td><?php echo($d['magento_id'])?></td>
 												<td><?php echo($d['email'])?></td>
 												<td class="numeric respose_tag">Pending</td>
 											</tr>
@@ -145,7 +141,7 @@ function sendRquest()
 		jQuery('.start_process').find('.respose_tag').html('Please wait...');
 		jQuery('.start_process').addClass('processing');
 		$.ajax({
-			url: '<?php echo $this->config->site_url();?>/admin/customer2/customerimport',
+			url: '<?php echo $this->config->site_url();?>/admin/customer/customerImport',
 			data: {
 				code: code,
 				send:'yes'

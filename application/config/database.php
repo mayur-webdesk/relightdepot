@@ -53,7 +53,7 @@ $active_record = true;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'Admin@321';
+$db['default']['password'] = 'root';
 $db['default']['database'] = 'inventory_relightdepot';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
