@@ -1,0 +1,430 @@
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:53:14 America/Denver] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 7
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:55:57 America/Denver] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 211
+[03-Feb-2017 03:56:29 America/Denver] PHP Strict Standards:  Only variables should be passed by reference in /home/realcheapfloors/public_html/app/images/header.php on line 114
+[03-Feb-2017 04:06:49 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/realcheapfloors/public_html/app/images/import_product.php on line 47
+[03-Feb-2017 04:06:49 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/realcheapfloors/public_html/app/images/import_product.php on line 47
+[03-Feb-2017 04:06:50 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/realcheapfloors/public_html/app/images/import_product.php on line 47
+[03-Feb-2017 04:06:50 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/realcheapfloors/public_html/app/images/import_product.php on line 47
+[03-Feb-2017 04:06:50 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/realcheapfloors/public_html/app/images/import_product.php on line 47
+[07-Feb-2017 14:17:38 America/Denver] PHP Warning:  Unterminated comment starting line 26 in /home/realcheapfloors/public_html/app/images/import_product.php on line 26
+[07-Feb-2017 14:17:38 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 35
+[07-Feb-2017 14:17:38 America/Denver] PHP Warning:  Unterminated comment starting line 26 in /home/realcheapfloors/public_html/app/images/import_product.php on line 26
+[07-Feb-2017 14:17:38 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 35
+[07-Feb-2017 14:17:40 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[07-Feb-2017 14:17:43 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[07-Feb-2017 14:17:56 America/Denver] PHP Parse error:  syntax error, unexpected ''i' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 88
+[07-Feb-2017 14:17:58 America/Denver] PHP Parse error:  syntax error, unexpected ''i' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 88
+[07-Feb-2017 14:17:59 America/Denver] PHP Parse error:  syntax error, unexpected ''i' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 88
+[07-Feb-2017 14:17:59 America/Denver] PHP Parse error:  syntax error, unexpected ''i' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 88
+[07-Feb-2017 14:27:59 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 54
+[07-Feb-2017 14:28:02 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 54
+[07-Feb-2017 14:28:30 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 54
+[07-Feb-2017 14:28:32 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 54
+[07-Feb-2017 14:44:33 America/Denver] PHP Fatal error:  Cannot use object of type stdClass as array in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 133
+[07-Feb-2017 14:44:41 America/Denver] PHP Fatal error:  Cannot use object of type stdClass as array in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 133
+[07-Feb-2017 14:45:41 America/Denver] PHP Parse error:  syntax error, unexpected ']' in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 133
+[07-Feb-2017 14:45:43 America/Denver] PHP Parse error:  syntax error, unexpected ']' in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 133
+[07-Feb-2017 14:55:52 America/Denver] PHP Warning:  base64_encode() expects parameter 1 to be string, array given in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 139
+[07-Feb-2017 14:55:52 America/Denver] PHP Warning:  base64_encode() expects parameter 1 to be string, array given in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 139
+[07-Feb-2017 14:57:03 America/Denver] PHP Warning:  base64_encode() expects parameter 1 to be string, array given in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 139
+[07-Feb-2017 14:57:03 America/Denver] PHP Warning:  base64_encode() expects parameter 1 to be string, array given in /home/realcheapfloors/public_html/app/images/product_dashboard.php on line 139
+[07-Feb-2017 14:59:21 America/Denver] PHP Notice:  unserialize(): Error at offset 9 of 13 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 14:59:23 America/Denver] PHP Notice:  unserialize(): Error at offset 9 of 13 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 14:59:24 America/Denver] PHP Notice:  unserialize(): Error at offset 9 of 13 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 14:59:25 America/Denver] PHP Notice:  unserialize(): Error at offset 9 of 13 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:01:21 America/Denver] PHP Notice:  unserialize(): Error at offset 0 of 136 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:01:21 America/Denver] PHP Notice:  unserialize(): Error at offset 0 of 136 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:01:31 America/Denver] PHP Notice:  unserialize(): Error at offset 0 of 136 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:02:22 America/Denver] PHP Notice:  unserialize(): Error at offset 0 of 136 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:02:25 America/Denver] PHP Notice:  unserialize(): Error at offset 0 of 136 bytes in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:03 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:05 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:06 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:07 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:08 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:09 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:10 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:10 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:04:21 America/Denver] PHP Warning:  Unterminated comment starting line 61 in /home/realcheapfloors/public_html/app/images/import_product.php on line 61
+[07-Feb-2017 15:04:21 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 65
+[07-Feb-2017 15:04:40 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[07-Feb-2017 15:10:18 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 18
+[07-Feb-2017 15:10:21 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 18
+[07-Feb-2017 15:10:41 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 18
+[07-Feb-2017 15:10:42 America/Denver] PHP Warning:  Unterminated comment starting line 60 in /home/realcheapfloors/public_html/app/images/import_product.php on line 60
+[07-Feb-2017 15:10:42 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 63
+[07-Feb-2017 15:10:43 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 19
+[07-Feb-2017 15:32:21 America/Denver] PHP Parse error:  syntax error, unexpected ''metafields_global_description' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 56
+[07-Feb-2017 15:33:37 America/Denver] PHP Parse error:  syntax error, unexpected ''position' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 85
+[07-Feb-2017 15:33:39 America/Denver] PHP Parse error:  syntax error, unexpected ''position' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 85
+[07-Feb-2017 15:35:11 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 128
+[07-Feb-2017 15:40:35 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 124
+[07-Feb-2017 15:40:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 124
+[09-Feb-2017 10:53:42 America/Denver] PHP Parse error:  syntax error, unexpected ''p' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 58
+[13-Feb-2017 12:07:16 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:16 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:17 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:17 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:18 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:18 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:19 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:07:19 America/Denver] PHP Fatal error:  Call to undefined method stdClass::getproduct() in /home/realcheapfloors/public_html/app/images/import_product.php on line 129
+[13-Feb-2017 12:16:25 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:25 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:26 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:26 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:27 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:28 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[13-Feb-2017 12:16:28 America/Denver] PHP Fatal error:  Cannot use string offset as an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 123
+[15-Feb-2017 11:59:23 America/Denver] PHP Parse error:  syntax error, unexpected ')' in /home/realcheapfloors/public_html/app/images/import_product.php on line 136
+[15-Feb-2017 12:04:14 America/Denver] PHP Parse error:  syntax error, unexpected ''product import erro' (T_ENCAPSED_AND_WHITESPACE) in /home/realcheapfloors/public_html/app/images/import_product.php on line 187
+[15-Feb-2017 12:04:43 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[15-Feb-2017 12:05:58 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 114
+[15-Feb-2017 12:06:28 America/Denver] PHP Parse error:  syntax error, unexpected ''p' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/realcheapfloors/public_html/app/images/import_product.php on line 62
+[15-Feb-2017 12:29:10 America/Denver] PHP Notice:  Undefined variable: images_s in /home/realcheapfloors/public_html/app/images/import_product.php on line 192
+[15-Feb-2017 12:29:10 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 192
+[22-Feb-2017 07:19:16 America/Denver] PHP Warning:  array_merge(): Argument #2 is not an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[22-Feb-2017 07:19:18 America/Denver] PHP Warning:  array_merge(): Argument #2 is not an array in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[22-Feb-2017 07:31:18 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/images/import_product.php on line 80
+[22-Feb-2017 07:31:19 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/images/import_product.php on line 80
+[22-Feb-2017 07:31:20 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home/realcheapfloors/public_html/app/images/import_product.php on line 80
+[22-Feb-2017 07:35:36 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 66
+[22-Feb-2017 07:37:16 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[22-Feb-2017 07:45:32 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:32 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:34 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:34 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:34 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:34 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:45:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:39 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:39 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:41 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:42 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:58 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:58 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:58 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:58 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:46:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:21 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:21 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:21 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:21 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:22 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:47:23 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:33 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:34 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:34 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:34 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:34 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 07:48:40 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:27:24 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:24 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:25 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:25 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:26 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:26 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:26 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:27 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:27 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:27 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:28 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:28 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:28 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:28 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:29 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:29 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:29 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:30 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:30 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:30 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:31 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:31 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:31 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:32 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:32 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:32 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:33 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:33 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:33 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:34 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:34 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:34 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:35 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:35 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:35 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:27:36 America/Denver] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/realcheapfloors/public_html/app/images/import_product.php on line 24
+[22-Feb-2017 08:28:59 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:28:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:28:59 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:28:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:01 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:01 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:01 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:01 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:05 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:05 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:05 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:05 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:06 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:29:07 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:03 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:04 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:04 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 198
+[22-Feb-2017 08:31:04 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:31:04 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 211
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:31 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:32 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:37 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:38 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 5 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:39 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:44 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:45 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:45 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:45 America/Denver] PHP Notice:  Undefined offset: 4 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:45 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:59 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:40:59 America/Denver] PHP Notice:  Undefined offset: 1 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:40:59 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Undefined offset: 2 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 200
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Undefined offset: 3 in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 08:41:00 America/Denver] PHP Notice:  Trying to get property of non-object in /home/realcheapfloors/public_html/app/images/import_product.php on line 213
+[22-Feb-2017 09:02:02 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[22-Feb-2017 09:02:02 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[22-Feb-2017 09:02:02 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 191
+[22-Feb-2017 09:02:18 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[22-Feb-2017 09:02:18 America/Denver] PHP Fatal error:  Class 'Product' not found in /home/realcheapfloors/public_html/app/images/product_ajax.php on line 3
+[22-Feb-2017 09:02:18 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 64
+[22-Feb-2017 09:02:18 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/realcheapfloors/public_html/app/images/import_product.php on line 191
+[22-Feb-2017 09:06:38 America/Denver] PHP Notice:  Array to string conversion in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[22-Feb-2017 09:06:38 America/Denver] PHP Notice:  Undefined variable: Array in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[22-Feb-2017 09:06:41 America/Denver] PHP Notice:  Array to string conversion in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[22-Feb-2017 09:06:41 America/Denver] PHP Notice:  Undefined variable: Array in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[22-Feb-2017 09:06:43 America/Denver] PHP Notice:  Array to string conversion in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[22-Feb-2017 09:06:43 America/Denver] PHP Notice:  Undefined variable: Array in /home/realcheapfloors/public_html/app/images/import_product.php on line 153
+[25-Feb-2017 00:20:15 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/images/import_product.php on line 316
+[25-Feb-2017 00:20:16 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/images/import_product.php on line 316
+[25-Feb-2017 00:20:20 America/Denver] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/realcheapfloors/public_html/app/images/import_product.php on line 316
+[25-Feb-2017 00:26:33 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home/realcheapfloors/public_html/app/images/import_product.php on line 181
+[25-Feb-2017 01:09:33 America/Denver] PHP Parse error:  syntax error, unexpected '$postdata' (T_VARIABLE) in /home/realcheapfloors/public_html/app/images/import_product.php on line 286
+[25-Feb-2017 01:10:23 America/Denver] PHP Parse error:  syntax error, unexpected '$postdata' (T_VARIABLE) in /home/realcheapfloors/public_html/app/images/import_product.php on line 286
+[25-Feb-2017 01:10:29 America/Denver] PHP Parse error:  syntax error, unexpected '$postdata' (T_VARIABLE) in /home/realcheapfloors/public_html/app/images/import_product.php on line 286
