@@ -27,45 +27,27 @@ class customermodel extends CI_Model{
 	
 	function getcountryname($code)
 	{
-		$query = $this->db->query("select nicename from ".$this->country_table." where iso3 = '".$code."'");
+		$query = $this->db->query("select nicename from ".$this->country_table." where iso = '".$code."'");
 		$country_data  = $query->row_array();
 		return $country_data;
 	}
 	
-	function updatecustomerstatus($email,$customer_id)
-	{
-		$this->db->query("UPDATE ".$this->customer_table." SET status = 'yes',bc_customer_id = '".$customer_id."' WHERE email = '".$email."'");
+	function updateCustomerStatus($magento_id,$bc_customer_id) {
+
+		$this->db->query("UPDATE ".$this->customer_table." SET status = 'yes', bc_customer_id = '".$bc_customer_id."' WHERE magento_id = '".$magento_id."'");
 	}
 	
-	function CustomerAddressError($createcustomer_address,$email)
-	{
-		$this->db->query("UPDATE ".$this->customer_table." SET address_error = '".$createcustomer_address."' WHERE email = '".$email."'");
+	function CustomerAddressError($magento_id,$error) {
+
+		$this->db->query("UPDATE ".$this->customer_table." SET add_error = '".$error."' WHERE magento_id = '".$magento_id."'");
 	}
-	
-	function updatestatus($customer_id)
-	{
-		$this->db->query("UPDATE ".$this->customer_reset_password." SET status = 'yes' WHERE customer_id = '".$customer_id."'");
-	}
-	
-	function getcustomerresetpassword()
-	{
-		$query = $this->db->query("select * from ".$this->customer_reset_password."");
-		$customer_data  = $query->result_array();
-		return $customer_data;
-	}
-	
-	function customerupdate($bc_customer_id,$mg_customer_id,$status,$error)
-	{
-		//$this->db->query("UPDATE `shopify_customer_order` SET status = '".$status."' WHERE magento_id = '".$mg_customer_id."'");
-		$this->db->query("UPDATE ".$this->customer_table." SET status = '".$status."', bc_customer_id = '".$bc_customer_id."',error= '".$error."' WHERE magento_id = '".$mg_customer_id."'");
+		
+	function updateCustomerError($magento_id, $error) {
+		
+		$this->db->query("UPDATE ".$this->customer_table." SET error = '".$error."' WHERE magento_id = '".$magento_id."'");
 		
 	}
-	
-	function customernewupdate($bc_customer_id,$mg_customer_id,$status,$error)
-	{
-		$this->db->query("UPDATE customer_order_count SET status = '".$status."', bc_customer_id = '".$bc_customer_id."',error= '".$error."' WHERE magento_id = '".$mg_customer_id."'");
-	}
-	
+		
 	function customerinsert($data){
 		$this->db->insert($this->customer_table,$data);
 		return true;

@@ -42,8 +42,8 @@ class Customer extends CI_controller{
 			'wsdl_cache' => WSDL_CACHE_NONE,
 		);
 		
-		$proxy 		  = new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options);
-		$sessionId    = $proxy->login('DataMigration', 'admin@321');
+		$proxy 		  	= new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options);
+		$sessionId    	= $proxy->login('DataMigration', 'admin@321');
 		$attributeSets  = $proxy->call($sessionId, 'customer.list');
 		$set = current($attributeSets);
 		$customer_details = array();
@@ -137,6 +137,10 @@ class Customer extends CI_controller{
 			
 			$customer_details = $proxy->call($sessionId,'customer.info', $customer_id);
 			
+			// echo '<pre>';
+			// print_r($customer_details);
+			// exit;
+
 			$getCustomerAddress = array(); 
 
 			if(isset($customer_details) && !empty($customer_details)){
@@ -193,27 +197,33 @@ class Customer extends CI_controller{
 					$customer_array['company'] = trim($getCustomerAddress[0]['company']);
 				}
 				// email
-				$customer_array['email'] = '';
-				if(isset($customer_details['email']) && !empty($customer_details['email'])){
-					$customer_array['email'] = trim($customer_details['email']);
-				}
-				// email
-				$customer_array['customer_group_id'] = 0;
-				if(isset($customer_details['email']) && !empty($customer_details['email'])){
+				$customer_array['email'] = 'development.qatesting@gmail.com';
+				// if(isset($customer_details['email']) && !empty($customer_details['email'])){
+				// 	$customer_array['email'] = trim($customer_details['email']);
+				// }
+				// customer_group_id
+				$group_id = 0;
+				if(isset($customer_details['group_id']) && !empty($customer_details['group_id'])){
 										
-					$customer_array['customer_group_id'] = trim($customer_details['email']);
+					if ($customer_details['group_id'] == 0) {
+						$group_id = 3;
+					} elseif($customer_details['group_id'] == 1) {
+						$group_id = 1;
+					} elseif($customer_details['group_id'] == 2) {
+						$group_id = 2;
+					} elseif($customer_details['group_id'] == 3) {
+						$group_id = 4;
+					}				
 				}
+				$customer_array['customer_group_id'] = trim($customer_details['group_id']);
+				
 				// phone				
 				$customer_array['phone'] = '';
 				if(isset($getCustomerAddress[0]['telephone']) && !empty($getCustomerAddress[0]['telephone'])){
 					$customer_array['phone'] = trim($getCustomerAddress[0]['telephone']);
 				}
 
-
-
-
-				$notes = '';
-			
+				$notes = '';			
 				if(isset($customer_id) && !empty($customer_id)){
 					$notes	  .=  "Magento Customer ID: ".$customer_id."\n";
 				}				
@@ -232,199 +242,119 @@ class Customer extends CI_controller{
 				if(isset($customer_details['rp_token_created_at']) && !empty($customer_details['rp_token_created_at'])){
 					$notes	  .= "rp_token_created_at: ".date('Y-m-d H:i:s',strtotime($customer_details['rp_token_created_at']))."\n";
 				}	
-				$customer_array['notes']						  = $notes;	
+				$customer_array['notes'] = $notes;	
 
+				// echo '<pre>';
+				// print_r($customer_array); 
+				// echo '<pre>';
+				// print_r($getCustomerAddress); 
+				// exit;
+				$CustomerAddrdata = array();
 
+				if(isset($getCustomerAddress) && !empty($getCustomerAddress)){
 
+					$i = 0;
+					foreach($getCustomerAddress as $Address) {
 
-				$api_url = $storeurl_shopify.'/admin/customers/search.json?query=email:'.$customer_email.'';
-				$ch = curl_init($api_url);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));		
-				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); 
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0 ); 
-				curl_setopt($ch, CURLOPT_USERPWD, $shopify_key.':'.$shopify_pw ); 
-				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0 );
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );   
-				$res_fulment = curl_exec($ch);
-				$customer_check = json_decode($res_fulment); 
-			
-				if(isset($customer_check->customers[0]->id) && !empty($customer_check->customers[0]->id)) {
-					
-					echo $customer_check->customers[0]->id. ' - Customer Allredy exist';
-					$error =  'Customer Allredy exist';
-					$status = 'no';
-					$this->customermodel->customerupdate($customer_check->customers[0]->id,$code,$status,$error);
-				
-				} else {
-				
-					$customerdata = array();
-					$customerdata['customer']['first_name'] 			  	  = $customer_firstname;
-					$customerdata['customer']['last_name'] 				  	  = $customer_lastname;
-					$customerdata['customer']['email'] 					 	  = $customer_email;
-					//$customerdata['customer']['phone'] 					 	  = $customer_phonenumber;
-					$customerdata['customer']['tags'] 					 	  = 'General';
-
-					$customerdata['customer']['password'] 					  = $password;
-					$customerdata['customer']['password_confirmation'] 		  = $password;
-					$customerdata['customer']['send_email_welcome'] 		  = false;
-					
-					$notes = '';
-					if(isset($customer_note) && !empty($customer_note)){
-						$notes	  .=  $customer_note."\n";
-					}
-
-					if(isset($code) && !empty($code)){
-						$notes	  .=  "Magento Customer ID: ".$code."\n";
-					}
-
-					if(isset($customer_details['authnetcim_profile_version']) && !empty($customer_details['authnetcim_profile_version'])){
-						$notes	  .=  "Authnetcim profile version: ".$customer_details['authnetcim_profile_version']."\n";
-					}
-					if(isset($customer_details['dob']) && !empty($customer_details['dob'])){
-						$notes	  .= "Customer DOB: ".$customer_details['dob']."\n";
-					}	
-					
-					if(isset($customer_details['gender']) && !empty($customer_details['gender'])){
-						$notes	  .= "Gender: ".$customer_details['gender']."\n";
-					}	
-
-					if(isset($customer_details['rp_token']) && !empty($customer_details['rp_token'])){
-						$notes	  .= "rp_token: ".$customer_details['rp_token']."\n";
-					}	
-
-					if(isset($customer_details['rp_customer_id']) && !empty($customer_details['rp_customer_id'])){
-						$notes	  .= "rp_customer_id: ".$customer_details['rp_customer_id']."\n";
-					}	
-
-					if(isset($customer_details['rp_token_created_at']) && !empty($customer_details['rp_token_created_at'])){
-						$notes	  .= "rp_token_created_at: ".date('Y-m-d H:i:s',strtotime($customer_details['rp_token_created_at']))."\n";
-					}	
-
-					$customerdata['customer']['note']						  = $notes;	
-					$customerdata['customer']['verified_email'] 			  = false;
-					$customerdata['customer']['created_at'] 			  	  = date('Y-m-d H:i:s',strtotime($customer_details['created_at']));
-					 
-					if(isset($getCustomerAddress) && !empty($getCustomerAddress))
-					{
-						$i = 0;
-						foreach($getCustomerAddress as $getCustomerAddresss)
-						{
-							$customerdata['customer']['addresses'][$i]['first_name']  = $getCustomerAddresss['firstname'];
-							$customerdata['customer']['addresses'][$i]['last_name']   = $getCustomerAddresss['lastname'];
-							$customerdata['customer']['addresses'][$i]['company'] 	  = $getCustomerAddresss['company'];
-							$customerdata['customer']['addresses'][$i]['address1'] 	  = $getCustomerAddresss['street'];
-							$customerdata['customer']['addresses'][$i]['address2'] 	  = '';
-							$customerdata['customer']['addresses'][$i]['city'] 		  = $getCustomerAddresss['city'];			
-							$customerdata['customer']['addresses'][$i]['country'] 	  = $this->getcountryname($getCustomerAddresss['country_id']);
-							$customerdata['customer']['addresses'][$i]['province'] 	  = $getCustomerAddresss['region'];
-							$customerdata['customer']['addresses'][$i]['phone'] 	  = $getCustomerAddresss['telephone'];
-							$customerdata['customer']['addresses'][$i]['zip']		  = $getCustomerAddresss['postcode'];
+						$CustomerAddrdata[$i]['first_name']   = $Address['firstname'];
+						$CustomerAddrdata[$i]['last_name']    = $Address['lastname'];
+						$CustomerAddrdata[$i]['company'] 	  = $Address['company'];
+						$CustomerAddrdata[$i]['street_1'] 	  = $Address['street'];
+						$CustomerAddrdata[$i]['street_2'] 	  = '';
+						$CustomerAddrdata[$i]['city'] 		  = $Address['city'];			
+						$CustomerAddrdata[$i]['state'] 	  	  = $Address['region'];
+						$CustomerAddrdata[$i]['zip']		  = $Address['postcode'];
+						$CustomerAddrdata[$i]['country'] 	  = $this->getcountryname($Address['country_id']);
+						$CustomerAddrdata[$i]['phone'] 	  	  = $Address['telephone'];
+					 	
 						$i++;
+					}
+				}	
+
+				// if(isset($CustomerAddrdata) && !empty($CustomerAddrdata)){
+				// 	foreach($CustomerAddrdata as $CustomerAddress){
+				// 		echo '<pre>';
+				// 		print_r($CustomerAddress);
+				// 	}
+				// }
+
+				try	{
+					$Customer = Bigcommerce::createCustomer($customer_array);
+						if(isset($Customer) && empty($Customer)) {
+							throw new Exception('Bigcommerce\Api\Error');
+						} else {
+	
+						echo $Customer->id.' - Customer import succesfully..<br>';
+					
+						$this->customermodel->updateCustomerStatus($customer_id,$Customer->id);
+						
+						$customer_address = array();
+						if(isset($Customer->id) && !empty($Customer->id)){
+							
+							if(isset($CustomerAddrdata) && !empty($CustomerAddrdata)) {
+
+								foreach($CustomerAddrdata as $CustomerAddress) {
+									
+									try	{
+
+										$Customeradd = Bigcommerce::createCustomeraddress($Customer->id,$CustomerAddress);
+										if(isset($Customeradd) && empty($Customeradd)) {
+											throw new Exception('Bigcommerce\Api\Error');
+										} else {
+											
+											echo $Customer->id.' - Customer import successfully with address...<br>';
+										}
+									} catch(Exception $error) {
+
+										$error1 = $error->getMessage();
+										$error2 = 'Customer - '. $this->db->escape_str($error1);
+
+										echo $error2.'<br>';
+
+										$this->customermodel->CustomerAddressError($customer_id, $error2);							
+									}
+								}
+
+							} else {
+
+								$error1 = 'No Customer Address Found';
+								
+								echo $error1.'<br>';
+
+								$this->customermodel->CustomerAddressError($customer_id, $error1);
+							} 
 						}
 					}
+			
+				} catch(Exception $error) {
+					
+					$error1 = $error->getMessage();
+					$error2 = $this->db->escape_str($error1);					
 
-					$api_url = $storeurl_shopify.'/admin/customers.json';
-					$ch = curl_init($api_url);
-					curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));	
-					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");   
-					curl_setopt($ch, CURLOPT_USERPWD, $shopify_key.':'.$shopify_pw ); 
-					curl_setopt($ch, CURLOPT_HEADER, false);
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-					curl_setopt($ch, CURLOPT_POST, true);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($customerdata));
-					$res = curl_exec($ch);
-					$response = json_decode($res);
-				//echo "<pre>";
-				//print_r($response);
-					if(isset($response->customer->id) && !empty($response->customer->id))
-					{
-						$status = "yes";
-						$this->customermodel->customerupdate($response->customer->id,$code,$status,'');
-						$this->customermodel->customernewupdate($response->customer->id,$code,$status,'');
-						echo  $response->customer->id.' - Customer import sucessfully';
-					}else{
-						$shopify_customer_id = 0;
-						$status = "no";
-						$error = json_encode($response);
-						$this->customermodel->customerupdate($shopify_customer_id,$code,$status,$error);
-						$this->customermodel->customernewupdate($shopify_customer_id,$code,$status,$error);
-						echo $error;
-					}
+					$this->customermodel->updateCustomerError($customer_id, $error2);
+				
+					echo $error1.'<br>';
 				}
-		  	}else{
-	  				$shopify_customer_id = 0;
-					$status = "no";
-					$error = "No Customer Found";
-					$this->customermodel->customerupdate($shopify_customer_id,$code,$status,$error);
 
-		  		echo "No Customer Found";
+		  	} else {
+
+				$error = "No Customer Found";
+				$this->customermodel->updateCustomerError($customer_id, $error);
+
+		  		echo $error;
 		  	}
 			exit;
-			// try	{
-			// 	$Customer = Bigcommerce::createCustomer($customer_data);
-	        // 		if(isset($Customer) && empty($Customer)) {
-	        //     	throw new Exception('Bigcommerce\Api\Error');
-	       	//  	} else {
-
-			// 		echo $Customer->id.' - Customer import succesfully..<br>';
-			// 		$message = 'Customer import succesfully...';
-			// 		$this->customermodel->updatecustomerstatus($customer_id,$Customer->id,$message);
-					
-			// 		$customer_address = array();
-			// 		if(isset($Customer->id) && !empty($Customer->id)){
-						
-			// 			$customer_address['first_name'] = $customer_firstname;
-			// 			$customer_address['last_name']	= $customer_lastname;
-			// 			$customer_address['company']	= $customer_companyname;
-			// 			$customer_address['street_1'] 	= $customer_address1;
-			// 			$customer_address['street_2'] 	= $customer_address2;
-			// 			$customer_address['city']		= $customer_city;
-			// 			$customer_address['state']		= $customer_state;
-			// 			$customer_address['zip']		= $customer_zipcode;
-			// 			$customer_address['country']	= $customer_country;
-			// 			$customer_address['phone']		= $customer_phonenumber;
-						
-			// 			try	{
-			// 				$Customeradd = Bigcommerce::createCustomeraddress($Customer->id,$customer_address);
-			// 	        	if(isset($Customeradd) && empty($Customeradd)) {
-			// 	            	throw new Exception('Bigcommerce\Api\Error');
-			// 	       	 	} else {
-			// 	       	 		$error2 = 'Customer import successfully with address...';
-			// 	       	 		echo $Customer->id.' - Customer import successfully with address...<br>';
-
-			// 	       	 		$this->customermodel->updateCustoAddMessage($customer_id, $error2);					       	 		
-			// 				}
-			//        	 	} catch(Exception $error) {
-			// 				$error1 = $error->getMessage();
-			// 				$error2 = 'Customer - '.$this->db->escape_str($error1);
-
-			// 				echo $error2.'<br>';
-
-			// 				$this->customermodel->updateCustoAddMessage($customer_id, $error2);							
-			// 			}
-			// 		}
-			// 	}		
-			// } catch(Exception $error) {
-			// 	$error1 = $error->getMessage();
-			// 	$error2 = $this->db->escape_str($error1);
-			// 	$this->customermodel->updatecustomerMessage($customer_id, $error2);
-			
-			// 	echo $error1.'<br>';
-			// }
 		}
 	}
 
-
     function getcountryname($c_code){
+
 		$country_name = $this->customermodel->getcountryname($c_code);
 		if(isset($country_name) && !empty($country_name)){
 			return $country_name['nicename'];
 		}else{
 			return $c_code;
 		}
-
 	}
 
 	function randomPassword() {
@@ -438,8 +368,6 @@ class Customer extends CI_controller{
 		 return $password;
 	}
 	
-	
-
 	function updateMycustomer(){
 		$customer = $this->customermodel->getMylcustomer();
 		foreach ($customer as $cus) {
