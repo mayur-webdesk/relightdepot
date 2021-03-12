@@ -49,9 +49,6 @@ class Customer extends CI_controller{
 		$customer_details = array();
 		$customer_details = $proxy->call($sessionId, 'customer.list');
 		
-		// echo '<pre>';
-		// print_r($customer_details);
-		// exit;
 
 		$ins_customer = array();
 		if(isset($customer_details) && !empty($customer_details)) {
@@ -197,10 +194,11 @@ class Customer extends CI_controller{
 					$customer_array['company'] = trim($getCustomerAddress[0]['company']);
 				}
 				// email
-				$customer_array['email'] = 'development.qatesting@gmail.com';
-				// if(isset($customer_details['email']) && !empty($customer_details['email'])){
-				// 	$customer_array['email'] = trim($customer_details['email']);
-				// }
+				// $customer_array['email'] = 'development.qatesting@gmail.com';
+				$customer_array['email'] = '';
+				if(isset($customer_details['email']) && !empty($customer_details['email'])){
+					$customer_array['email'] = trim($customer_details['email']);
+				}
 				// customer_group_id
 				$group_id = 0;
 				if(isset($customer_details['group_id']) && !empty($customer_details['group_id'])){
@@ -244,11 +242,6 @@ class Customer extends CI_controller{
 				}	
 				$customer_array['notes'] = $notes;	
 
-				// echo '<pre>';
-				// print_r($customer_array); 
-				// echo '<pre>';
-				// print_r($getCustomerAddress); 
-				// exit;
 				$CustomerAddrdata = array();
 
 				if(isset($getCustomerAddress) && !empty($getCustomerAddress)){
@@ -277,6 +270,12 @@ class Customer extends CI_controller{
 				// 		print_r($CustomerAddress);
 				// 	}
 				// }
+
+				// echo '<pre>';
+				// print_r($customer_array); 
+				// echo '<pre>';
+				// print_r($getCustomerAddress); 
+				// exit;
 
 				try	{
 					$Customer = Bigcommerce::createCustomer($customer_array);
