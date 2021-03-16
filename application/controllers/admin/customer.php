@@ -213,7 +213,7 @@ class Customer extends CI_controller{
 						$group_id = 4;
 					}				
 				}
-				$customer_array['customer_group_id'] = trim($customer_details['group_id']);
+				$customer_array['customer_group_id'] = trim($group_id);
 				
 				// phone				
 				$customer_array['phone'] = '';
