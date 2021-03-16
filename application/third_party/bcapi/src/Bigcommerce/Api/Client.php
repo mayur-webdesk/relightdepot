@@ -507,6 +507,8 @@ class Client
         return self::createResource('/products/' . $product_id . '/discount_rules', $object);
     }
 
+    
+
     /**
      * Returns a single custom field by given id
      * @param  int $product_id product id
@@ -603,6 +605,12 @@ class Client
     public static function createProduct($object)
     {
         return self::createResource('/products', $object);
+    }
+
+
+    public static function createBlogs($object)
+    {
+        return self::createResource('/blog/posts', $object);
     }
 
     /**
