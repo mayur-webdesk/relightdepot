@@ -8,9 +8,14 @@ class ordermodel extends CI_Model{
 		$this->country       		= "country";
 	
 	}
-	public function UpdateOrderStatus($shopify_order_id,$magento_order_id,$email,$status,$error)
+	public function UpdateOrderStatus($magento_order_id,$bc_order_id)
 	{
-		$query = $this->db->query("UPDATE ".$this->order_table." SET `shopify_order_id` = '".$shopify_order_id."',`status` = '".$status."',`email`='".$email."',`error`='".$error."' WHERE magento_order_id = '".$magento_order_id."'");
+		$query = $this->db->query("UPDATE ".$this->order_table." SET `bc_order_id` = '".$bc_order_id."',`order_update_status` = 'yes' WHERE orderIncrementId = '".$magento_order_id."'");
+	}
+
+	public function updateErrorMessage($magento_order_id,$error)
+	{
+		$query = $this->db->query("UPDATE ".$this->order_table." SET `error` = '".$error."' WHERE orderIncrementId = '".$magento_order_id."'");
 	}
 
 	public function updateorderShopifystatus($shopify_order_id,$status)
@@ -25,10 +30,11 @@ class ordermodel extends CI_Model{
 		{
 			$import_order[] = array(
 				"order_id"            => $orderdata_s['order_id'],
-				"bc_order_id"         => "",
+				"email"        		  => $orderdata_s['customer_email'],
 				"order_status" 		  => $orderdata_s['status'],
+				"orderIncrementId"    => $orderdata_s['increment_id'],
 				"order_update_status" => "no",
-				"orderIncrementId"    => $orderdata_s['increment_id']
+				"bc_order_id"         => ""
 			);
 		}
 		if(isset($import_order) && !empty($import_order)){
@@ -39,7 +45,7 @@ class ordermodel extends CI_Model{
 	public function GetOrdersDB()
 	{
 		//$query = $this->db->query("select * from ".$this->order_table." WHERE order_update_status IN('yes') ORDER BY order_status ASC");
-		$query = $this->db->query("select * from ".$this->order_table." WHERE `status`='no' and error='' order by id ASC limit 0,1400");
+		$query = $this->db->query("select * from ".$this->order_table." WHERE `order_update_status`='no' and error='' ");
 		$order_data  = $query->result_array();
 		return $order_data;
 	}
@@ -67,6 +73,12 @@ class ordermodel extends CI_Model{
 		return $order_data;
 	}
 
+	public function getOrderEQid($order_id)
+	{
+		$query = $this->db->query("select order_id from ".$this->order_table." WHERE `orderIncrementId`= '".$order_id."'");
+		$data = $query->row_array();
+		return $data['order_id'];
+	}
 
 	public function getGeneralSetting()
 	{
@@ -113,7 +125,7 @@ class ordermodel extends CI_Model{
 
 	function getcountryname($code)
 	{
-		$query = $this->db->query("select nicename from ".$this->country_table." where iso3 = '".$code."'");
+		$query = $this->db->query("select nicename from ".$this->country." where iso = '".$code."'");
 		$country_data  = $query->row_array();
 		return $country_data;
 	}
