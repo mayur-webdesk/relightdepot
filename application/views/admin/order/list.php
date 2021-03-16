@@ -104,10 +104,10 @@
 										foreach($order_data as $d) 
 										{	
 											?>
-											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['magento_order_id'] ?>" data-column="<?php echo $no; ?>"  >
+											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['orderIncrementId'] ?>" data-column="<?php echo $no; ?>"  >
 												<td><?php echo $no++ ;?></td>
-												<td><?php echo($d['magento_order_id'])?></td>
-												<td><?php echo($d['magento_status'])?></td>
+												<td><?php echo($d['orderIncrementId'])?></td>
+												<td><?php echo($d['order_status'])?></td>
 												<td class="numeric respose_tag">Pending</td>
 											</tr>
 											<?php 
