@@ -256,6 +256,13 @@ class Productmodel extends CI_Model{
 		return $data['label'];
 	}
 
+	function getManufactures($manufacturer)
+	{
+		$query = $this->db->query("select label from manufacturer where value = '".$manufacturer."'");
+		$data = $query->row_array();
+		return $data['label'];
+	}
+
 	function getapplication($application)
 	{
 		$explode_app = explode(',',$application);
@@ -289,39 +296,39 @@ class Productmodel extends CI_Model{
 
 	function getOptionValue($table,$value,$bcproductid)
 	{
-		$query = $this->db->query("select label from ".$table." where value = '".$value."'");
-		$magento_v = $query->row_array();
-		
-		if(isset($magento_v) && !empty($magento_v))
-		{
-			$query = $this->db->query("select * from `option_values` where option_value = '".$magento_v['label']."' and product_id = '".$bcproductid."'");
-			return $query->row_array();
-		}
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
 	}
 
 	
 	function getOptionValue1($table,$value,$bcproductid)
 	{
-		$query = $this->db->query("select label from ".$table." where value = '".$value."'");
-		$magento_v = $query->row_array();
-
-		if(isset($magento_v) && !empty($magento_v))
-		{
-			$query = $this->db->query("select * from `option_values` where option_value = '".$magento_v['label']."' and product_id = '".$bcproductid."'");
-			return $query->row_array();
-		}
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
 	}
 
 	function getOptionValue2($table,$value,$bcproductid)
 	{
-		$query = $this->db->query("select label from ".$table." where value = '".$value."'");
-		$magento_v = $query->row_array();
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
+	}
 
-		if(isset($magento_v) && !empty($magento_v))
-		{
-			$query = $this->db->query("select * from `option_values` where option_value = '".$magento_v['label']."' and product_id = '".$bcproductid."'");
-			return $query->row_array();
-		}
+	function getOptionValue3($table,$value,$bcproductid)
+	{
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
+	}
+
+	function getOptionValue4($table,$value,$bcproductid)
+	{
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
+	}
+
+	function getOptionValue5($table,$value,$bcproductid)
+	{
+		$query = $this->db->query("select * from `option_values` where option_name = '".$this->db->escape_str($table)."' and option_value = '".$this->db->escape_str($value)."' and product_id = '".$bcproductid."'");
+		return $query->row_array();
 	}
 
 	function updateSKUstatus($product_id)
@@ -337,6 +344,11 @@ class Productmodel extends CI_Model{
 	function updateTireProduct($product_id)
 	{
 		$query = $this->db->query("UPDATE `products` SET tire_price = 'yes' where product_id = '".$product_id."'");
+	}
+
+	function updateOptionCount($product_id,$count)
+	{
+		$query = $this->db->query("UPDATE `products` SET count = '".$count."' where product_id = '".$product_id."'");
 	}
 
 	function getCategory($category_id)

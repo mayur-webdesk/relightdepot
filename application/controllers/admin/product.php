@@ -235,6 +235,47 @@ class Product extends CI_controller{
 		 }
 		 return $password;
 	}
+
+	function get_combinations($arrays) {
+		$result = array();
+		$arrays = array_values($arrays);
+		$sizeIn = sizeof($arrays);
+		$size = $sizeIn > 0 ? 1 : 0;
+		foreach ($arrays as $array)
+			$size = $size * sizeof($array);
+		for ($i = 0; $i < $size; $i ++)
+		{
+			$result[$i] = array();
+			for ($j = 0; $j < $sizeIn; $j ++)
+				array_push($result[$i], current($arrays[$j]));
+			for ($j = ($sizeIn -1); $j >= 0; $j --)
+			{
+				if (next($arrays[$j]))
+					break;
+				elseif (isset ($arrays[$j]))
+					reset($arrays[$j]);
+			}
+		}
+		return $result;
+	}
+
+
+	function getProductOptionSKUs($product_id,$label)
+	{
+		$api_url = 'https://relightdepot.com/getCustomDropDownOptInfoByIdAndValue.php?pid='.$product_id.'&optvalue='.str_replace(' ','%20',$label);
+				
+		$ch = curl_init($api_url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$res_fulment = curl_exec($ch);
+		$get_option_data = json_decode($res_fulment);
+		$option_result = $get_option_data->values;
+
+		return $option_result;
+	}
 	
 	function importproduct()
 	{
@@ -252,17 +293,18 @@ class Product extends CI_controller{
 		// Display error exception on
 		Bigcommerce::failOnError();
 	
-		$options = array(
+		$options_data = array(
 			'trace' => true,
 			'connection_timeout' => 120000000000,
 			'wsdl_cache' => WSDL_CACHE_NONE,
 		);
 	
-		$proxy 		  	= new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options);
+		$proxy 		  	= new SoapClient('https://relightdepot.com/api/soap/?wsdl=1',$options_data);
 		$sessionId    	= $proxy->login('DataMigration', 'admin@321');
 
 		$product_id = $this->input->get('code');
 
+		//$api_url = 'https://relightdepot.com/getCustomDropDownOptInfo.php?pid='.$product_id;
 		$api_url = 'https://relightdepot.com/getPids.php?pid='.$product_id;
 		$ch = curl_init($api_url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -273,10 +315,6 @@ class Product extends CI_controller{
 		$res_fulment = curl_exec($ch);
 		$product = json_decode($res_fulment);
 		$product_details = $product->product_info;
-
-		/* echo '<pre>';
-		print_r($product_details);
-		exit; */
 
 		$category = $proxy->call($sessionId, 'catalog_product.info', $product_id);
 
@@ -318,6 +356,12 @@ class Product extends CI_controller{
 			$SalePrice 	= number_format($product_details->special_price,2,'.','');
 		}
 
+		$CostPrice = 0.00;
+		if(isset($product_details->cost) && !empty($product_details->cost))
+		{
+			$CostPrice 	= number_format($product_details->cost,2,'.','');
+		}
+
 		$ListPrice = 0.00;
 		if(isset($product_details->msrp) && !empty($product_details->msrp)){
 
@@ -326,7 +370,7 @@ class Product extends CI_controller{
 
 		$ProductWeight = 0;
 		if(isset($product_details->weight) && !empty($product_details->weight)){
-			$ProductWeight = $product_details->weight;
+			$ProductWeight = number_format($product_details->weight,2,'.','');
 		}
 
 		$Productwidth = '0';
@@ -1117,12 +1161,40 @@ class Product extends CI_controller{
 			$mg_product_url = '/'.$product_details->url_key.'/';
 		}
 
+		$inventory_tracking = 'none';
+		if(isset($product->stock_details[0]->manage_stock) && !empty($product->stock_details[0]->manage_stock))
+		{
+			$inventory_tracking = 'simple';
+		}
+
+		
+		$BrandID = 0;
+		if(isset($product_details->manufacturer) && !empty($product_details->manufacturer))
+		{
+			$getmanufacture = $this->productmodel->getManufactures($product_details->manufacturer);
+			
+			$getBrand = Bigcommerce::getBrands(array('name' => $getmanufacture));
+		
+			if(isset($getBrand) && !empty($getBrand)) 
+			{
+				$BrandID = $getBrand[0]->id;
+			}else if(isset($getmanufacture) && !empty($getmanufacture)){
+
+				$data = array();
+				$data['name'] = $getmanufacture;
+
+				$CreateBrand = Bigcommerce::createBrand($data);
+				$BrandID = $CreateBrand->id;
+			}
+		}
+
 		// Get Option set id in DB
 		$product_detailsp['name'] 						= $ProductName;
 		$product_detailsp['sku'] 						= $ProductCode;
 		$product_detailsp['type'] 						= 'physical';
 		$product_detailsp['price']						= $ProductPrice;
 		$product_detailsp['sale_price'] 				= $SalePrice;
+		$product_detailsp['cost_price'] 				= $CostPrice;
 		$product_detailsp['retail_price'] 				= $ListPrice;
 		$product_detailsp['weight']						= $ProductWeight;
 		$product_detailsp['width'] 						= $Productwidth; 
@@ -1133,8 +1205,9 @@ class Product extends CI_controller{
 		$product_detailsp['description'] 				= $ProductDescription;
 		$product_detailsp['warranty'] 					= $Productwarranty;
 		$product_detailsp['availability'] 				= 'available';
-		$product_detailsp['inventory_tracking'] 		= 'none';
+		$product_detailsp['inventory_tracking'] 		= $inventory_tracking;
 		$product_detailsp['inventory_level'] 			= $StockStatus;
+		$product_detailsp['brand_id'] 						= $BrandID;
 		if(isset($mg_product_url) && !empty($mg_product_url))
 		{
 			$product_detailsp['custom_url'] 					= $mg_product_url;
@@ -1151,7 +1224,7 @@ class Product extends CI_controller{
 				$product_url 		= $product_create->custom_url;
 			
 				$this->productmodel->UpdateProductStatusp($bcproductid,$product_url,$product_id);	
-				echo "Product Create Successfully...<br>";
+				echo $bcproductid." - Product Create Successfully...<br>";
 			}
 
 		}catch(Exception $error) {
@@ -1170,7 +1243,8 @@ class Product extends CI_controller{
 					$image_data['image_file'] 	= 'https://relightdepot.com/media/catalog/product'.$images->file;
 					$image_data['description'] 	= $images->label;
 					$image_data['sort_order'] 	= $images->position;
-					if($i == 0)
+					
+					if($product_details->thumbnail == $images->file)
 					{
 						$image_data['is_thumbnail'] = true;
 					}else{
@@ -1181,7 +1255,7 @@ class Product extends CI_controller{
 					
 				$i++;
 				}
-				echo "Image Create Successfully...<br>";
+				echo $bcproductid." - Image Create Successfully...<br>";
 			}
 
 			if(isset($product_details->application) && !empty($product_details->application))
@@ -1334,6 +1408,403 @@ class Product extends CI_controller{
 			if(isset($product_details->tier_price) && !empty($product_details->tier_price))
 			{
 				$this->productmodel->updateTireProduct($product_id);
+			}
+
+			if(isset($product->custom_options) && !empty($product->custom_options))
+			{
+				$product_options = $product->custom_options;
+				
+				$o = 0;
+				$option_values = array();
+				foreach ($product_options as $key => $attributes) {
+
+					$options[$o]['name'] 			= $bcproductid.'_'.trim($key);
+					$options[$o]['sort_order'] 		= $o;
+					$options[$o]['display_name'] 	= $key;
+					$options[$o]['type'] 			= 'dropdown';
+				
+					$ov = 0;
+					$options_value = array();
+					foreach ($attributes as $option) {
+						
+						$options_value[$ov]['label'] 		= trim($option->title);
+						$options_value[$ov]['sort_order'] 	= $option->sort_order;
+						$options_value[$ov]['is_default'] 	= false;
+					$ov++;
+					}
+
+					if(isset($options_value) && !empty($options_value))
+					{
+						$options[$o]['option_values'] 	= $options_value;
+
+						$option_values[$o] = $options_value;
+					}
+				$o++;
+				}
+
+				$optiondata = $this->get_combinations($option_values);
+
+				$count = count($optiondata);
+				
+				if($count < 600)
+				{
+					if(isset($options) && !empty($options))
+					{
+						foreach ($options as $options_array) 
+						{						
+							$encodedToken = base64_encode("".$config_data['client_id'].":".$config_data['apitoken']."");
+							$authHeaderString = 'Authorization: Basic ' . $encodedToken;
+							$options_data = json_encode($options_array);
+							
+							$curl = curl_init();
+							curl_setopt_array($curl, array(
+								CURLOPT_URL => "https://api.bigcommerce.com/stores/".$store_hash."/v3/catalog/products/".$bcproductid."/options",
+								CURLOPT_RETURNTRANSFER => true,
+								CURLOPT_ENCODING => "",
+								CURLOPT_MAXREDIRS => 10,
+								CURLOPT_TIMEOUT => 30,
+								CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+								CURLOPT_CUSTOMREQUEST => "POST",
+								CURLOPT_POSTFIELDS => $options_data,
+								CURLOPT_HTTPHEADER => array($authHeaderString,'Accept: application/json','Content-Type: application/json','X-Auth-Client: '.$config_data['client_id'].'','X-Auth-Token: '.$config_data['apitoken'].''),
+
+							));
+
+							$response = curl_exec($curl);
+							$err = curl_error($curl);
+							curl_close($curl);
+
+							if($err)
+							{
+								echo $err;
+							} 
+							else 
+							{
+								$create_options = json_decode($response);
+
+								if(isset($create_options->data) && !empty($create_options->data))
+								{
+									$value_data = array();
+									if(isset($create_options->data->option_values) && !empty($create_options->data->option_values))
+									{
+										$v = 0;
+										foreach ($create_options->data->option_values as $option_values_s) {
+
+											$value_data[$v]['option_id'] 		= $create_options->data->id;
+											$value_data[$v]['option_name']		= $create_options->data->display_name;
+											$value_data[$v]['product_id'] 		= $bcproductid;
+											$value_data[$v]['option_value']		= $option_values_s->label;
+											$value_data[$v]['option_value_id']	= $option_values_s->id;
+											
+										$v++;
+										}
+									}
+									if(isset($value_data) && !empty($value_data))
+									{
+										$this->db->insert_batch('option_values',$value_data);
+									}
+								}
+							}
+						}
+						echo $bcproductid." - Options Create Successfully..<br>";					
+					}
+				}else{
+					$this->productmodel->updateOptionCount($product_id,$count);
+				}			
+			}
+
+			$optiondata = $this->get_combinations($option_values);
+			
+			if(isset($optiondata) && !empty($optiondata))
+			{	
+				if(isset($inventory_tracking) && !empty($inventory_tracking) && $inventory_tracking == 'simple')
+				{
+					$product_inventory_tracking = array();
+					$product_inventory_tracking['inventory_tracking'] = 'sku';
+					Bigcommerce::updateProduct($bcproductid, $product_inventory_tracking);
+				}
+				
+				$attribute = array();
+				foreach ($product->custom_options as $key => $attributes) {
+
+					$attribute[] = $key;
+				}
+
+				foreach ($optiondata as $associatedProductsinfo) {
+
+					$Count = count($attribute);
+					
+					$product_sku = array();
+					if($Count == 1)
+					{
+						$attribute_name1 	= $attribute[0];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+					
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$optionSKU = $getBCOption1->sku;
+						$optionp = $getBCOption1->price;
+						
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						
+
+					}else if ($Count == 2) {
+						
+						$attribute_name1 	= $attribute[0];
+						$attribute_name2 	= $attribute[1];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
+						
+						$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku;
+						$optionp = $getBCOption1->price + $getBCOption2->price;
+						
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
+						$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
+						
+					}else if ($Count == 3) {
+						
+						$attribute_name1 	= $attribute[0];
+						$attribute_name2 	= $attribute[1];
+						$attribute_name3 	= $attribute[2];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+					
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
+						$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
+						
+						$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku;
+						$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price;
+						
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
+						$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
+						$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
+						$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
+						
+					}else if ($Count == 4) {
+						
+						$attribute_name1 	= $attribute[0];
+						$attribute_name2 	= $attribute[1];
+						$attribute_name3 	= $attribute[2];
+						$attribute_name4 	= $attribute[3];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
+						$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
+						$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
+						
+						$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku;
+						$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price;
+						
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
+						$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
+						$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
+						$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
+						$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
+						$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
+
+					}else if ($Count == 5) {
+						
+						$attribute_name1 	= $attribute[0];
+						$attribute_name2 	= $attribute[1];
+						$attribute_name3 	= $attribute[2];
+						$attribute_name4 	= $attribute[3];
+						$attribute_name5 	= $attribute[4];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+						$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
+
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
+						$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
+						$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
+						$getBCOption5 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[4]['label']);
+						
+						$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku.'-'.$getBCOption5->sku;
+						$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price  + $getBCOption5->price;
+					
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
+						$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
+						$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
+						$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
+						$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
+						$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
+						$product_sku['option_values'][4]['id']		 = $getBCOptionValue4['option_value_id'];
+						$product_sku['option_values'][4]['option_id']= $getBCOptionValue4['option_id'];
+						
+					}else if ($Count == 6) {
+						
+						$attribute_name1 	= $attribute[0];
+						$attribute_name2 	= $attribute[1];
+						$attribute_name3 	= $attribute[2];
+						$attribute_name4 	= $attribute[3];
+						$attribute_name5 	= $attribute[4];
+						$attribute_name5 	= $attribute[5];
+						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+						$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
+						$getBCOptionValue5 	= $this->productmodel->getOptionValue5($attribute_name4,$associatedProductsinfo[5]['label'],$bcproductid);
+
+						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
+						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
+						$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
+						$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
+						$getBCOption5 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[4]['label']);
+						$getBCOption6 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[5]['label']);
+						
+						$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku.'-'.$getBCOption5->sku.'-'.$getBCOption6->sku;
+						$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price  + $getBCOption5->price   + $getBCOption6->price;
+						
+						$optionprice = $ProductPrice + $optionp;
+						if(empty($optionp))
+						{
+							$optionprice = $ProductPrice;
+						}
+
+						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['inventory_level'] 			 = $StockStatus;
+						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
+						$product_sku['weight'] 						 = $ProductWeight;
+						$product_sku['inventory_warning_level'] 	 = 1;
+						$product_sku['width']						 = $Productwidth;
+						$product_sku['depth']						 = $Productlength;
+						$product_sku['height']						 = $Productheight;
+						$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
+						$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
+						$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
+						$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
+						$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
+						$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
+						$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
+						$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
+						$product_sku['option_values'][4]['id']		 = $getBCOptionValue4['option_value_id'];
+						$product_sku['option_values'][4]['option_id']= $getBCOptionValue4['option_id'];
+						$product_sku['option_values'][5]['id']		 = $getBCOptionValue5['option_value_id'];
+						$product_sku['option_values'][5]['option_id']= $getBCOptionValue5['option_id'];
+						
+					}
+					
+					$encodedToken = base64_encode("".$config_data['client_id'].":".$config_data['apitoken']."");
+					$authHeaderString = 'Authorization: Basic ' . $encodedToken;
+					$sku_data = json_encode($product_sku);
+					
+					$curl = curl_init();
+					curl_setopt_array($curl, array(
+						CURLOPT_URL => "https://api.bigcommerce.com/stores/".$store_hash."/v3/catalog/products/".$bcproductid."/variants",
+						CURLOPT_RETURNTRANSFER => true,
+						CURLOPT_ENCODING => "",
+						CURLOPT_MAXREDIRS => 10,
+						CURLOPT_TIMEOUT => 30,
+						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+						CURLOPT_CUSTOMREQUEST => "POST",
+						CURLOPT_POSTFIELDS => $sku_data,
+						CURLOPT_HTTPHEADER => array($authHeaderString,'Accept: application/json','Content-Type: application/json','X-Auth-Client: '.$config_data['client_id'].'','X-Auth-Token: '.$config_data['apitoken'].''),
+
+					));
+
+					$response = curl_exec($curl);
+					$err = curl_error($curl);
+					curl_close($curl);
+
+					if($err)
+					{
+						$this->productmodel->updateSKUstatus($product_id);
+					} 
+					else 
+					{
+
+					}
+				}
+				echo $bcproductid.' - Options Sku Successfully..';	
 			}
 		}
 	}
