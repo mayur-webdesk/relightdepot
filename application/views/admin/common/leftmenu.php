@@ -37,9 +37,19 @@
 				<li class="nav-item start <?php if($this->router->class =='product')echo 'active';?>">
 					<a class="nav-link" href="<?php echo $this->config->site_url();?>/admin/product">
 						<i class="fa fa-sitemap"></i>
-						<span class="title">
-							Product Import 
-						</span>
+						<span class="title"> Product Import </span>
+					</a>
+				</li>
+				<li class="nav-item start <?php if($this->router->class =='customer')echo 'active';?>">
+					<a class="nav-link" href="<?php echo $this->config->site_url();?>/admin/customer">
+						<i class="fa fa-sitemap"></i>
+						<span class="title"> Customer Import </span>
+					</a>
+				</li>
+				<li class="nav-item start <?php if($this->router->class =='order')echo 'active';?>">
+					<a class="nav-link" href="<?php echo $this->config->site_url();?>/admin/order">
+						<i class="fa fa-sitemap"></i>
+						<span class="title"> Order Import </span>
 					</a>
 				</li>
 				<li class="nav-item <?php if($this->router->class =='setting')echo 'active open';?>">
