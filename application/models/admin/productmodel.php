@@ -110,12 +110,27 @@ class Productmodel extends CI_Model{
 
 	function getlamp_types($lamp_types)
 	{
-		$explode_lamptype = explode(',',$lamp_types);
+		$explode_lamptypes = explode(',',$lamp_types);
+
+		$data = array();
+		foreach($explode_lamptypes as $explode_lamptypes_s)
+		{
+			$query = $this->db->query("select label from lamp_types where value = '".$explode_lamptypes_s."'");
+			$querydata = $query->row_array();
+			$data[] = $querydata['label'];
+		}
+
+		return implode(',',$data);
+	}
+
+	function getlamp_type($lamp_type)
+	{
+		$explode_lamptype = explode(',',$lamp_type);
 
 		$data = array();
 		foreach($explode_lamptype as $explode_lamptypes)
 		{
-			$query = $this->db->query("select label from lamp_types where value = '".$explode_lamptypes."'");
+			$query = $this->db->query("select label from lamp_type where value = '".$explode_lamptypes."'");
 			$querydata = $query->row_array();
 			$data[] = $querydata['label'];
 		}
@@ -130,7 +145,7 @@ class Productmodel extends CI_Model{
 		$data = array();
 		foreach($explode_watt as $explode_watts)
 		{
-			$query = $this->db->query("select label from lamp_types where value = '".$explode_watts."'");
+			$query = $this->db->query("select label from lamp_wattage where value = '".$explode_watts."'");
 			$querydata = $query->row_array();
 			$data[] = $querydata['label'];
 		}

@@ -259,10 +259,28 @@ class Product extends CI_controller{
 		return $result;
 	}
 
-
-	function getProductOptionSKUs($product_id,$label)
+	function getAttributes()
 	{
-		$api_url = 'https://relightdepot.com/getCustomDropDownOptInfoByIdAndValue.php?pid='.$product_id.'&optvalue='.str_replace(' ','%20',$label);
+		$api_url = 'https://relightdepot.com/getAttributeSetIdAttributeList.php?attrsetid=4';
+				
+		$ch = curl_init($api_url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$res_fulment = curl_exec($ch);
+		$get_option_data = json_decode($res_fulment);
+
+		echo '<pre>';
+		print_r($get_option_data);
+		exit;
+	}
+
+
+	function getProductOptionSKUs($product_id,$option_lable)
+	{
+		$api_url = 'https://relightdepot.com/getCustomDropDownOptInfoByIdAndValue.php?pid='.$product_id.'&optvalue='.str_replace(' ','%20',$option_lable);
 				
 		$ch = curl_init($api_url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -315,6 +333,10 @@ class Product extends CI_controller{
 		$res_fulment = curl_exec($ch);
 		$product = json_decode($res_fulment);
 		$product_details = $product->product_info;
+
+		/* echo '<pre>';
+		print_r($product_details);
+		exit; */
 
 		$category = $proxy->call($sessionId, 'catalog_product.info', $product_id);
 
@@ -407,8 +429,10 @@ class Product extends CI_controller{
 
 		
 		if(isset($product_details->product_custom_links) && !empty($product_details->product_custom_links)){
-			$product_custom_links = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->product_custom_links);
-			$product_custom_links = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $product_custom_links);
+			
+			$product_custom_links = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->product_custom_links);
+			$product_custom_links = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $product_custom_links);
+			$product_custom_links = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $product_custom_links);
 			
 			$resources_html = '<div class="block_ResDown">
 			<h2 class="res_down_title">RESOURCES AND DOWNLOADS</h2>
@@ -416,36 +440,46 @@ class Product extends CI_controller{
 			$ProductDescription .= '<div class="resources_and_downloads">'.$resources_html.'</div>';
 		}else if(isset($product_details->resources) && !empty($product_details->resources))
 		{
-			$product_custom_links = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->resources);
-			$product_custom_links = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $product_custom_links);
+			$product_custom_links = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->resources);
+			$product_custom_links = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $product_custom_links);
+			$product_custom_links = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $product_custom_links);
 			$resources_html = '<div class="block_ResDown">
 			<h2 class="res_down_title">RESOURCES AND DOWNLOADS</h2>
 			<p class="resourses">'.$product_custom_links.'</p></div>';
 			$ProductDescription .= '<div class="resources_and_downloads">'.$resources_html.'</div>';
 		}
 
-		$Productwarranty = '<table class="data-table table"><tbody>';
-		$Productwarranty .= '<tr><th>SKU</th>
+
+		/*$Productwarranty = '<table class="data-table table"><tbody>';
+		 $Productwarranty .= '<tr><th>SKU</th>
 							<td>'.$ProductCode.'</td></tr>';
 		$Productwarranty .= '<tr><th>Weight</th>
-							<td>'.$ProductWeight.'</td></tr>';
+							<td>'.$ProductWeight.'</td></tr>'; */
 
+		$Productwarranty = '';
 		if($product_details->attribute_set_id == '4')
 		{
+			$Productwarranty = '<table class="data-table table"><tbody>';
+
 			$resources = 'No';
 			if(isset($product_details->resources) && !empty($product_details->resources))
 			{
-				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->resources);
-				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $resources_html);
+				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->resources);
+				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $resources_html);
+				$resources_html = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $resources_html);
 				$resources = $resources_html;
 			}
 			$Productwarranty .= '<tr><th>Resources</th>
 			<td>'.$resources.'</td></tr>';
+
+			$Productwarranty .= '</tbody></table>';
 		}
 		
 		if($product_details->attribute_set_id == '31')
 		{
-			$manufacturer_multiselect = 'No';
+			$Productwarranty = '<table class="data-table table"><tbody>';
+
+			/* $manufacturer_multiselect = 'No';
 			if(isset($product_details->manufacturer_multiselect) && !empty($product_details->manufacturer_multiselect))
 			{
 				$manufacturer_multiselect = $this->productmodel->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
@@ -515,21 +549,26 @@ class Product extends CI_controller{
 				$ballast_factor = $this->productmodel->getballast_factor($product_details->ballast_factor);
 			}
 			$Productwarranty .= '<tr><th>Ballast Factor</th>
-			<td>'.$ballast_factor.'</td></tr>';
+			<td>'.$ballast_factor.'</td></tr>'; */
 
 			$resources = 'No';
 			if(isset($product_details->resources) && !empty($product_details->resources))
 			{
-				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->resources);
-				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $resources_html);
+				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->resources);
+				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $resources_html);
+				$resources_html = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $resources_html);
 				$resources = $resources_html;
 			}
 			$Productwarranty .= '<tr><th>Resources</th>
 			<td>'.$resources.'</td></tr>';
+
+			$Productwarranty .= '</tbody></table>';
 		}	
 
 		if($product_details->attribute_set_id == '26')
 		{
+			$Productwarranty = '<table class="data-table table"><tbody>';
+
 			$housing = 'No';
 			if(isset($product_details->housing) && !empty($product_details->housing))
 			{
@@ -546,7 +585,7 @@ class Product extends CI_controller{
 			$Productwarranty .= '<tr><th>Reflector</th>
 			<td>'.$reflector.'</td></tr>';
 
-			$lens = 'No';
+			/* $lens = 'No';
 			if(isset($product_details->lens) && !empty($product_details->lens))
 			{
 				$lens = $product_details->lens;
@@ -560,7 +599,7 @@ class Product extends CI_controller{
 				$socket = $product_details->socket;
 			}
 			$Productwarranty .= '<tr><th>Socket</th>
-			<td>'.$socket.'</td></tr>';
+			<td>'.$socket.'</td></tr>'; */
 
 			$mounting = 'No';
 			if(isset($product_details->mounting) && !empty($product_details->mounting))
@@ -570,7 +609,18 @@ class Product extends CI_controller{
 			$Productwarranty .= '<tr><th>Mounting</th>
 			<td>'.$mounting.'</td></tr>';
 
-			$lamp = 'No';
+			$resources = 'No';
+			if(isset($product_details->resources) && !empty($product_details->resources))
+			{
+				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->resources);
+				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $resources_html);
+				$resources_html = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $resources_html);
+				$resources = $resources_html;
+			}
+			$Productwarranty .= '<tr><th>Resources</th>
+			<td>'.$resources.'</td></tr>';
+
+		/* 	$lamp = 'No';
 			if(isset($product_details->lamp) && !empty($product_details->lamp))
 			{
 				$lamp = $product_details->lamp;
@@ -608,19 +658,10 @@ class Product extends CI_controller{
 				$listings_and_ratings = $product_details->listings_and_ratings;
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
-			<td>'.$listings_and_ratings.'</td></tr>';
+			<td>'.$listings_and_ratings.'</td></tr>'; */
 
-			$resources = 'No';
-			if(isset($product_details->resources) && !empty($product_details->resources))
-			{
-				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->resources);
-				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $resources_html);
-				$resources = $resources_html;
-			}
-			$Productwarranty .= '<tr><th>Resources</th>
-			<td>'.$resources.'</td></tr>';
-
-			$light_source = 'No';
+		
+			/* $light_source = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
 				$light_source = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
@@ -659,10 +700,12 @@ class Product extends CI_controller{
 				$est_operating_cost = $product_details->est_operating_cost;
 			}
 			$Productwarranty .= '<tr><th>Est. Operating Cost</th>
-			<td>'.$est_operating_cost.'</td></tr>';
+			<td>'.$est_operating_cost.'</td></tr>'; */
+
+			$Productwarranty .= '</tbody></table>';
 		}	
 
-		if($product_details->attribute_set_id == '30')
+		/* if($product_details->attribute_set_id == '30')
 		{
 			$light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
@@ -743,11 +786,13 @@ class Product extends CI_controller{
 			}
 			$Productwarranty .= '<tr><th>Driver Type</th>
 			<td>'.$universal_dimmable_driver.'</td></tr>';
-		}
+		} */
 
 		if($product_details->attribute_set_id == '34')
 		{
-			$ballast_and_voltage = 'No';
+			$Productwarranty = '<table class="data-table table"><tbody>';
+
+			/* $ballast_and_voltage = 'No';
 			if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
 			{
 				$ballast_and_voltage = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
@@ -761,7 +806,7 @@ class Product extends CI_controller{
 				$listings_and_ratings_taxas = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
-			<td>'.$listings_and_ratings_taxas.'</td></tr>';
+			<td>'.$listings_and_ratings_taxas.'</td></tr>'; */
 
 			$housing = 'No';
 			if(isset($product_details->housing) && !empty($product_details->housing))
@@ -771,7 +816,7 @@ class Product extends CI_controller{
 			$Productwarranty .= '<tr><th>Housing</th>
 			<td>'.$housing.'</td></tr>';
 
-			$light_source_texas = 'No';
+			/* $light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
 				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
@@ -786,10 +831,11 @@ class Product extends CI_controller{
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_count.'</td></tr>';
-		
+		 */
+			$Productwarranty .= '</tbody></table>';
 		}
 
-		if($product_details->attribute_set_id == '33')
+	/* 	if($product_details->attribute_set_id == '33')
 		{
 			$rc_housing_type = 'No';
 			if(isset($product_details->rc_housing_type) && !empty($product_details->rc_housing_type))
@@ -847,11 +893,12 @@ class Product extends CI_controller{
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
 			<td>'.$listings_and_ratings_taxas.'</td></tr>';
 			
-		}
+		} */
 
 		if($product_details->attribute_set_id == '35')
 		{
-			$lamp_cri = 'No';
+			$Productwarranty = '<table class="data-table table"><tbody>';
+			/* $lamp_cri = 'No';
 			if(isset($product_details->lamp_cri) && !empty($product_details->lamp_cri))
 			{
 				$lamp_cri = $product_details->lamp_cri;
@@ -873,7 +920,7 @@ class Product extends CI_controller{
 				$lamp_init_lumens = $product_details->lamp_init_lumens;
 			}
 			$Productwarranty .= '<tr><th>Initial Lumens</th>
-			<td>'.$lamp_init_lumens.'</td></tr>';
+			<td>'.$lamp_init_lumens.'</td></tr>'; */
 
 			$lamp_wattage = 'No';
 			if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
@@ -882,10 +929,12 @@ class Product extends CI_controller{
 			}
 			$Productwarranty .= '<tr><th>Lamp Wattage</th>
 			<td>'.$lamp_wattage.'</td></tr>';
-
+			
+			$Productwarranty .= '</tbody></table>';
+			
 		}
 
-		if($product_details->attribute_set_id == '27')
+		/* if($product_details->attribute_set_id == '27')
 		{
 			$lamp_type = 'No';
 			if(isset($product_details->lamp_type) && !empty($product_details->lamp_type))
@@ -992,18 +1041,20 @@ class Product extends CI_controller{
 			<td>'.$lamp_mod.'</td></tr>';
 
 			$lamp_coating = 'No';
-			if(isset($product_details->lamp_coating) && !empty($product_details->lamp_coating))
+			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
 			{
-				$lamp_coating = $product_details->lamp_coating;
+				$lamp_coating = $product_details->lamp_count;
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_coating.'</td></tr>';
 
-		}
+		} */
 
 		if($product_details->attribute_set_id == '29')
 		{
-			$fixture_size = 'No';
+			$Productwarranty = '<table class="data-table table"><tbody>';
+
+			/* $fixture_size = 'No';
 			if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
 			{
 				$fixture_size = $this->productmodel->getfixture_size($product_details->fixture_size);
@@ -1025,7 +1076,7 @@ class Product extends CI_controller{
 				$listings_and_ratings_taxas = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
-			<td>'.$listings_and_ratings_taxas.'</td></tr>';
+			<td>'.$listings_and_ratings_taxas.'</td></tr>'; */
 
 			$housing = 'No';
 			if(isset($product_details->housing) && !empty($product_details->housing))
@@ -1035,7 +1086,7 @@ class Product extends CI_controller{
 			$Productwarranty .= '<tr><th>Housing</th>
 			<td>'.$housing.'</td></tr>';
 
-			$light_source_texas = 'No';
+			/* $light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
 				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
@@ -1057,7 +1108,7 @@ class Product extends CI_controller{
 				$lens = $product_details->lens;
 			}
 			$Productwarranty .= '<tr><th>Lens</th>
-			<td>'.$lens.'</td></tr>';
+			<td>'.$lens.'</td></tr>'; */
 
 			$mounting = 'No';
 			if(isset($product_details->mounting) && !empty($product_details->mounting))
@@ -1078,14 +1129,15 @@ class Product extends CI_controller{
 			$resources = 'No';
 			if(isset($product_details->resources) && !empty($product_details->resources))
 			{
-				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/', $product_details->resources);
-				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/', $resources_html);
+				$resources_html = str_replace('<a href="https://relightdepot.com/','<a href="/content/resources/', $product_details->resources);
+				$resources_html = str_replace('<a href="http://relightdepot.com/','<a href="/content/resources/', $resources_html);
+				$resources_html = str_replace('<a href="/specs/','<a href="/content/resources/specs/', $resources_html);
 				$resources = $resources_html;
 			}
 			$Productwarranty .= '<tr><th>Resources</th>
 			<td>'.$resources.'</td></tr>';
 
-			$socket = 'No';
+		/* 	$socket = 'No';
 			if(isset($product_details->socket) && !empty($product_details->socket))
 			{
 				$socket = $product_details->socket;
@@ -1099,12 +1151,12 @@ class Product extends CI_controller{
 				$application = $this->productmodel->getapplication($product_details->application);
 			}
 			$Productwarranty .= '<tr><th>Application</th>
-			<td>'.$application.'</td></tr>';
+			<td>'.$application.'</td></tr>'; */
+
+			$Productwarranty .= '</tbody></table>';
 
 		}
 
-		$Productwarranty .= '</tbody></table>';
-	
 		$dom_doc = new DomDocument();
 		@$dom_doc->loadHTML($ProductDescription);
 		
@@ -1127,24 +1179,6 @@ class Product extends CI_controller{
 			{
 				$this->productmodel->updateHrefStatus($product_id);
 			}
-		}
-
-		$meta_title = '';
-		if(isset($product_details->meta_title) && !empty($product_details->meta_title))
-		{
-			$meta_title = $product_details->meta_title;
-		}
-		
-		$meta_keyword = '';
-		if(isset($product_details->meta_keyword) && !empty($product_details->meta_keyword))
-		{
-			$meta_keyword = $product_details->meta_keyword;
-		}
-		
-		$meta_description = '';
-		if(isset($product_details->meta_description) && !empty($product_details->meta_description))
-		{
-			$meta_description = $product_details->meta_description;
 		}
 
 		$stockdata = $proxy->call($sessionId,'cataloginventory_stock_item.list', $product_id);
@@ -1188,6 +1222,24 @@ class Product extends CI_controller{
 			}
 		}
 
+		$meta_title = '';
+		if(isset($product_details->meta_title) && !empty($product_details->meta_title))
+		{
+			$meta_title = $product_details->meta_title;
+		}
+		
+		$meta_keyword = '';
+		if(isset($product_details->meta_keyword) && !empty($product_details->meta_keyword))
+		{
+			$meta_keyword = $product_details->meta_keyword;
+		}
+		
+		$meta_description = '';
+		if(isset($product_details->meta_description) && !empty($product_details->meta_description))
+		{
+			$meta_description = $product_details->meta_description;
+		}
+
 		// Get Option set id in DB
 		$product_detailsp['name'] 						= $ProductName;
 		$product_detailsp['sku'] 						= $ProductCode;
@@ -1203,14 +1255,22 @@ class Product extends CI_controller{
 		$product_detailsp['is_visible'] 				= $ProductStatus;
 		$product_detailsp['categories'] 				= $ProductCategory;
 		$product_detailsp['description'] 				= $ProductDescription;
-		$product_detailsp['warranty'] 					= $Productwarranty;
+
+		if(isset($Productwarranty) && !empty($Productwarranty))
+		{	
+			$product_detailsp['warranty'] 					= $Productwarranty;
+		}
+		
 		$product_detailsp['availability'] 				= 'available';
 		$product_detailsp['inventory_tracking'] 		= $inventory_tracking;
 		$product_detailsp['inventory_level'] 			= $StockStatus;
-		$product_detailsp['brand_id'] 						= $BrandID;
+		$product_detailsp['brand_id'] 					= $BrandID;
+		$product_detailsp['page_title'] 				= $meta_title;
+		$product_detailsp['meta_keywords'] 				= $meta_keyword;
+		$product_detailsp['meta_description'] 			= $meta_description;
 		if(isset($mg_product_url) && !empty($mg_product_url))
 		{
-			$product_detailsp['custom_url'] 					= $mg_product_url;
+			$product_detailsp['custom_url'] 			= $mg_product_url;
 		}
 
 		try {
@@ -1258,132 +1318,848 @@ class Product extends CI_controller{
 				echo $bcproductid." - Image Create Successfully...<br>";
 			}
 
-			if(isset($product_details->application) && !empty($product_details->application))
+			if($product_details->attribute_set_id == '31')
 			{
-				$data = array();
-				$data['name'] = 'Application';
-				$data['text'] = $this->productmodel->getapplication($product_details->application);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->manufacturer_multiselect) && !empty($product_details->manufacturer_multiselect))
+				{
+					$data = array();
+					$data['name'] = 'Manufacturer';
+					$data['text'] = $this->productmodel->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Manufacturer';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+	
+				if(isset($product_details->ballast_technology) && !empty($product_details->ballast_technology))
+				{
+					$data = array();
+					$data['name'] = 'Ballast Technology';
+					$data['text'] = $this->productmodel->getballast_technology($product_details->ballast_technology);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast Technology';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+	
+				if(isset($product_details->ballast_type) && !empty($product_details->ballast_type))
+				{
+					$data = array();
+					$data['name'] = 'Ballast Type';
+					$data['text'] = $this->productmodel->getballast_type($product_details->ballast_type);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+	
+				if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_types) && !empty($product_details->lamp_types))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Type';
+					$data['text'] = $this->productmodel->getlamp_types($product_details->lamp_types);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Wattage';
+					$data['text'] = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Wattage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->line_voltage) && !empty($product_details->line_voltage))
+				{
+					$data = array();
+					$data['name'] = 'Line Voltage';
+					$data['text'] = $this->productmodel->getline_voltage($product_details->line_voltage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Line Voltage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->starting_type) && !empty($product_details->starting_type))
+				{
+					$data = array();
+					$data['name'] = 'Starting Type';
+					$data['text'] = $this->productmodel->getstarting_type($product_details->starting_type);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Starting Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+	
+				if(isset($product_details->ballast_factor) && !empty($product_details->ballast_factor))
+				{
+					$data = array();
+					$data['name'] = 'Ballast Factor';
+					$data['text'] = $this->productmodel->getballast_factor($product_details->ballast_factor);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast Factor';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 			}
 
-			if(isset($product_details->ballast_factor) && !empty($product_details->ballast_factor))
+			if($product_details->attribute_set_id == '30')
 			{
-				$data = array();
-				$data['name'] = 'Ballast Factor';
-				$data['text'] = $this->productmodel->getballast_factor($product_details->ballast_factor);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
+				{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->total_input_watts) && !empty($product_details->total_input_watts))
+				{
+					$data = array();
+					$data['name'] = 'Total Input Watts';
+					$data['text'] = $product_details->total_input_watts;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Total Input Watts';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
+				{
+					$data = array();
+					$data['name'] = 'Fixture Size';
+					$data['text'] = $this->productmodel->getfixture_size($product_details->fixture_size);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Fixture Size';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->delivered_lumens) && !empty($product_details->delivered_lumens))
+				{
+					$data = array();
+					$data['name'] = 'Lumen Output';
+					$data['text'] = $product_details->delivered_lumens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lumen Output';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->calculated_l70) && !empty($product_details->calculated_l70))
+				{
+					$data = array();
+					$data['name'] = 'L70 Expected Life (hours)';
+					$data['text'] = $product_details->calculated_l70;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'L70 Expected Life (hours)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->luminaire_efficacy_rating) && !empty($product_details->luminaire_efficacy_rating))
+				{
+					$data = array();
+					$data['name'] = 'Luminaire Efficacy Rating (LER)';
+					$data['text'] = $product_details->luminaire_efficacy_rating;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Luminaire Efficacy Rating (LER)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->correlated_color_temperature) && !empty($product_details->correlated_color_temperature))
+				{
+					$data = array();
+					$data['name'] = 'Color Temperature (CCT)';
+					$data['text'] = $product_details->correlated_color_temperature;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Temperature (CCT)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->color_rendering_index) && !empty($product_details->color_rendering_index))
+				{
+					$data = array();
+					$data['name'] = 'Color Rendering Index (CRI)';
+					$data['text'] = $product_details->color_rendering_index;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Rendering Index (CRI)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->max_ambient_temp) && !empty($product_details->max_ambient_temp))
+				{
+					$data = array();
+					$data['name'] = 'Max Ambient Temp';
+					$data['text'] = $product_details->max_ambient_temp;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Max Ambient Temp';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->universal_dimmable_driver) && !empty($product_details->universal_dimmable_driver))
+				{
+					$data = array();
+					$data['name'] = 'Driver Type';
+					$data['text'] = $product_details->universal_dimmable_driver;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Driver Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+			}
+			
+			if($product_details->attribute_set_id == '34')
+			{
+				if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
+				{
+					$data = array();
+					$data['name'] = 'Ballast and Voltage';
+					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name']  = 'Ballast and Voltage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
+				{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name']  = 'Listings and Ratings';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
+				{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name']  = 'Light Source';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name']  = 'Lamp Count';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 			}
 
-			if(isset($product_details->ballast_technology) && !empty($product_details->ballast_technology))
+			if($product_details->attribute_set_id == '33')
 			{
-				$data = array();
-				$data['name'] = 'Ballast Technology';
-				$data['text'] = $this->productmodel->getballast_technology($product_details->ballast_technology);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->rc_housing_type) && !empty($product_details->rc_housing_type))
+				{
+					$data = array();
+					$data['name'] = 'Housing Type';
+					$data['text'] = $this->productmodel->getrc_housing_type($product_details->rc_housing_type);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name']  = 'Housing Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->rc_insulation_rating) && !empty($product_details->rc_insulation_rating))
+				{
+					$data = array();
+					$data['name'] = 'Insulation Rating';
+					$data['text'] = $this->productmodel->getrc_insulation_rating($product_details->rc_insulation_rating);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Insulation Rating';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
+				{
+					$data = array();
+					$data['name'] = 'Ballast and Voltage';
+					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast and Voltage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
+				{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->rc_lamp_position) && !empty($product_details->rc_lamp_position))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Position';
+					$data['text'] = $this->productmodel->getrc_lamp_position($product_details->rc_lamp_position);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Position';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
+				{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+			}
+			
+			if($product_details->attribute_set_id == '26')
+			{
+				if(isset($product_details->lens) && !empty($product_details->lens))
+				{
+					$data = array();
+					$data['name'] = 'Lens';
+					$data['text'] = $product_details->lens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Lens';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->socket) && !empty($product_details->socket))
+				{
+					$data = array();
+					$data['name'] = 'Socket';
+					$data['text'] = $product_details->socket;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Socket';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp) && !empty($product_details->lamp))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Details';
+					$data['text'] = $product_details->lamp;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Details';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->ballast) && !empty($product_details->ballast))
+				{
+					$data = array();
+					$data['name'] = 'Ballast Details';
+					$data['text'] = $product_details->ballast;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast Details';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->wattage) && !empty($product_details->wattage))
+				{
+					$data = array();
+					$data['name'] = 'Wattage';
+					$data['text'] = $product_details->wattage;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Wattage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->voltage) && !empty($product_details->voltage))
+				{
+					$data = array();
+					$data['name'] = 'Voltage';
+					$data['text'] = $product_details->voltage;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Voltage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->listings_and_ratings) && !empty($product_details->listings_and_ratings))
+				{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = $product_details->listings_and_ratings;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 			}
 
-			if(isset($product_details->ballast_type) && !empty($product_details->ballast_type))
+			if($product_details->attribute_set_id == '35')
 			{
-				$data = array();
-				$data['name'] = 'Ballast Type';
-				$data['text'] = $this->productmodel->getballast_type($product_details->ballast_type);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->lamp_cri) && !empty($product_details->lamp_cri))
+				{
+					$data = array();
+					$data['name'] = 'Color Rendition Index (CRI)';
+					$data['text'] = $product_details->lamp_cri;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Rendition Index (CRI)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_ctemp) && !empty($product_details->lamp_ctemp))
+				{
+					$data = array();
+					$data['name'] = 'Color Temp. (deg K)';
+					$data['text'] = $product_details->lamp_ctemp;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Temp. (deg K)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_init_lumens) && !empty($product_details->lamp_init_lumens))
+				{
+					$data = array();
+					$data['name'] = 'Initial Lumens';
+					$data['text'] = $product_details->lamp_init_lumens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Initial Lumens';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Wattage';
+					$data['text'] = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Wattage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
 			}
 
-			if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
+			if($product_details->attribute_set_id == '27')
 			{
-				$data = array();
-				$data['name'] = 'Fixture Size';
-				$data['text'] = $this->productmodel->getfixture_size($product_details->fixture_size);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->lamp_type) && !empty($product_details->lamp_type))
+				{		
+					$data = array();
+					$data['name'] = 'Lamp Type';
+					$data['text'] = $this->productmodel->getlamp_type($product_details->lamp_type);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Type';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_base) && !empty($product_details->lamp_base))
+				{
+					$data = array();
+					$data['name'] = 'Base';
+					$data['text'] = $product_details->lamp_base;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Base';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_bulb) && !empty($product_details->lamp_bulb))
+				{
+					$data = array();
+					$data['name'] = 'Bulb';
+					$data['text'] = $product_details->lamp_bulb;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Bulb';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_watts) && !empty($product_details->lamp_watts))
+				{
+					$data = array();
+					$data['name'] = 'Watts';
+					$data['text'] = $product_details->lamp_watts;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Watts';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_init_lumens) && !empty($product_details->lamp_init_lumens))
+				{
+					$data = array();
+					$data['name'] = 'Initial Lumens';
+					$data['text'] = $product_details->lamp_init_lumens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Initial Lumens';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_mean_lumens) && !empty($product_details->lamp_mean_lumens))
+				{
+					$data = array();
+					$data['name'] = 'Mean Lumens';
+					$data['text'] = $product_details->lamp_mean_lumens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Mean Lumens';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_ctemp) && !empty($product_details->lamp_ctemp))
+				{
+					$data = array();
+					$data['name'] = 'Color Temp. (deg K)';
+					$data['text'] = $product_details->lamp_ctemp;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Temp. (deg K)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_cri) && !empty($product_details->lamp_cri))
+				{
+					$data = array();
+					$data['name'] = 'Color Rendition Index (CRI)';
+					$data['text'] = $product_details->lamp_cri;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Color Rendition Index (CRI)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_coating) && !empty($product_details->lamp_coating))
+				{
+					$data = array();
+					$data['name'] = 'Coating';
+					$data['text'] = $product_details->lamp_coating;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Coating';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_life_3hr) && !empty($product_details->lamp_life_3hr))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Life (3hrs. per start)';
+					$data['text'] = $product_details->lamp_life_3hr;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Life (3hrs. per start)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_life_12hr) && !empty($product_details->lamp_life_12hr))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Life (12hrs. per start)';
+					$data['text'] = $product_details->lamp_life_12hr;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Life (12hrs. per start)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_mol) && !empty($product_details->lamp_mol))
+				{
+					$data = array();
+					$data['name'] = 'MOL (in / mm)';
+					$data['text'] = $product_details->lamp_mol;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'MOL (in / mm)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->lamp_mod) && !empty($product_details->lamp_mod))
+				{
+					$data = array();
+					$data['name'] = 'MOD (in / mm)';
+					$data['text'] = $product_details->lamp_mod;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'MOD (in / mm)';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+
+				if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 			}
 
-			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+			if($product_details->attribute_set_id == '29')
 			{
-				$data = array();
-				$data['name'] = 'Lamp Count';
-				$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
+				{
+					$data = array();
+					$data['name'] = 'Fixture Size';
+					$data['text'] = $this->productmodel->getfixture_size($product_details->fixture_size);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Fixture Size';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
+				
+				if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
+				{
+					$data = array();
+					$data['name'] = 'Ballast and Voltage';
+					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Ballast and Voltage';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->lamp_types) && !empty($product_details->lamp_types))
-			{
-				$data = array();
-				$data['name'] = 'Lamp Type';
-				$data['text'] = $this->productmodel->getlamp_types($product_details->lamp_types);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
+				{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Listings and Ratings';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
-			{
-				$data = array();
-				$data['name'] = 'Lamp Wattage';
-				$data['text'] = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
+				{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Light Source';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
-			{
-				$data = array();
-				$data['name'] = 'Light Source';
-				$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
+				{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Lamp Count';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->line_voltage) && !empty($product_details->line_voltage))
-			{
-				$data = array();
-				$data['name'] = 'Line voltage';
-				$data['text'] = $this->productmodel->getline_voltage($product_details->line_voltage);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->lens) && !empty($product_details->lens))
+				{
+					$data = array();
+					$data['name'] = 'Lens';
+					$data['text'] = $product_details->lens;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Lens';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->manufacturer_multiselect) && !empty($product_details->manufacturer_multiselect))
-			{
-				$data = array();
-				$data['name'] = 'Manufacturer';
-				$data['text'] = $this->productmodel->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
+				if(isset($product_details->socket) && !empty($product_details->socket))
+				{
+					$data = array();
+					$data['name'] = 'Socket';
+					$data['text'] = $product_details->socket;
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
+				}else{
+					$data = array();
+					$data['name'] = 'Socket';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 
-			if(isset($product_details->mounting_height) && !empty($product_details->mounting_height))
-			{
-				$data = array();
-				$data['name'] = 'Mounting height Range';
-				$data['text'] = $this->productmodel->getmounting_height($product_details->mounting_height);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
-
-			if(isset($product_details->rc_housing_type) && !empty($product_details->rc_housing_type))
-			{
-				$data = array();
-				$data['name'] = 'Housing Type';
-				$data['text'] = $this->productmodel->getrc_housing_type($product_details->rc_housing_type);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
-
-			if(isset($product_details->rc_insulation_rating) && !empty($product_details->rc_insulation_rating))
-			{
-				$data = array();
-				$data['name'] = 'Insulation Rating';
-				$data['text'] = $this->productmodel->getrc_insulation_rating($product_details->rc_insulation_rating);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
-
-			if(isset($product_details->rc_lamp_position) && !empty($product_details->rc_lamp_position))
-			{
-				$data = array();
-				$data['name'] = 'Lamp Position';
-				$data['text'] = $this->productmodel->getrc_lamp_position($product_details->rc_lamp_position);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
-			}
-
-			if(isset($product_details->starting_type) && !empty($product_details->starting_type))
-			{
-				$data = array();
-				$data['name'] = 'Starting Type';
-				$data['text'] = $this->productmodel->getstarting_type($product_details->starting_type);
-				$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				if(isset($product_details->application) && !empty($product_details->application))
+				{
+					$data = array();
+					$data['name'] = 'Application';
+					$data['text'] = $this->productmodel->getapplication($product_details->application);
+					$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
+				}else{
+					$data = array();
+					$data['name'] = 'Application';
+					$data['text'] = 'NO';
+					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
+				}
 			}
 
 			$related_product = $proxy->call($sessionId, 'catalog_product_link.list', array('type' => 'related', 'product' => $product_id));
@@ -1427,7 +2203,19 @@ class Product extends CI_controller{
 					$options_value = array();
 					foreach ($attributes as $option) {
 						
-						$options_value[$ov]['label'] 		= trim($option->title);
+						$add_price = '';
+						if(isset($option->price) && !empty($option->price) && $option->price != '0.0000')
+						{
+							$add_price = $option->price;
+						}
+						
+						/*if(isset($add_price) && !empty($add_price))
+						{
+							$title = trim($option->title);
+							$options_value[$ov]['label'] 		= $title.' +$'.number_format($add_price,2,'.','');;
+						}else{*/
+							$options_value[$ov]['label'] 		= trim($option->title);
+					//	}
 						$options_value[$ov]['sort_order'] 	= $option->sort_order;
 						$options_value[$ov]['is_default'] 	= false;
 					$ov++;
@@ -1513,7 +2301,10 @@ class Product extends CI_controller{
 				}			
 			}
 
-			$optiondata = $this->get_combinations($option_values);
+			if(isset($option_values) && !empty($option_values))
+			{
+				$optiondata = $this->get_combinations($option_values);
+			}
 			
 			if(isset($optiondata) && !empty($optiondata))
 			{	
@@ -1549,7 +2340,7 @@ class Product extends CI_controller{
 						{
 							$optionprice = $ProductPrice;
 						}
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
@@ -1580,7 +2371,7 @@ class Product extends CI_controller{
 							$optionprice = $ProductPrice;
 						}
 
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
@@ -1615,7 +2406,7 @@ class Product extends CI_controller{
 							$optionprice = $ProductPrice;
 						}
 
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
@@ -1655,7 +2446,7 @@ class Product extends CI_controller{
 							$optionprice = $ProductPrice;
 						}
 
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
@@ -1700,7 +2491,7 @@ class Product extends CI_controller{
 							$optionprice = $ProductPrice;
 						}
 
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
@@ -1750,7 +2541,7 @@ class Product extends CI_controller{
 							$optionprice = $ProductPrice;
 						}
 
-						$product_sku['sku'] 						 = $optionSKU;
+						$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
 						$product_sku['inventory_level'] 			 = $StockStatus;
 						$product_sku['price'] 						 = number_format($optionprice,2,'.','');
 						$product_sku['weight'] 						 = $ProductWeight;
