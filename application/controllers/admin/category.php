@@ -203,7 +203,7 @@ class Category extends CI_Controller {
 			$category_array['description']    =  '<div class="main_description">'.$description.'</div>';
 		}
 
-		if(isset($categoryDetails['parent_id']) && !empty($categoryDetails['parent_id']) && $categoryDetails['parent_id'] != '2') {	
+		if(isset($categoryDetails['parent_id']) && !empty($categoryDetails['parent_id'])) {	
 				
 			$parentcat = $this->categorymodel->checkparentcategory($categoryDetails['parent_id']);  // Check category parent category exist or not
 			

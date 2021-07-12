@@ -168,7 +168,7 @@ class Order extends CI_controller{
 				foreach($order_product_data as $order_product_data_s)
 				{	
 					$data = preg_replace_callback('!s:\d+:"(.*?)";!s', function($m) { return "s:" . strlen($m[1]) . ':"'.$m[1].'";'; }, $order_product_data_s['product_options']);
-					$product_data = unserialize($data);
+					@$product_data = @unserialize(@$data);
 					
 					$option_p = '';
 					if(isset($product_data['attributes_info']) && !empty($product_data['attributes_info']))
@@ -436,6 +436,7 @@ class Order extends CI_controller{
 				array('order_id' => array('eq' => $getEQid)) // Entity ID, not Increment ID
 			);
 
+		
 			/** @var array $orderShipments */
 			$orderShipments = $proxy->call($sessionId, 'sales_order_shipment.list', $filters);
 
@@ -462,7 +463,7 @@ class Order extends CI_controller{
 				}
 
 			// Ship Order
-			if(isset($orderShipments) && !empty($orderShipments))
+			if(isset($orderShipments) && !empty($orderShipments) && isset($bc_order_id) && !empty($bc_order_id))
 			{
 				$shipping_create 			  = array();
 				$order_items			      = Bigcommerce::getOrderProducts($bc_order_id);

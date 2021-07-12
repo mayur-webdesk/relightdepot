@@ -134,10 +134,7 @@ class Customer extends CI_controller{
 			
 			$customer_details = $proxy->call($sessionId,'customer.info', $customer_id);
 			
-			// echo '<pre>';
-			// print_r($customer_details);
-			// exit;
-
+			
 			$getCustomerAddress = array(); 
 
 			if(isset($customer_details) && !empty($customer_details)){
@@ -171,6 +168,7 @@ class Customer extends CI_controller{
 
 					$getCustomerAddress[] = $proxy->call($sessionId,'customer_address.info', $default_shipping);
 				}
+			
 
 				// firstname and middlename
 				$firstname = '';
@@ -366,16 +364,7 @@ class Customer extends CI_controller{
 		 }
 		 return $password;
 	}
-	
-	function updateMycustomer(){
-		$customer = $this->customermodel->getMylcustomer();
-		foreach ($customer as $cus) {
-			$magento_id = $cus['magento_id'];
-			$sp_id = $cus['shopify_customer_id'];
-			$update = $this->customermodel->updateMycustomer($magento_id,$sp_id);
-
-		}
-	} 
+	 
 }
 
 ?>
