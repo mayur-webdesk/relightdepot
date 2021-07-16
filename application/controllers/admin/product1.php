@@ -2,7 +2,7 @@
 
 use Bigcommerce\Api\Client as Bigcommerce;
 
-class Product extends CI_controller{
+class Product1 extends CI_controller{
 	
 	function __construct()
 	{
@@ -12,7 +12,7 @@ class Product extends CI_controller{
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
 
-		$this->load->model("admin/productmodel");
+		$this->load->model("admin/productmodel1");
 		$this->load->library('magentoapi');
 		$this->load->library('mcurl');
 			
@@ -27,7 +27,7 @@ class Product extends CI_controller{
 		$this->data["page_head"]  = 'Magento to BigCommerce Product Import';
 		$this->data["page_title"] = 'Magento to BigCommerce Product Import';
 		
-		$product_detail = $this->productmodel->getConfigrationProducts();
+		$product_detail = $this->productmodel1->getConfigrationProducts();
 		$this->data['total_product'] = count($product_detail);
 		$this->data['product_data']  = $product_detail;
 		
@@ -39,7 +39,7 @@ class Product extends CI_controller{
 
 	Public function importBrands()
 	{
-		$config_data 	= $this->productmodel->getGeneralSetting();
+		$config_data 	= $this->productmodel1->getGeneralSetting();
 		$client_id 	  = $config_data['client_id'];
 		$auth_token   = $config_data['apitoken'];
 		$store_hash   = $config_data['storehash'];
@@ -51,7 +51,7 @@ class Product extends CI_controller{
 		// Display error exception on
 		Bigcommerce::failOnError();
 
-		$getBrand = $this->productmodel->getBrands();
+		$getBrand = $this->productmodel1->getBrands();
 		
 		/* if(isset($getBrand) && !empty($getBrand))
 		{
@@ -93,7 +93,7 @@ class Product extends CI_controller{
 					if(isset($createBrand) && empty($createBrand)) {
 						throw new Exception('Bigcommerce\Api\Error');
 					} else {
-						$this->productmodel->updateProductBrand($getBrand_s['brand_id'],$createBrand->id);
+						$this->productmodel1->updateProductBrand($getBrand_s['brand_id'],$createBrand->id);
 					}
 				} catch(Exception $e) {
 					$error = $e->getMessage();
@@ -133,15 +133,15 @@ class Product extends CI_controller{
 
 	public function updateUrls()
 	{
-		$getUrl = $this->productmodel->getProductUrls();
+		$getUrl = $this->productmodel1->getProductUrls();
 
 		foreach ($getUrl as $getUrls) {
 
-			$checkeURL = $this->productmodel->CheckProducts($getUrls['old_url']);
+			$checkeURL = $this->productmodel1->CheckProducts($getUrls['old_url']);
 			
 			if(isset($checkeURL) && !empty($checkeURL))
 			{
-				$updateURL = $this->productmodel->updateUrlRecord($getUrls);
+				$updateURL = $this->productmodel1->updateUrlRecord($getUrls);
 			}else{
 
 			}
@@ -299,7 +299,7 @@ class Product extends CI_controller{
 	{
 		header('Content-Type: text/html; charset=utf-8');
 		
-		$config_data 	= $this->productmodel->getGeneralSetting();
+		$config_data 	= $this->productmodel1->getGeneralSetting();
 		$client_id 	  = $config_data['client_id'];
 		$auth_token   = $config_data['apitoken'];
 		$store_hash   = $config_data['storehash'];
@@ -342,7 +342,7 @@ class Product extends CI_controller{
 
 		$ProductCategory = array();
 		foreach ($category['categories'] as $categorys) {
-			$category_data = $this->productmodel->getCategory($categorys);
+			$category_data = $this->productmodel1->getCategory($categorys);
 			if(isset($category_data) && !empty($category_data))
 			{
 				$ProductCategory[] = $category_data;
@@ -476,7 +476,7 @@ class Product extends CI_controller{
 			/* $manufacturer_multiselect = 'No';
 			if(isset($product_details->manufacturer_multiselect) && !empty($product_details->manufacturer_multiselect))
 			{
-				$manufacturer_multiselect = $this->productmodel->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
+				$manufacturer_multiselect = $this->productmodel1->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
 			}
 			$Productwarranty .= '<tr><th>Manufacturer</th>
 			<td>'.$manufacturer_multiselect.'</td></tr>';
@@ -484,7 +484,7 @@ class Product extends CI_controller{
 			$ballast_technology = 'No';
 			if(isset($product_details->ballast_technology) && !empty($product_details->ballast_technology))
 			{
-				$ballast_technology = $this->productmodel->getballast_technology($product_details->ballast_technology);
+				$ballast_technology = $this->productmodel1->getballast_technology($product_details->ballast_technology);
 			}
 			$Productwarranty .= '<tr><th>Ballast Technology</th>
 			<td>'.$ballast_technology.'</td></tr>';
@@ -492,7 +492,7 @@ class Product extends CI_controller{
 			$ballast_type = 'No';
 			if(isset($product_details->ballast_type) && !empty($product_details->ballast_type))
 			{
-				$ballast_type = $this->productmodel->getballast_type($product_details->ballast_type);
+				$ballast_type = $this->productmodel1->getballast_type($product_details->ballast_type);
 			}
 			$Productwarranty .= '<tr><th>Ballast Type</th>
 			<td>'.$ballast_type.'</td></tr>';
@@ -500,7 +500,7 @@ class Product extends CI_controller{
 			$lamp_count = 'No';
 			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
 			{
-				$lamp_count = $this->productmodel->getlamp_count($product_details->lamp_count);
+				$lamp_count = $this->productmodel1->getlamp_count($product_details->lamp_count);
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_count.'</td></tr>';
@@ -508,7 +508,7 @@ class Product extends CI_controller{
 			$lamp_types = 'No';
 			if(isset($product_details->lamp_types) && !empty($product_details->lamp_types))
 			{
-				$lamp_types = $this->productmodel->getlamp_types($product_details->lamp_types);
+				$lamp_types = $this->productmodel1->getlamp_types($product_details->lamp_types);
 			}
 			$Productwarranty .= '<tr><th>Lamp Type</th>
 			<td>'.$lamp_types.'</td></tr>';
@@ -516,7 +516,7 @@ class Product extends CI_controller{
 			$lamp_wattage = 'No';
 			if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
 			{
-				$lamp_wattage = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+				$lamp_wattage = $this->productmodel1->getlamp_wattage($product_details->lamp_wattage);
 			}
 			$Productwarranty .= '<tr><th>Lamp Wattage</th>
 			<td>'.$lamp_wattage.'</td></tr>';
@@ -524,7 +524,7 @@ class Product extends CI_controller{
 			$line_voltage = 'No';
 			if(isset($product_details->line_voltage) && !empty($product_details->line_voltage))
 			{
-				$line_voltage = $this->productmodel->getline_voltage($product_details->line_voltage);
+				$line_voltage = $this->productmodel1->getline_voltage($product_details->line_voltage);
 			}
 			$Productwarranty .= '<tr><th>Line Voltage</th>
 			<td>'.$line_voltage.'</td></tr>';
@@ -532,7 +532,7 @@ class Product extends CI_controller{
 			$starting_type = 'No';
 			if(isset($product_details->starting_type) && !empty($product_details->starting_type))
 			{
-				$starting_type = $this->productmodel->getstarting_type($product_details->starting_type);
+				$starting_type = $this->productmodel1->getstarting_type($product_details->starting_type);
 			}
 			$Productwarranty .= '<tr><th>Starting Type</th>
 			<td>'.$starting_type.'</td></tr>';
@@ -540,7 +540,7 @@ class Product extends CI_controller{
 			$ballast_factor = 'No';
 			if(isset($product_details->ballast_factor) && !empty($product_details->ballast_factor))
 			{
-				$ballast_factor = $this->productmodel->getballast_factor($product_details->ballast_factor);
+				$ballast_factor = $this->productmodel1->getballast_factor($product_details->ballast_factor);
 			}
 			$Productwarranty .= '<tr><th>Ballast Factor</th>
 			<td>'.$ballast_factor.'</td></tr>'; */
@@ -650,7 +650,7 @@ class Product extends CI_controller{
 			/* $light_source = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
-				$light_source = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+				$light_source = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 			}
 			$Productwarranty .= '<tr><th>Light Source</th>
 			<td>'.$light_source.'</td></tr>';
@@ -658,7 +658,7 @@ class Product extends CI_controller{
 			$lamp_count = 'No';
 			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
 			{
-				$lamp_count = $this->productmodel->getlamp_count($product_details->lamp_count);
+				$lamp_count = $this->productmodel1->getlamp_count($product_details->lamp_count);
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_count.'</td></tr>';
@@ -666,7 +666,7 @@ class Product extends CI_controller{
 			$application = 'No';
 			if(isset($product_details->application) && !empty($product_details->application))
 			{
-				$lamp_count = $this->productmodel->getapplication($product_details->application);
+				$lamp_count = $this->productmodel1->getapplication($product_details->application);
 			}
 			$Productwarranty .= '<tr><th>Application</th>
 			<td>'.$application.'</td></tr>';
@@ -675,7 +675,7 @@ class Product extends CI_controller{
 			if(isset($product_details->mounting_height) && !empty($product_details->mounting_height))
 			{
 				$mounting_height = $product_details->mounting_height;
-				$mounting_height = $this->productmodel->getmounting_height($product_details->mounting_height);
+				$mounting_height = $this->productmodel1->getmounting_height($product_details->mounting_height);
 			}
 			$Productwarranty .= '<tr><th>Mounting Height Range</th>
 			<td>'.$mounting_height.'</td></tr>';
@@ -694,7 +694,7 @@ class Product extends CI_controller{
 			$light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
-				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+				$light_source_texas = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 			}
 			$Productwarranty .= '<tr><th>Light Source</th>
 			<td>'.$light_source_texas.'</td></tr>';
@@ -710,7 +710,7 @@ class Product extends CI_controller{
 			$fixture_size = 'No';
 			if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
 			{
-				$fixture_size = $this->productmodel->getfixture_size($product_details->fixture_size);
+				$fixture_size = $this->productmodel1->getfixture_size($product_details->fixture_size);
 			}
 			$Productwarranty .= '<tr><th>Fixture Size</th>
 			<td>'.$fixture_size.'</td></tr>';
@@ -778,7 +778,7 @@ class Product extends CI_controller{
 			/* $ballast_and_voltage = 'No';
 			if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
 			{
-				$ballast_and_voltage = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+				$ballast_and_voltage = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 			}
 			$Productwarranty .= '<tr><th>Ballast and Voltage</th>
 			<td>'.$ballast_and_voltage.'</td></tr>';
@@ -786,7 +786,7 @@ class Product extends CI_controller{
 			$listings_and_ratings_taxas = 'No';
 			if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
 			{
-				$listings_and_ratings_taxas = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+				$listings_and_ratings_taxas = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
 			<td>'.$listings_and_ratings_taxas.'</td></tr>'; */
@@ -801,7 +801,7 @@ class Product extends CI_controller{
 			/* $light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
-				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+				$light_source_texas = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 			}
 			$Productwarranty .= '<tr><th>Light Source</th>
 			<td>'.$light_source_texas.'</td></tr>';
@@ -809,7 +809,7 @@ class Product extends CI_controller{
 			$lamp_count = 'No';
 			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
 			{
-				$lamp_count = $this->productmodel->getlamp_count($product_details->lamp_count);
+				$lamp_count = $this->productmodel1->getlamp_count($product_details->lamp_count);
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_count.'</td></tr>';
@@ -821,7 +821,7 @@ class Product extends CI_controller{
 			$rc_housing_type = 'No';
 			if(isset($product_details->rc_housing_type) && !empty($product_details->rc_housing_type))
 			{
-				$rc_housing_type = $this->productmodel->getrc_housing_type($product_details->rc_housing_type);
+				$rc_housing_type = $this->productmodel1->getrc_housing_type($product_details->rc_housing_type);
 			}
 			$Productwarranty .= '<tr><th>Housing Type</th>
 			<td>'.$rc_housing_type.'</td></tr>';
@@ -829,7 +829,7 @@ class Product extends CI_controller{
 			$rc_insulation_rating = 'No';
 			if(isset($product_details->rc_insulation_rating) && !empty($product_details->rc_insulation_rating))
 			{
-				$rc_insulation_rating = $this->productmodel->getrc_insulation_rating($product_details->rc_insulation_rating);
+				$rc_insulation_rating = $this->productmodel1->getrc_insulation_rating($product_details->rc_insulation_rating);
 			}
 			$Productwarranty .= '<tr><th>Insulation Rating</th>
 			<td>'.$rc_insulation_rating.'</td></tr>';
@@ -837,7 +837,7 @@ class Product extends CI_controller{
 			$ballast_and_voltage = 'No';
 			if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
 			{
-				$ballast_and_voltage = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+				$ballast_and_voltage = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 			}
 			$Productwarranty .= '<tr><th>Ballast and Voltage</th>
 			<td>'.$ballast_and_voltage.'</td></tr>';
@@ -845,7 +845,7 @@ class Product extends CI_controller{
 			$lamp_count = 'No';
 			if(isset($product_details->lamp_count) && !empty($product_details->lamp_count))
 			{
-				$lamp_count = $this->productmodel->getlamp_count($product_details->lamp_count);
+				$lamp_count = $this->productmodel1->getlamp_count($product_details->lamp_count);
 			}
 			$Productwarranty .= '<tr><th>Lamp Count</th>
 			<td>'.$lamp_count.'</td></tr>';
@@ -853,7 +853,7 @@ class Product extends CI_controller{
 			$light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
-				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+				$light_source_texas = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 			}
 			$Productwarranty .= '<tr><th>Light Source</th>
 			<td>'.$light_source_texas.'</td></tr>';
@@ -861,7 +861,7 @@ class Product extends CI_controller{
 			$rc_lamp_position = 'No';
 			if(isset($product_details->rc_lamp_position) && !empty($product_details->rc_lamp_position))
 			{
-				$rc_lamp_position = $this->productmodel->getrc_lamp_position($product_details->rc_lamp_position);
+				$rc_lamp_position = $this->productmodel1->getrc_lamp_position($product_details->rc_lamp_position);
 			}
 			$Productwarranty .= '<tr><th>Lamp Position</th>
 			<td>'.$rc_lamp_position.'</td></tr>';
@@ -869,7 +869,7 @@ class Product extends CI_controller{
 			$listings_and_ratings_taxas = 'No';
 			if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
 			{
-				$listings_and_ratings_taxas = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+				$listings_and_ratings_taxas = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
 			<td>'.$listings_and_ratings_taxas.'</td></tr>';
@@ -905,7 +905,7 @@ class Product extends CI_controller{
 			$lamp_wattage = 'No';
 			if(isset($product_details->lamp_wattage) && !empty($product_details->lamp_wattage))
 			{
-				$lamp_wattage = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+				$lamp_wattage = $this->productmodel1->getlamp_wattage($product_details->lamp_wattage);
 			}
 			
 			$Productwarranty = '<p><strong>Lamp Wattage<br></strong>'.$lamp_wattage.'</p>';
@@ -1034,7 +1034,7 @@ class Product extends CI_controller{
 			/* $fixture_size = 'No';
 			if(isset($product_details->fixture_size) && !empty($product_details->fixture_size))
 			{
-				$fixture_size = $this->productmodel->getfixture_size($product_details->fixture_size);
+				$fixture_size = $this->productmodel1->getfixture_size($product_details->fixture_size);
 			}
 			$Productwarranty .= '<tr><th>Fixture Size</th>
 			<td>'.$fixture_size.'</td></tr>';
@@ -1042,7 +1042,7 @@ class Product extends CI_controller{
 			$ballast_and_voltage = 'No';
 			if(isset($product_details->ballast_and_voltage) && !empty($product_details->ballast_and_voltage))
 			{
-				$ballast_and_voltage = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+				$ballast_and_voltage = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 			}
 			$Productwarranty .= '<tr><th>Ballast and Voltage</th>
 			<td>'.$ballast_and_voltage.'</td></tr>';
@@ -1050,7 +1050,7 @@ class Product extends CI_controller{
 			$listings_and_ratings_taxas = 'No';
 			if(isset($product_details->listings_and_ratings_taxas) && !empty($product_details->listings_and_ratings_taxas))
 			{
-				$listings_and_ratings_taxas = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+				$listings_and_ratings_taxas = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 			}
 			$Productwarranty .= '<tr><th>Listings and Ratings</th>
 			<td>'.$listings_and_ratings_taxas.'</td></tr>'; */
@@ -1065,7 +1065,7 @@ class Product extends CI_controller{
 			/* $light_source_texas = 'No';
 			if(isset($product_details->light_source_texas) && !empty($product_details->light_source_texas))
 			{
-				$light_source_texas = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+				$light_source_texas = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 			}
 			$Productwarranty .= '<tr><th>Light Source</th>
 			<td>'.$light_source_texas.'</td></tr>';
@@ -1123,7 +1123,7 @@ class Product extends CI_controller{
 			$application = 'No';
 			if(isset($product_details->application) && !empty($product_details->application))
 			{
-				$application = $this->productmodel->getapplication($product_details->application);
+				$application = $this->productmodel1->getapplication($product_details->application);
 			}
 			$Productwarranty .= '<tr><th>Application</th>
 			<td>'.$application.'</td></tr>'; */
@@ -1141,7 +1141,7 @@ class Product extends CI_controller{
 			
 			if(isset($images) && !empty($images))
 			{
-				$this->productmodel->updateImageStatus($product_id);
+				$this->productmodel1->updateImageStatus($product_id);
 			}
 		}
 		
@@ -1151,7 +1151,7 @@ class Product extends CI_controller{
 			$href = $div->getAttribute('href');
 			if(isset($href) && !empty($href))
 			{
-				$this->productmodel->updateHrefStatus($product_id);
+				$this->productmodel1->updateHrefStatus($product_id);
 			}
 		}
 
@@ -1179,7 +1179,7 @@ class Product extends CI_controller{
 		$BrandID = 0;
 		if(isset($product_details->manufacturer) && !empty($product_details->manufacturer))
 		{
-			$getmanufacture = $this->productmodel->getManufactures($product_details->manufacturer);
+			$getmanufacture = $this->productmodel1->getManufactures($product_details->manufacturer);
 			
 			$getBrand = Bigcommerce::getBrands(array('name' => $getmanufacture));
 		
@@ -1247,425 +1247,6 @@ class Product extends CI_controller{
 			$product_detailsp['custom_url'] 			= $mg_product_url;
 		}
 
-		$bcproductid = '3531';
-		if(isset($product->custom_options) && !empty($product->custom_options))
-		{
-			$product_options = $product->custom_options;
-			
-			$o = 0;
-			$option_values = array();
-			foreach ($product_options as $key => $attributes) {
-
-				$options[$o]['name'] 			= $bcproductid.'_'.trim($key);
-				$options[$o]['sort_order'] 		= $o;
-				$options[$o]['display_name'] 	= $key;
-				$options[$o]['type'] 			= 'dropdown';
-			
-				$ov = 0;
-				$options_value = array();
-				foreach ($attributes as $option) {
-					
-					$add_price = '';
-					if(isset($option->price) && !empty($option->price) && $option->price != '0.0000')
-					{
-						$add_price = $option->price;
-					}
-					
-					/*if(isset($add_price) && !empty($add_price))
-					{
-						$title = trim($option->title);
-						$options_value[$ov]['label'] 		= $title.' +$'.number_format($add_price,2,'.','');;
-					}else{*/
-						$options_value[$ov]['label'] 		= trim($option->title);
-				//	}
-					$options_value[$ov]['sort_order'] 	= $option->sort_order;
-					$options_value[$ov]['is_default'] 	= false;
-				$ov++;
-				}
-
-				if(isset($options_value) && !empty($options_value))
-				{
-					$options[$o]['option_values'] 	= $options_value;
-
-					$option_values[$o] = $options_value;
-				}
-			$o++;
-			}
-
-			$optiondata = $this->get_combinations($option_values);
-
-			$count = count($optiondata);
-			
-		/* 	if($count < 600)
-			{
-				if(isset($options) && !empty($options))
-				{
-					foreach ($options as $options_array) 
-					{						
-						$encodedToken = base64_encode("".$config_data['client_id'].":".$config_data['apitoken']."");
-						$authHeaderString = 'Authorization: Basic ' . $encodedToken;
-						$options_data = json_encode($options_array);
-						
-						$curl = curl_init();
-						curl_setopt_array($curl, array(
-							CURLOPT_URL => "https://api.bigcommerce.com/stores/".$store_hash."/v3/catalog/products/".$bcproductid."/options",
-							CURLOPT_RETURNTRANSFER => true,
-							CURLOPT_ENCODING => "",
-							CURLOPT_MAXREDIRS => 10,
-							CURLOPT_TIMEOUT => 30,
-							CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-							CURLOPT_CUSTOMREQUEST => "POST",
-							CURLOPT_POSTFIELDS => $options_data,
-							CURLOPT_HTTPHEADER => array($authHeaderString,'Accept: application/json','Content-Type: application/json','X-Auth-Client: '.$config_data['client_id'].'','X-Auth-Token: '.$config_data['apitoken'].''),
-
-						));
-
-						$response = curl_exec($curl);
-						$err = curl_error($curl);
-						curl_close($curl);
-
-						if($err)
-						{
-							echo $err;
-						} 
-						else 
-						{
-							$create_options = json_decode($response);
-
-							if(isset($create_options->data) && !empty($create_options->data))
-							{
-								$value_data = array();
-								if(isset($create_options->data->option_values) && !empty($create_options->data->option_values))
-								{
-									$v = 0;
-									foreach ($create_options->data->option_values as $option_values_s) {
-
-										$value_data[$v]['option_id'] 		= $create_options->data->id;
-										$value_data[$v]['option_name']		= $create_options->data->display_name;
-										$value_data[$v]['product_id'] 		= $bcproductid;
-										$value_data[$v]['option_value']		= $option_values_s->label;
-										$value_data[$v]['option_value_id']	= $option_values_s->id;
-										
-									$v++;
-									}
-								}
-								if(isset($value_data) && !empty($value_data))
-								{
-									$this->db->insert_batch('option_values',$value_data);
-								}
-							}
-						}
-					}
-					echo $bcproductid." - Options Create Successfully..<br>";					
-				}
-			}else{
-				$this->productmodel->updateOptionCount($product_id,$count);
-			}	 */		
-		}
-		
-		if(isset($option_values) && !empty($option_values))
-		{
-			$optiondata = $this->get_combinations($option_values);
-		}
-
-		
-		if(isset($optiondata) && !empty($optiondata))
-		{	
-			if(isset($inventory_tracking) && !empty($inventory_tracking) && $inventory_tracking == 'simple')
-			{
-				$product_inventory_tracking = array();
-				$product_inventory_tracking['inventory_tracking'] = 'sku';
-				Bigcommerce::updateProduct($bcproductid, $product_inventory_tracking);
-			}
-			
-			$attribute = array();
-			foreach ($product->custom_options as $key => $attributes) {
-
-				$attribute[] = $key;
-			}
-
-			foreach ($optiondata as $associatedProductsinfo) {
-
-				$Count = count($attribute);
-				
-				$product_sku = array();
-				if($Count == 1)
-				{
-					$attribute_name1 	= $attribute[0];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-				
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$optionSKU = $getBCOption1->sku;
-					$optionp = $getBCOption1->price;
-					
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					
-
-				}else if ($Count == 2) {
-					
-					$attribute_name1 	= $attribute[0];
-					$attribute_name2 	= $attribute[1];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-					$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-					
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
-					
-					$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku;
-					$optionp = $getBCOption1->price + $getBCOption2->price;
-					
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
-					$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
-					
-				}else if ($Count == 3) {
-					
-					$attribute_name1 	= $attribute[0];
-					$attribute_name2 	= $attribute[1];
-					$attribute_name3 	= $attribute[2];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-					$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-					$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-				
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
-					$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
-					
-					$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku;
-					$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price;
-					
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
-					$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
-					$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
-					$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
-					
-				}else if ($Count == 4) {
-					
-					$attribute_name1 	= $attribute[0];
-					$attribute_name2 	= $attribute[1];
-					$attribute_name3 	= $attribute[2];
-					$attribute_name4 	= $attribute[3];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-					$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-					$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-					$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
-
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
-					$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
-					$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
-					
-					$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku;
-					$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price;
-					
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
-					$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
-					$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
-					$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
-					$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
-					$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
-
-				}else if ($Count == 5) {
-					
-					$attribute_name1 	= $attribute[0];
-					$attribute_name2 	= $attribute[1];
-					$attribute_name3 	= $attribute[2];
-					$attribute_name4 	= $attribute[3];
-					$attribute_name5 	= $attribute[4];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-					$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-					$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-					$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
-					$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
-
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
-					$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
-					$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
-					$getBCOption5 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[4]['label']);
-					
-					$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku.'-'.$getBCOption5->sku;
-					$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price  + $getBCOption5->price;
-				
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
-					$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
-					$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
-					$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
-					$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
-					$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
-					$product_sku['option_values'][4]['id']		 = $getBCOptionValue4['option_value_id'];
-					$product_sku['option_values'][4]['option_id']= $getBCOptionValue4['option_id'];
-					
-				}else if ($Count == 6) {
-					
-					$attribute_name1 	= $attribute[0];
-					$attribute_name2 	= $attribute[1];
-					$attribute_name3 	= $attribute[2];
-					$attribute_name4 	= $attribute[3];
-					$attribute_name5 	= $attribute[4];
-					$attribute_name5 	= $attribute[5];
-					$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-					$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-					$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-					$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
-					$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
-					$getBCOptionValue5 	= $this->productmodel->getOptionValue5($attribute_name4,$associatedProductsinfo[5]['label'],$bcproductid);
-
-					$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
-					$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
-					$getBCOption3 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[2]['label']);
-					$getBCOption4 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[3]['label']);
-					$getBCOption5 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[4]['label']);
-					$getBCOption6 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[5]['label']);
-					
-					$optionSKU = $getBCOption1->sku.'-'.$getBCOption2->sku.'-'.$getBCOption3->sku.'-'.$getBCOption4->sku.'-'.$getBCOption5->sku.'-'.$getBCOption6->sku;
-					$optionp = $getBCOption1->price + $getBCOption2->price + $getBCOption3->price + $getBCOption4->price  + $getBCOption5->price   + $getBCOption6->price;
-					
-					$optionprice = $ProductPrice + $optionp;
-					if(empty($optionp))
-					{
-						$optionprice = $ProductPrice;
-					}
-
-					$product_sku['sku'] 						 = $ProductCode.'-'.$optionSKU;
-					$product_sku['inventory_level'] 			 = $StockStatus;
-					$product_sku['price'] 						 = number_format($optionprice,2,'.','');
-					$product_sku['weight'] 						 = $ProductWeight;
-					$product_sku['inventory_warning_level'] 	 = 1;
-					$product_sku['width']						 = $Productwidth;
-					$product_sku['depth']						 = $Productlength;
-					$product_sku['height']						 = $Productheight;
-					$product_sku['option_values'][0]['id']		 = $getBCOptionValue['option_value_id'];
-					$product_sku['option_values'][0]['option_id']= $getBCOptionValue['option_id'];
-					$product_sku['option_values'][1]['id']		 = $getBCOptionValue1['option_value_id'];
-					$product_sku['option_values'][1]['option_id']= $getBCOptionValue1['option_id'];
-					$product_sku['option_values'][2]['id']		 = $getBCOptionValue2['option_value_id'];
-					$product_sku['option_values'][2]['option_id']= $getBCOptionValue2['option_id'];
-					$product_sku['option_values'][3]['id']		 = $getBCOptionValue3['option_value_id'];
-					$product_sku['option_values'][3]['option_id']= $getBCOptionValue3['option_id'];
-					$product_sku['option_values'][4]['id']		 = $getBCOptionValue4['option_value_id'];
-					$product_sku['option_values'][4]['option_id']= $getBCOptionValue4['option_id'];
-					$product_sku['option_values'][5]['id']		 = $getBCOptionValue5['option_value_id'];
-					$product_sku['option_values'][5]['option_id']= $getBCOptionValue5['option_id'];
-					
-				}
-				
-				echo '<pre>';
-				print_r($product_sku);
-				exit;
-				/* $encodedToken = base64_encode("".$config_data['client_id'].":".$config_data['apitoken']."");
-				$authHeaderString = 'Authorization: Basic ' . $encodedToken;
-				$sku_data = json_encode($product_sku);
-				
-				$curl = curl_init();
-				curl_setopt_array($curl, array(
-					CURLOPT_URL => "https://api.bigcommerce.com/stores/".$store_hash."/v3/catalog/products/".$bcproductid."/variants",
-					CURLOPT_RETURNTRANSFER => true,
-					CURLOPT_ENCODING => "",
-					CURLOPT_MAXREDIRS => 10,
-					CURLOPT_TIMEOUT => 30,
-					CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-					CURLOPT_CUSTOMREQUEST => "POST",
-					CURLOPT_POSTFIELDS => $sku_data,
-					CURLOPT_HTTPHEADER => array($authHeaderString,'Accept: application/json','Content-Type: application/json','X-Auth-Client: '.$config_data['client_id'].'','X-Auth-Token: '.$config_data['apitoken'].''),
-
-				));
-
-				$response = curl_exec($curl);
-				$err = curl_error($curl);
-				curl_close($curl);
-
-				if($err)
-				{
-					$this->productmodel->updateSKUstatus($product_id);
-				} 
-				else 
-				{
-
-				} */
-			}
-			echo $bcproductid.' - Options Sku Successfully..';	
-		}
-
-		exit;
-
 		try {
 
 			$product_create 	= Bigcommerce::createProduct($product_detailsp);
@@ -1676,12 +1257,11 @@ class Product extends CI_controller{
 				$bcproductid 		= $product_create->id;
 				$product_url 		= $product_create->custom_url;
 			
-				$this->productmodel->UpdateProductStatusp($bcproductid,$product_url,$product_id);	
+				$this->productmodel1->UpdateProductStatusp($bcproductid,$product_url,$product_id);	
 				echo $bcproductid." - Product Create Successfully...<br>";
 			}
 
 		}catch(Exception $error) {
-
 			$this->productmodel->UpdateProductStatusp('','',$product_id);	
 			echo $error->getMessage();
 		}
@@ -1719,7 +1299,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Manufacturer';
-					$data['text'] = $this->productmodel->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
+					$data['text'] = $this->productmodel1->getmanufacturer_multiselect($product_details->manufacturer_multiselect);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1732,7 +1312,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast Technology';
-					$data['text'] = $this->productmodel->getballast_technology($product_details->ballast_technology);
+					$data['text'] = $this->productmodel1->getballast_technology($product_details->ballast_technology);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1745,7 +1325,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast Type';
-					$data['text'] = $this->productmodel->getballast_type($product_details->ballast_type);
+					$data['text'] = $this->productmodel1->getballast_type($product_details->ballast_type);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1758,7 +1338,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Count';
-					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$data['text'] = $this->productmodel1->getlamp_count($product_details->lamp_count);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1771,7 +1351,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Type';
-					$data['text'] = $this->productmodel->getlamp_types($product_details->lamp_types);
+					$data['text'] = $this->productmodel1->getlamp_types($product_details->lamp_types);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1784,7 +1364,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Wattage';
-					$data['text'] = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+					$data['text'] = $this->productmodel1->getlamp_wattage($product_details->lamp_wattage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1797,7 +1377,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Line Voltage';
-					$data['text'] = $this->productmodel->getline_voltage($product_details->line_voltage);
+					$data['text'] = $this->productmodel1->getline_voltage($product_details->line_voltage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1810,7 +1390,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Starting Type';
-					$data['text'] = $this->productmodel->getstarting_type($product_details->starting_type);
+					$data['text'] = $this->productmodel1->getstarting_type($product_details->starting_type);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1823,7 +1403,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast Factor';
-					$data['text'] = $this->productmodel->getballast_factor($product_details->ballast_factor);
+					$data['text'] = $this->productmodel1->getballast_factor($product_details->ballast_factor);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1839,7 +1419,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Light Source';
-					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$data['text'] = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1865,7 +1445,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Fixture Size';
-					$data['text'] = $this->productmodel->getfixture_size($product_details->fixture_size);
+					$data['text'] = $this->productmodel1->getfixture_size($product_details->fixture_size);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -1972,7 +1552,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast and Voltage';
-					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$data['text'] = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -1985,7 +1565,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Listings and Ratings';
-					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$data['text'] = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -1998,7 +1578,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Light Source';
-					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$data['text'] = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2011,7 +1591,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Count';
-					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$data['text'] = $this->productmodel1->getlamp_count($product_details->lamp_count);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2027,7 +1607,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Housing Type';
-					$data['text'] = $this->productmodel->getrc_housing_type($product_details->rc_housing_type);
+					$data['text'] = $this->productmodel1->getrc_housing_type($product_details->rc_housing_type);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2040,7 +1620,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Insulation Rating';
-					$data['text'] = $this->productmodel->getrc_insulation_rating($product_details->rc_insulation_rating);
+					$data['text'] = $this->productmodel1->getrc_insulation_rating($product_details->rc_insulation_rating);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2053,7 +1633,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast and Voltage';
-					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$data['text'] = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2066,7 +1646,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Count';
-					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$data['text'] = $this->productmodel1->getlamp_count($product_details->lamp_count);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2079,7 +1659,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Light Source';
-					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$data['text'] = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2092,7 +1672,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Position';
-					$data['text'] = $this->productmodel->getrc_lamp_position($product_details->rc_lamp_position);
+					$data['text'] = $this->productmodel1->getrc_lamp_position($product_details->rc_lamp_position);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2105,7 +1685,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Listings and Ratings';
-					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$data['text'] = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2254,7 +1834,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Wattage';
-					$data['text'] = $this->productmodel->getlamp_wattage($product_details->lamp_wattage);
+					$data['text'] = $this->productmodel1->getlamp_wattage($product_details->lamp_wattage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2271,7 +1851,7 @@ class Product extends CI_controller{
 				{		
 					$data = array();
 					$data['name'] = 'Lamp Type';
-					$data['text'] = $this->productmodel->getlamp_type($product_details->lamp_type);
+					$data['text'] = $this->productmodel1->getlamp_type($product_details->lamp_type);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2440,7 +2020,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Count';
-					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$data['text'] = $this->productmodel1->getlamp_count($product_details->lamp_count);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2456,7 +2036,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Fixture Size';
-					$data['text'] = $this->productmodel->getfixture_size($product_details->fixture_size);
+					$data['text'] = $this->productmodel1->getfixture_size($product_details->fixture_size);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2469,7 +2049,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Ballast and Voltage';
-					$data['text'] = $this->productmodel->getballast_and_voltage($product_details->ballast_and_voltage);
+					$data['text'] = $this->productmodel1->getballast_and_voltage($product_details->ballast_and_voltage);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2482,7 +2062,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Listings and Ratings';
-					$data['text'] = $this->productmodel->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
+					$data['text'] = $this->productmodel1->getlistings_and_ratings_taxas($product_details->listings_and_ratings_taxas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data); 
 				}else{
 					$data = array();
@@ -2495,7 +2075,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Light Source';
-					$data['text'] = $this->productmodel->getlight_source_texas($product_details->light_source_texas);
+					$data['text'] = $this->productmodel1->getlight_source_texas($product_details->light_source_texas);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2508,7 +2088,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Lamp Count';
-					$data['text'] = $this->productmodel->getlamp_count($product_details->lamp_count);
+					$data['text'] = $this->productmodel1->getlamp_count($product_details->lamp_count);
 					$create_image = Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2547,7 +2127,7 @@ class Product extends CI_controller{
 				{
 					$data = array();
 					$data['name'] = 'Application';
-					$data['text'] = $this->productmodel->getapplication($product_details->application);
+					$data['text'] = $this->productmodel1->getapplication($product_details->application);
 					$create_image	= Bigcommerce::createProductCustomField($bcproductid,$data);
 				}else{
 					$data = array();
@@ -2578,7 +2158,7 @@ class Product extends CI_controller{
 
 			if(isset($product_details->tier_price) && !empty($product_details->tier_price))
 			{
-				$this->productmodel->updateTireProduct($product_id);
+				$this->productmodel1->updateTireProduct($product_id);
 			}
 
 			if(isset($product->custom_options) && !empty($product->custom_options))
@@ -2692,7 +2272,7 @@ class Product extends CI_controller{
 						echo $bcproductid." - Options Create Successfully..<br>";					
 					}
 				}else{
-					$this->productmodel->updateOptionCount($product_id,$count);
+					$this->productmodel1->updateOptionCount($product_id,$count);
 				}			
 			}
 
@@ -2724,7 +2304,7 @@ class Product extends CI_controller{
 					if($Count == 1)
 					{
 						$attribute_name1 	= $attribute[0];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
 					
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$optionSKU = $getBCOption1->sku;
@@ -2751,8 +2331,8 @@ class Product extends CI_controller{
 						
 						$attribute_name1 	= $attribute[0];
 						$attribute_name2 	= $attribute[1];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel1->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
 						
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
@@ -2784,9 +2364,9 @@ class Product extends CI_controller{
 						$attribute_name1 	= $attribute[0];
 						$attribute_name2 	= $attribute[1];
 						$attribute_name3 	= $attribute[2];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel1->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel1->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
 					
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
@@ -2822,10 +2402,10 @@ class Product extends CI_controller{
 						$attribute_name2 	= $attribute[1];
 						$attribute_name3 	= $attribute[2];
 						$attribute_name4 	= $attribute[3];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel1->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel1->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel1->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
 
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
@@ -2865,11 +2445,11 @@ class Product extends CI_controller{
 						$attribute_name3 	= $attribute[2];
 						$attribute_name4 	= $attribute[3];
 						$attribute_name5 	= $attribute[4];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
-						$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel1->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel1->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel1->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+						$getBCOptionValue4 	= $this->productmodel1->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
 
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
@@ -2913,12 +2493,12 @@ class Product extends CI_controller{
 						$attribute_name4 	= $attribute[3];
 						$attribute_name5 	= $attribute[4];
 						$attribute_name5 	= $attribute[5];
-						$getBCOptionValue 	= $this->productmodel->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
-						$getBCOptionValue1 	= $this->productmodel->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
-						$getBCOptionValue2 	= $this->productmodel->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
-						$getBCOptionValue3 	= $this->productmodel->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
-						$getBCOptionValue4 	= $this->productmodel->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
-						$getBCOptionValue5 	= $this->productmodel->getOptionValue5($attribute_name4,$associatedProductsinfo[5]['label'],$bcproductid);
+						$getBCOptionValue 	= $this->productmodel1->getOptionValue($attribute_name1,$associatedProductsinfo[0]['label'],$bcproductid);
+						$getBCOptionValue1 	= $this->productmodel1->getOptionValue1($attribute_name2,$associatedProductsinfo[1]['label'],$bcproductid);
+						$getBCOptionValue2 	= $this->productmodel1->getOptionValue2($attribute_name3,$associatedProductsinfo[2]['label'],$bcproductid);
+						$getBCOptionValue3 	= $this->productmodel1->getOptionValue3($attribute_name4,$associatedProductsinfo[3]['label'],$bcproductid);
+						$getBCOptionValue4 	= $this->productmodel1->getOptionValue4($attribute_name4,$associatedProductsinfo[4]['label'],$bcproductid);
+						$getBCOptionValue5 	= $this->productmodel1->getOptionValue5($attribute_name4,$associatedProductsinfo[5]['label'],$bcproductid);
 
 						$getBCOption1 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[0]['label']);
 						$getBCOption2 = $this->getProductOptionSKUs($product_id,$associatedProductsinfo[1]['label']);
@@ -2983,7 +2563,7 @@ class Product extends CI_controller{
 
 					if($err)
 					{
-						$this->productmodel->updateSKUstatus($product_id);
+						$this->productmodel1->updateSKUstatus($product_id);
 					} 
 					else 
 					{

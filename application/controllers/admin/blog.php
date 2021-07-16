@@ -74,7 +74,8 @@ class Blog extends CI_Controller
         $blogs_array['body'] = '';
         if (isset($getblogs['post_content']) && !empty($getblogs['post_content'])) {
             $blog_body = str_replace('https://relightdepot.com/','https://relightdepot.com/', $getblogs['post_content']);
-            $blog_body = str_replace('src="https://relightdepot.com/', 'src="/content/', $blog_body);
+            $blog_body = str_replace('src="https://relightdepot.com/wp/wp-content/uploads/', 'src="/product_images/uploads/', $blog_body);
+            $blog_body = str_replace('src="https://relightdepot.com/news/wp-content/uploads/', 'src="/product_images/uploads/', $blog_body);
             $blogs_array['body'] = $blog_body;
         }
 
@@ -114,9 +115,12 @@ class Blog extends CI_Controller
       
         $blogs_array['thumbnail_path'] = '';
         if (isset($getthumbnail_path['guid']) && !empty($getthumbnail_path['guid'])) {
-            $blogs_array['thumbnail_path'] = $getthumbnail_path['guid'];
+            $blog_thumbnail_path = str_replace('https://relightdepot.com/wp/wp-content/uploads/', '/product_images/uploads/', $getthumbnail_path['guid']);
+            $blog_thumbnail_path = str_replace('https://relightdepot.com/news/wp-content/uploads/', '/product_images/uploads/', $blog_thumbnail_path);
+            //$blogs_array['thumbnail_path'] = $getthumbnail_path['guid'];
+            $blogs_array['thumbnail_path'] = $blog_thumbnail_path;
         }
-
+      
         $createBlog = Bigcommerce::createBlogs($blogs_array);
 
         if(isset($createBlog) && !empty($createBlog))

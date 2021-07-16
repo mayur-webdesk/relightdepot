@@ -19,12 +19,7 @@ class customermodel extends CI_Model{
 		$query = $this->db->query("select * from ".$this->customer_table." where status = 'no' and bc_customer_id = '' and error='' ORDER BY `magento_id` ASC");
 		return $query->result_array();
 	}
-	
-	function updateStatusss($customer_id)
-	{
-		$query = $this->db->query('UPDATE `shopify_customer_order` SET `status`= "yes" WHERE ` bc_customer_id` = "'.$customer_id.'"');	
-	}
-	
+		
 	function getcountryname($code)
 	{
 		$query = $this->db->query("select nicename from ".$this->country_table." where iso = '".$code."'");
@@ -48,21 +43,5 @@ class customermodel extends CI_Model{
 		
 	}
 		
-	function customerinsert($data){
-		$this->db->insert($this->customer_table,$data);
-		return true;
-	}
-
-	function getMylcustomer(){
-	 	$query = $this->db->query("select * from old_customer");
-		$customer_data  = $query->result_array();
-		return $customer_data;
-	 }
-
-	 function updateMycustomer($magento_id,$sp_id){
-	 	$this->db->query("UPDATE ".$this->customer_table." SET bc_customer_id = '".$sp_id."' WHERE magento_id = '".$magento_id."'");
-	 	echo $this->db->last_query();
-		return true;
-	 }
 }
 ?>

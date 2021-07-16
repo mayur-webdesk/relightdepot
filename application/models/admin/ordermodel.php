@@ -34,6 +34,7 @@ class ordermodel extends CI_Model{
 				"order_status" 		  => $orderdata_s['status'],
 				"orderIncrementId"    => $orderdata_s['increment_id'],
 				"order_update_status" => "no",
+				"error"         	  => "",
 				"bc_order_id"         => ""
 			);
 		}

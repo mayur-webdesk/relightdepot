@@ -93,7 +93,7 @@ class Order extends CI_controller{
 			'exception'			=> 9,  // Awaiting Shipment
 			'expired' 			=> 5,  // Cancelled
 			'holded' 			=> 1,  // Pending
-			'paypal_canceled_reversal' 	=> 4, // Refunded
+			'paypal_canceled_reversal' 	=> 2, // Shipped
 			'pending' 			=> 1,  // Pending
 			'pending_paypal' 	=> 1,  // Pending
 			'processing' 		=> 11  // Awaiting Fulfillment
@@ -101,38 +101,22 @@ class Order extends CI_controller{
 
 		if(isset($orderstatus_name) && !empty($orderstatus_name))
 		{
-
-			$bc_order_status = str_replace(array_keys($orderstatusa),$orderstatusa,$orderstatus_name);
+			if(isset($orderstatus_name) && !empty($orderstatus_name) && $orderstatus_name == 'paypal_canceled_reversal')
+			{
+				return 2;
+			}else if(isset($orderstatus_name) && !empty($orderstatus_name) && $orderstatus_name == 'pending_paypal')
+			{
+				return 1;
+			}else{
+				$bc_order_status = str_replace(array_keys($orderstatusa),$orderstatusa,$orderstatus_name);
 			
-			return $bc_order_status;
+				return $bc_order_status;
+			}				
 		}
 		else
 		{
 			return 10;
 		}	
-	}
-
-	function getBCOrderPMethod($orderpmethod_name)
-	{
-		$orderpmethoda = array();
-		$orderpmethoda = array(
-			'authorizenet'				=> 'Authorize.net',  // Authorize.net
-			'paypal_standard' 			=> 'PayPal', // PayPal
-			'paypal_express' 			=> 'PayPal Express', // PayPal Express
-			'checkmo' 					=> 'Cash on Delivery' // COD
-			
-		);
-		
-		if(isset($orderpmethod_name) && !empty($orderpmethod_name))
-		{
-			$bc_order_PMehtod = str_replace(array_keys($orderpmethoda),$orderpmethoda,$orderpmethod_name);
-			return $bc_order_PMehtod;
-		}
-		else
-		{
-			return 'PayPal';
-		}
-		
 	}
 	
 	function importorder()
@@ -165,13 +149,13 @@ class Order extends CI_controller{
 
 		if(isset($order_details) && !empty($order_details)) {
 			
+		
 			// Order Status
 			$bc_order_status = $this->getBCOrderStatus($order_details['status']);
 			
 			// Payment Method
 			$bc_order_payment_method = $order_payment->payment_method_title;
-			//$bc_order_payment_method = $this->getBCOrderPMethod($order_details['payment']['method']);
-			
+		
 			$create_order = array();
 			$create_order['status_id'] 	= $bc_order_status;
 
@@ -184,7 +168,7 @@ class Order extends CI_controller{
 				foreach($order_product_data as $order_product_data_s)
 				{	
 					$data = preg_replace_callback('!s:\d+:"(.*?)";!s', function($m) { return "s:" . strlen($m[1]) . ':"'.$m[1].'";'; }, $order_product_data_s['product_options']);
-					$product_data = unserialize($data);
+					@$product_data = @unserialize(@$data);
 					
 					$option_p = '';
 					if(isset($product_data['attributes_info']) && !empty($product_data['attributes_info']))
@@ -210,14 +194,16 @@ class Order extends CI_controller{
 					}else{
 						$create_order['products'][$op]['name']			= substr($order_product_data_s['name'], 0, 255);
 					}
+					
 					$create_order['products'][$op]['sku']				= $order_product_data_s['sku'];
 					$create_order['products'][$op]['quantity']			= (int)$order_product_data_s['qty_ordered'];
 					$create_order['products'][$op]['price_ex_tax']		= number_format($order_product_data_s['price'],2,'.','');
 					$create_order['products'][$op]['price_inc_tax']		= number_format($order_product_data_s['price'],2,'.','');
+					
 					$op++;
 				}
 			}
-
+			
 			$subtotal = '';
 			$subtotal = $order_details['subtotal'];
 			// Get Customer ID
@@ -412,7 +398,7 @@ class Order extends CI_controller{
 			// Customer Comment
 			$customer_comment = '';
 			if(isset($order_details['order_id']) && !empty($order_details['order_id'])){
-				$customer_comment .= 'Mangento Order id: '.$order_details['order_id']."\n";
+				$customer_comment .= 'Magento Order id: '.$order_details['order_id']."\n";
 			}
 			if(isset($order_details['status_history']) && !empty($order_details['status_history'])){
 				foreach($order_details['status_history'] as $order_status_history_s){
@@ -425,9 +411,10 @@ class Order extends CI_controller{
 					}
 				}
 			}
+			$bling_fax  = '';
 			if(isset($order_details['billing_address']['fax']) && !empty($order_details['billing_address']['fax'])){
 				$customer_comment .= 'Fax No.: '.$order_details['billing_address']['fax']."\n";
-				
+				$bling_fax = $order_details['billing_address']['fax'];
 			}
 			if(isset($order_details['shipping_address']['fax']) && !empty($order_details['shipping_address']['fax']) && $bling_fax != $order_details['shipping_address']['fax']){
 				$customer_comment .= 'Shipping Fax No.: '.$order_details['shipping_address']['fax']."\n";
@@ -449,6 +436,7 @@ class Order extends CI_controller{
 				array('order_id' => array('eq' => $getEQid)) // Entity ID, not Increment ID
 			);
 
+		
 			/** @var array $orderShipments */
 			$orderShipments = $proxy->call($sessionId, 'sales_order_shipment.list', $filters);
 
@@ -475,7 +463,7 @@ class Order extends CI_controller{
 				}
 
 			// Ship Order
-			if(isset($orderShipments) && !empty($orderShipments))
+			if(isset($orderShipments) && !empty($orderShipments) && isset($bc_order_id) && !empty($bc_order_id))
 			{
 				$shipping_create 			  = array();
 				$order_items			      = Bigcommerce::getOrderProducts($bc_order_id);
