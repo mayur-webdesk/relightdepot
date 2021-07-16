@@ -351,7 +351,7 @@ class Product1 extends CI_controller{
 
 		if(empty($ProductCategory))
 		{
-			$ProductCategory = array(105);
+			$ProductCategory = array(987);
 		}
 	
 		$ProductName = '';
@@ -1262,6 +1262,7 @@ class Product1 extends CI_controller{
 			}
 
 		}catch(Exception $error) {
+			$this->productmodel->UpdateProductStatusp('','',$product_id);	
 			echo $error->getMessage();
 		}
 
