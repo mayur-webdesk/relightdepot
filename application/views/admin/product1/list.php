@@ -8,19 +8,19 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-						Magento to BigCommerce Order Import
+						Magento to BigCommerce Product Import
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
-							<a href="<?php echo $this->config->site_url();?>admin/order">
+							<a href="<?php echo $this->config->site_url();?>admin/product">
 								<?php echo $this->lang->line('HOME');?>
 							</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="<?php echo $this->config->site_url();?>/admin/order">
-								Order Import
+							<a href="<?php echo $this->config->site_url();?>/admin/product">
+								Product Import
 							</a>
 						</li>
 					</ul>
@@ -37,7 +37,7 @@
 							</div>
 							<div class="details">
 								<div class="number">
-									 <?php echo $total_order; ?>
+									 <?php echo $total_product; ?>
 								</div>
 								<div class="desc">
 									 Start Import
@@ -55,7 +55,7 @@
 							</div>
 							<div class="details">
 								<div class="number">
-									 <?php echo $total_order ?>
+									 <?php echo $total_product ?>
 								</div>
 								<div class="desc">
 									 Pause
@@ -71,9 +71,9 @@
 			<div class="portlet box green">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-cogs"></i>Orders List 
-							<span><?php echo $total_order ?>/</span>
-							<span id="total_imported_order">0</span>
+							<i class="fa fa-cogs"></i>Products List 
+							<span><?php echo $total_product ?>/</span>
+							<span id="total_imported_product">0</span>
 						</div>
 					</div>
 					<div class="portlet-body flip-scroll">
@@ -84,11 +84,10 @@
 										 #
 									</th>
 									<th width="20%">
-										Order id
+										Magento Product Id
 									</th>
-
 									<th width="20%">
-										 Status
+										BC Product Id
 									</th>
 									<th class="numeric" width="15%">
 										 Status
@@ -97,24 +96,24 @@
 							</thead>
 							<tbody>
 								<?php 
-							
-									if(isset($order_data) && !empty($order_data) && count($order_data)>0)
-									{
+								
+									if(isset($product_data) && !empty($product_data) && count($product_data)>0)
+									{	
 										$no=1;
-										foreach($order_data as $d) 
+										foreach($product_data as $d) 
 										{	
 											?>
-											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['orderIncrementId'] ?>" data-column="<?php echo $no; ?>"  >
+											<tr <?php if($no==1) { echo 'class="start_process"'; } ?>  data-code="<?php echo $d['product_id'] ?>"  >
 												<td><?php echo $no++ ;?></td>
-												<td><?php echo($d['orderIncrementId'])?></td>
-												<td><?php echo($d['order_status'])?></td>
+												<td><?php echo($d['product_id'])?></td>
+												<td><?php echo($d['bc_product_id'])?></td>
 												<td class="numeric respose_tag">Pending</td>
 											</tr>
 											<?php 
 										}
 									}else{ ?>
 										<tr>
-											<td  colspan="4" class="numeric respose_tag" style="text-align:center">Please try again</td>
+											<td  colspan="3" class="numeric respose_tag">Please try again</td>
 										</tr>
 								<?php } ?>
 							</tbody>
@@ -146,13 +145,12 @@ function sendRquest()
 	jQuery('#start_stop_action').removeClass('glyphicon-play');
 	jQuery('#start_stop_action').addClass('glyphicon-pause');										
 	var code=jQuery('.start_process').attr('data-code');
-	
 	if(code){
 		jQuery('.processing').removeClass('processing');
 		jQuery('.start_process').find('.respose_tag').html('Please wait...');
 		jQuery('.start_process').addClass('processing');
 		$.ajax({
-			url: '<?php echo $this->config->site_url();?>/admin/order/importorder',
+			url: '<?php echo $this->config->site_url();?>/admin/product1/importproduct',
 			data: {
 				code: code,
 				send:'yes'
@@ -165,7 +163,7 @@ function sendRquest()
 					sendRquest();
 			},
 			success: function(data) {
-				$('#total_imported_order').html( eval($('#total_imported_order').html())+1);
+				$('#total_imported_product').html( eval($('#total_imported_product').html())+1);
 				var obj=jQuery('.start_process');
 					obj.find('.respose_tag').html(data);
 					obj.next().addClass('start_process');

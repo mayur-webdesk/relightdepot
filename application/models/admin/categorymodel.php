@@ -16,7 +16,7 @@ class Categorymodel extends CI_Model
 	
 	function getcategory()
 	{
-		$query = $this->db->query("select * from ".$this->category_tree_table." where status = 'no' and parent_id != '2' Order by parent_id ASC");
+		$query = $this->db->query("select * from ".$this->category_tree_table." where status = 'no' Order by parent_id ASC");
 		$setting_data  = $query->result_array();
 		return $setting_data;
 	}

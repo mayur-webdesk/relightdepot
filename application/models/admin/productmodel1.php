@@ -1,5 +1,5 @@
 <?php
-class Productmodel extends CI_Model{
+class Productmodel1 extends CI_Model{
 	
 	var $table_name	= "";
 	function __construct()
@@ -275,7 +275,7 @@ class Productmodel extends CI_Model{
 	{
 		$query = $this->db->query("select label from manufacturer where value = '".$manufacturer."'");
 		$data = $query->row_array();
-		return $data['label'];
+		return @$data['label'];
 	}
 
 	function getapplication($application)
@@ -411,7 +411,7 @@ class Productmodel extends CI_Model{
 
 	function getConfigrationProducts()
 	{
-		$query = $this->db->query("SELECT * FROM ".$this->products_magenot_table." WHERE type = 'simple'  and status = 'no'	ORDER BY `products`.`id` ASC");
+		$query = $this->db->query("SELECT * FROM ".$this->products_magenot_table." WHERE type = 'simple'  and status = 'no'	ORDER BY `products`.`id` DESC");
 		return $query->result_array();
 	}
 

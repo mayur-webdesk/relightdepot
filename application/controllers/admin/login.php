@@ -48,7 +48,7 @@ class Login extends CI_Controller
         $this->data['page_title'] = $this->lang->line('LOGIN_TITLE');
         $this->data['errmsg'] = '';
         if ($this->input->post('username') && $this->input->post('password')) {
-            $query = $this->db->query("SELECT * from users where username='".$this->input->post('username')."' AND password='".md5($this->input->post('password'))."' AND status IN('yes')");
+            $query = $this->db->query("SELECT * from users where username='".$this->input->post('username')."' AND password='".md5($this->input->post('password'))."'");
 
             if ($query->num_rows() > 0) {
                 $row = $query->row_array();
